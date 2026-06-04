@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership OS Starter Kit v1.0 — Mike Cilla</title>
+<meta name="description" content="The complete self-guided Leadership OS process. Complete all seven steps and leave with four working documents about how you lead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8B7D4VZ08"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q8B7D4VZ08');</script>
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── TOKENS ── */
+:root{
+  --void:#faf8f4;
+  --deep:#f2ede6;
+  --surface:#ffffff;
+  --lift:#ede8e1;
+  --ink:#1a1612;
+  --ink-dim:rgba(26,22,18,0.62);
+  --ink-ghost:rgba(26,22,18,0.12);
+  --ink-faint:rgba(26,22,18,0.08);
+  --gold:#b8671e;
+  --gold-light:#c9843a;
+  --gold-dim:rgba(184,103,30,0.1);
+  --gold-border:rgba(184,103,30,0.25);
+  --rule:rgba(26,22,18,0.1);
+  --rule-light:rgba(26,22,18,0.06);
+  --green:#1D9E75;
+  --green-dim:rgba(29,158,117,0.1);
+  --ff-d:'Cormorant Garamond',Georgia,serif;
+  --ff-b:'Outfit',system-ui,sans-serif;
+  --ff-m:'JetBrains Mono',monospace;
+  --sidebar:260px;
+}
+
+/* ── BASE ── */
+html{scroll-behavior:smooth;}
+body{
+  background:var(--void);
+  color:var(--ink);
+  font-family:var(--ff-b);
+  font-size:18px;
+  line-height:1.85;
+  font-weight:300;
+}
+
+/* ── TOPBAR ── */
+#topbar{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;
+  background:rgba(250,248,244,0.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--rule);
+}
+.tb-left{display:flex;align-items:center;gap:1.25rem;}
+.tb-mark{font-family:var(--ff-d);font-size:1.0rem;font-weight:400;letter-spacing:0.05em;color:var(--ink);text-decoration:none;}
+.tb-mark span{color:var(--gold);}
+.tb-sep{width:1px;height:18px;background:var(--rule);}
+.tb-title{font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-dim);}
+.tb-right{display:flex;align-items:center;gap:0.75rem;}
+.tb-btn{
+  font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.4rem 0.85rem;border:1px solid var(--rule);background:none;
+  color:var(--ink-dim);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;
+  transition:all 0.2s;
+}
+.tb-btn:hover{border-color:var(--gold);color:var(--gold);}
+.tb-btn.primary{background:var(--ink);color:var(--void);border-color:var(--ink);}
+.tb-btn.primary:hover{background:var(--gold);border-color:var(--gold);}
+
+/* ── LAYOUT ── */
+#layout{display:grid;grid-template-columns:var(--sidebar) 1fr;min-height:90vh;padding-top:52px;}
+
+/* ── SIDEBAR NAV ── */
+#sidenav{
+  position:sticky;top:52px;height:calc(100vh - 52px);
+  overflow-y:auto;
+  border-right:1px solid var(--rule);
+  background:var(--void);
+  padding:1.5rem 0;
+}
+.sn-section{margin-bottom:0.25rem;}
+.sn-link{
+  display:block;padding:0.45rem 1.25rem;
+  font-family:var(--ff-body);font-size:0.92rem;letter-spacing:0.02em;
+  color:var(--ink);text-decoration:none;
+  border-left:2px solid transparent;
+  transition:all 0.15s;
+  line-height:1.4;
+font-weight:500;}
+.sn-link:hover{color:var(--gold);border-left-color:var(--gold-border);}
+.sn-link.active{color:var(--gold);border-left-color:var(--gold);font-weight:400;}
+.sn-link.sub{font-size:0.8rem;font-weight:300;letter-spacing:0;color:var(--ink-dim);padding-left:2.5rem;text-transform:none;}
+.sn-link.sub:hover{opacity:1;}
+.sn-divider{height:1px;background:var(--rule);margin:0.75rem 1.25rem;}
+.sn-label{font-family:var(--ff-mono);font-size:0.7rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin:1.5rem 0 0.6rem;}
+
+/* ── MAIN CONTENT ── */
+#main{padding:3rem 4rem 6rem;max-width:820px;}
+
+/* ── SECTION WRAPPER ── */
+.section{margin-bottom:2.25rem;padding-top:1rem;}
+.section:first-child{padding-top:0;}
+
+/* ── SECTION HEADER ── */
+.section-header{margin-bottom:2rem;}
+.section-eyebrow{
+  font-family:var(--ff-m);font-size:0.81rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);display:flex;align-items:center;gap:0.65rem;margin-bottom:0.6rem;
+}
+.section-eyebrow::before{content:'';display:block;width:1.5rem;height:1px;background:var(--gold);opacity:0.5;}
+.section-title{
+  font-family:var(--ff-d);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;line-height:1.1;
+  color:var(--ink);margin-bottom:0.3rem;
+}
+.section-title em{font-style:italic;font-weight:600;color:var(--gold);}
+.section-subtitle{
+  font-family:var(--ff-d);font-size:1.05rem;font-style:italic;font-weight:300;
+  color:var(--ink-dim);line-height:1.55;
+  border-left:2px solid var(--gold);padding-left:1rem;
+  margin-top:0.75rem;
+}
+
+/* ── TYPOGRAPHY ── */
+h2.sub-head{
+  font-family:var(--ff-d);font-size:1.35rem;font-weight:600;color:var(--ink);
+  line-height:1.25;margin:2.25rem 0 0.65rem;
+}
+h2.sub-head:first-child{margin-top:0;}
+h3.prompt-head{
+  font-family:var(--ff-d);font-size:1.15rem;font-weight:600;color:var(--ink);
+  line-height:1.25;margin:1.75rem 0 0.5rem;
+}
+p{
+  font-size:1.02rem;font-weight:300;color:var(--ink-dim);
+  line-height:1.95;margin-bottom:1.1rem;
+}
+p:last-child{margin-bottom:0;}
+p strong{font-weight:500;color:var(--ink);}
+p em{font-style:italic;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ── RULE ── */
+.rule{height:1px;background:var(--rule);margin:2.5rem 0;}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight{
+  background:var(--deep);border-left:3px solid var(--gold);
+  padding:1.25rem 1.5rem;margin:1.5rem 0;
+}
+.highlight p{margin-bottom:0.5rem;font-size:1.02rem;}
+.highlight p:last-child{margin-bottom:0;}
+
+.not-box{
+  background:var(--deep);border:1px solid var(--rule);border-left:3px solid rgba(26,22,18,0.25);
+  padding:1.25rem 1.5rem;margin:1.5rem 0;
+}
+.not-box p{margin-bottom:0.5rem;font-size:1.02rem;color:var(--ink-dim);}
+
+/* ── OUTPUTS GRID ── */
+.outputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.output-card{background:var(--surface);padding:1.25rem 1.5rem;position:relative;}
+.output-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.output-card:nth-child(1)::before{background:#5B5BD6;}
+.output-card:nth-child(2)::before{background:var(--gold);}
+.output-card:nth-child(3)::before{background:var(--green);}
+.output-card:nth-child(4)::before{background:rgba(26,22,18,0.25);}
+.oc-num{font-family:var(--ff-m);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-dim);opacity:0.5;margin-bottom:0.35rem;}
+.oc-title{font-family:var(--ff-d);font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:0.35rem;}
+.oc-desc{font-size:1.0rem;font-weight:300;color:var(--ink-dim);line-height:1.7;}
+
+/* ── TIME BADGE ── */
+.time-row{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1.25rem 0;}
+.time-badge{
+  font-family:var(--ff-m);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.3rem 0.7rem;background:var(--deep);border:1px solid var(--rule);
+  color:var(--ink-dim);display:inline-flex;align-items:center;gap:0.35rem;
+}
+.time-badge span{color:var(--gold);}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none;margin:1rem 0;display:flex;flex-direction:column;gap:6px;}
+.checklist li{
+  display:flex;align-items:flex-start;gap:0.75rem;
+  font-size:1.02rem;font-weight:300;color:var(--ink-dim);line-height:1.65;
+  padding:0.6rem 0.85rem;border:1px solid var(--rule);background:var(--surface);
+}
+.checklist li::before{
+  content:'☐';font-size:1.0rem;color:var(--gold);flex-shrink:0;margin-top:0.05rem;
+  font-family:var(--ff-m);
+}
+
+/* ── CHECKPOINT BLOCK ── */
+.checkpoint{
+  background:var(--green-dim);border:1px solid rgba(29,158,117,0.2);
+  border-left:3px solid var(--green);padding:1.25rem 1.5rem;margin:2rem 0;
+}
+.checkpoint-label{
+  font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--green);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;
+}
+.checkpoint-label::before{content:'✓';font-size:1.06rem;}
+.checkpoint ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.checkpoint ul li{
+  font-size:1.0rem;font-weight:300;color:var(--ink-dim);
+  display:flex;align-items:flex-start;gap:0.6rem;line-height:1.6;
+}
+.checkpoint ul li::before{content:'☐';color:var(--green);flex-shrink:0;font-family:var(--ff-m);font-size:1.07rem;}
+
+/* ── PROMPT BLOCK ── */
+.prompt-block{
+  background:#131211;border:1px solid rgba(240,236,228,0.1);
+  border-left:3px solid var(--gold-light);
+  margin:1.5rem 0;position:relative;
+  page-break-inside:avoid;
+}
+.prompt-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.75rem 1.25rem;border-bottom:1px solid rgba(240,236,228,0.08);
+}
+.prompt-label{
+  font-family:var(--ff-m);font-size:0.74rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold-light);
+}
+.copy-btn{
+  font-family:var(--ff-m);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  background:none;border:1px solid rgba(201,132,58,0.3);color:var(--gold-light);
+  padding:0.3rem 0.75rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:0.35rem;
+}
+.copy-btn:hover{background:rgba(201,132,58,0.1);}
+.copy-btn.copied{color:var(--green);border-color:rgba(29,158,117,0.4);}
+.prompt-body{
+  padding:1.25rem 1.5rem;
+  font-family:var(--ff-m);font-size:1.0rem;font-weight:300;
+  color:rgba(240,236,228,0.7);line-height:1.85;
+  white-space:pre-wrap;word-break:break-word;
+}
+
+/* ── PROMPT PURPOSE (for reflection prompts) ── */
+.prompt-meta{margin:1.25rem 0 0.5rem;}
+.prompt-meta-row{
+  display:grid;grid-template-columns:90px 1fr;gap:0.75rem;
+  border-top:1px solid var(--rule-light);padding:0.6rem 0;
+  align-items:start;
+}
+.pm-label{
+  font-family:var(--ff-m);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);padding-top:0.15rem;
+}
+.pm-text{font-size:1.07rem;font-weight:300;color:var(--ink-dim);line-height:1.75;}
+.pm-text strong{font-weight:500;color:var(--ink);}
+
+/* ── RESPONSE AREA ── */
+.response-area{
+  border:1px solid var(--rule);background:var(--surface);
+  padding:1rem 1.25rem;margin:0.75rem 0 1.5rem;
+  font-size:1.0rem;font-weight:300;color:rgba(26,22,18,0.3);
+  font-style:italic;min-height:80px;line-height:1.7;
+}
+
+/* ── TOOL INSTRUCTIONS ── */
+.tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.25rem 0;}
+.tool-card{background:var(--surface);padding:1.1rem 1.25rem;}
+.tool-name{font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.tool-steps{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.tool-steps li{font-size:1.0rem;font-weight:300;color:var(--ink-dim);line-height:1.65;padding-left:1rem;position:relative;}
+.tool-steps li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:1.07rem;top:0.28rem;}
+
+/* ── WARNING / NOTE ── */
+.note{
+  background:var(--deep);border:1px solid var(--rule);
+  padding:1rem 1.25rem;margin:1rem 0;
+  display:flex;gap:0.75rem;align-items:flex-start;
+}
+.note-icon{font-size:0.9rem;flex-shrink:0;margin-top:0.12rem;}
+.note-text{font-size:1.07rem;font-weight:300;color:var(--ink-dim);line-height:1.8;}
+.note-text strong{font-weight:500;color:var(--ink);}
+
+/* ── NUMBERED STEPS ── */
+.step-list{display:flex;flex-direction:column;gap:0;}
+.step-item{border-top:1px solid var(--rule);display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;padding:0.75rem 0;align-items:start;}
+.step-num{font-family:var(--ff-m);font-size:0.6rem;color:var(--gold);opacity:0.6;padding-top:0.2rem;}
+.step-text{font-size:1.02rem;font-weight:300;color:var(--ink-dim);line-height:1.8;}
+.step-text strong{font-weight:500;color:var(--ink);}
+
+/* ── TABLE ── */
+.kit-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:1.07rem;}
+.kit-table th{font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);padding:0.6rem 1rem;border-bottom:2px solid var(--rule);text-align:left;font-weight:400;}
+.kit-table td{padding:0.7rem 1rem;border-bottom:1px solid var(--rule);color:var(--ink-dim);font-weight:300;line-height:1.6;vertical-align:top;}
+.kit-table td:first-child{color:var(--ink);font-weight:400;}
+.kit-table tr:last-child td{border-bottom:none;}
+.kit-table tfoot td{font-weight:500;color:var(--ink);border-top:2px solid var(--rule);}
+
+/* ── MAINTENANCE GRID ── */
+.maint-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.5rem 0;}
+.maint-card{background:var(--surface);padding:1.5rem;}
+.maint-label{font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+.maint-items{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.maint-items li{font-size:1.0rem;font-weight:300;color:var(--ink-dim);line-height:1.65;padding-left:1rem;position:relative;}
+.maint-items li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:1.07rem;top:0.28rem;}
+
+/* ── APPENDIX TABLE ── */
+.seq-list{display:flex;flex-direction:column;gap:0;}
+.seq-item{border-top:1px solid var(--rule);display:grid;grid-template-columns:2rem 1fr;gap:0.75rem;padding:0.7rem 0;align-items:start;}
+.seq-n{font-family:var(--ff-m);font-size:0.72rem;color:var(--gold);opacity:0.5;padding-top:0.15rem;}
+.seq-text{font-size:1.07rem;font-weight:300;color:var(--ink-dim);line-height:1.65;}
+
+/* ── FOOTER ── */
+#footer{
+  background:#131211;padding:2rem 4rem;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-left:var(--sidebar);
+}
+.footer-mark{font-family:var(--ff-d);font-size:0.9rem;color:rgba(240,236,228,0.3);text-decoration:none;}
+.footer-mark span{color:rgba(201,132,58,0.5);}
+.footer-disc{font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.05em;color:rgba(240,236,228,0.15);max-width:500px;line-height:1.6;text-align:right;}
+
+/* ── PRINT ── */
+@media print{
+  #topbar,#sidenav,#footer{display:none!important;}
+  #layout{display:block;padding-top:0;}
+  #main{padding:1.5cm 2cm;max-width:100%;font-size:11pt;line-height:1.7;}
+  body{font-size:11pt;background:white;color:#111;}
+  .section{margin-bottom:1.5cm;page-break-inside:avoid;}
+  .section-title{font-size:18pt;}
+  h2.sub-head{font-size:13pt;margin-top:1cm;}
+  h3.prompt-head{font-size:12pt;}
+  p{font-size:11pt;color:#333;}
+  .prompt-block{background:#f5f5f5!important;border:1pt solid #ccc;page-break-inside:avoid;}
+  .prompt-header{background:#eee;padding:0.3cm 0.5cm;}
+  .prompt-body{color:#222!important;font-size:9.5pt;padding:0.5cm;}
+  .prompt-label{color:#666!important;}
+  .copy-btn{display:none!important;}
+  .checkpoint{background:#f0fff8!important;border-color:#bbb!important;}
+  .checkpoint-label{color:#1D9E75!important;}
+  .section-eyebrow{color:var(--gold)!important;}
+  .section-eyebrow::before{background:var(--gold)!important;}
+  .response-area{border:1pt solid #ccc;min-height:1.5cm;background:#fafafa!important;}
+  .outputs-grid,.tool-grid,.maint-grid{gap:2pt;}
+  .output-card,.tool-card,.maint-card{border:1pt solid #ddd;page-break-inside:avoid;}
+  .highlight,.not-box,.note{border-color:#ccc;background:#f8f8f8!important;page-break-inside:avoid;}
+  a{color:var(--gold);text-decoration:none;}
+  .checklist li{background:#f9f9f9!important;}
+  @page{margin:2cm;size:A4;}
+}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  :root{--sidebar:0px;}
+  #sidenav{display:none;}
+  #layout{grid-template-columns:1fr;}
+  #main{padding:2rem 1.25rem 5rem;}
+  .outputs-grid,.tool-grid,.maint-grid{grid-template-columns:1fr;}
+  .prompt-header{flex-direction:column;align-items:flex-start;gap:0.5rem;}
+  #footer{margin-left:0;flex-direction:column;gap:1rem;text-align:center;}
+  .footer-disc{text-align:center;}
+  .section-title{font-size:clamp(1.8rem,7vw,2.8rem);}
+  h2.sub-head{font-size:1.2rem;}
+  .prompt-meta-row{grid-template-columns:1fr;gap:0.25rem;}
+  .pm-label{width:auto;}
+  .step-list .step-item{grid-template-columns:2rem 1fr;}
+  .wf-prompt-footer{flex-direction:column;gap:0.6rem;align-items:flex-start;}
+  .copy-btn{width:fit-content;}
+  .checklist li{font-size:0.92rem;}
+}
+
+/* FEEDBACK LOOP */
+#feedback{max-width:680px;margin:0 auto;padding:1rem 4vw 5rem;text-align:center;}
+.fb-rule{width:40px;height:2px;background:var(--gold);margin:0 auto 2rem;}
+.fb-eyebrow{font-family:var(--ff-m);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+.fb-headline{font-family:var(--ff-display);font-size:clamp(1.7rem,4vw,2.4rem);font-weight:500;line-height:1.15;color:var(--ink);margin-bottom:1.5rem;}
+.fb-headline em{font-style:italic;color:var(--gold);}
+.fb-body{font-size:1.05rem;line-height:1.75;color:var(--ink-dim);max-width:540px;margin:0 auto 1.25rem;}
+.fb-btn{display:inline-block;font-family:var(--ff-m);font-size:0.8rem;letter-spacing:0.04em;text-decoration:none;color:var(--ink);border:1px solid rgba(26,22,18,0.25);border-radius:6px;padding:0.8rem 1.5rem;margin-top:1rem;transition:all 0.2s;}
+.fb-btn:hover{border-color:var(--gold);color:var(--gold);}
+.fb-sig{font-family:var(--ff-display);font-size:1.15rem;font-style:italic;color:var(--ink-dim);margin-top:1.5rem;}
+@media(max-width:680px){#feedback{padding:1rem 1.5rem 4rem;}}
+
+/* SAMPLE EXAMPLE CALLOUT */
+.sk-example-callout{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;background:var(--deep);border:1px solid var(--rule);border-left:3px solid var(--gold);border-radius:8px;padding:1.25rem 1.5rem;margin:1.5rem 0 2rem;}
+.sk-ec-text{font-size:0.95rem;line-height:1.6;color:var(--ink-dim);max-width:540px;}
+.sk-ec-text strong{display:block;color:var(--ink);font-size:1.02rem;margin-bottom:0.2rem;}
+.sk-ec-btn{flex-shrink:0;font-family:var(--ff-m);font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:var(--void);background:var(--ink);padding:0.7rem 1.3rem;border-radius:6px;transition:background 0.2s;}
+.sk-ec-btn:hover{background:var(--gold);}
+@media(max-width:600px){.sk-example-callout{flex-direction:column;align-items:flex-start;}}
+
+/* TOPBAR MOBILE — prevent overflow */
+@media(max-width:760px){
+  #topbar .tb-title,#topbar .tb-sep{display:none;}
+  #topbar .tb-btn:not(.primary){display:none;}
+}
+@media(max-width:760px){
+  #topbar .tb-btn.primary{font-size:0.58rem;padding:0.5rem 0.8rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header id="topbar">
+  <div class="tb-left">
+    <a href="https://mikecilla.com" class="tb-mark">Mike Cilla<span>.</span></a>
+    <div class="tb-sep"></div>
+    <span class="tb-title">Leadership OS Starter Kit · v1.0</span>
+  </div>
+  <div class="tb-right">
+    <a href="index.html" class="tb-btn">What it is</a>
+    <a href="leadership-os-why.html" class="tb-btn">Why it exists</a>
+    <a href="leadership-os-how.html" class="tb-btn">How it works</a>
+    <a href="leadership-os-sample-outputs.html" class="tb-btn">Examples</a>
+    <a href="leadership-os-research.html" class="tb-btn">Methodology</a>
+    <button class="tb-btn primary" onclick="window.print()">⎙ Print / Save as PDF</button>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div id="layout">
+
+<!-- SIDEBAR NAV -->
+<nav id="sidenav">
+  <div class="sn-label">Navigation</div>
+  <a href="#welcome" class="sn-link active">Welcome</a>
+  <div class="sn-divider"></div>
+  <div class="sn-label">The Process</div>
+  <a href="#s1" class="sn-link">01 — Assessments</a>
+  <a href="#s1-py" class="sn-link sub">PrinciplesYou</a>
+  <a href="#s1-alt" class="sn-link sub">Alternatives</a>
+  <a href="#s2" class="sn-link">02 — Corpus Audit</a>
+  <a href="#s2-prompt" class="sn-link sub">The prompt</a>
+  <a href="#s2-tools" class="sn-link sub">Tool instructions</a>
+  <a href="#s3" class="sn-link">03 — Reflection</a>
+  <a href="#s3-p1" class="sn-link sub">1 · Peak performance</a>
+  <a href="#s3-p2" class="sn-link sub">2 · Decision process</a>
+  <a href="#s3-p3" class="sn-link sub">3 · Regret</a>
+  <a href="#s3-p4" class="sn-link sub">4 · Frustration</a>
+  <a href="#s3-p5" class="sn-link sub">5 · Energy</a>
+  <a href="#s3-p6" class="sn-link sub">6 · The misread</a>
+  <a href="#s3-interview" class="sn-link sub">Guided interview</a>
+  <a href="#s4" class="sn-link">04 — Analysis Engine</a>
+  <a href="#s4-init" class="sn-link sub">Initialization prompt</a>
+  <a href="#s4-analysis" class="sn-link sub">Pattern analysis</a>
+  <a href="#s4b" class="sn-link">04b — Construct Analysis</a>
+  <a href="#s4b-prompt" class="sn-link sub">Construct analysis prompt</a>
+  <a href="#s4b-profile" class="sn-link sub">Leadership Profile artifact</a>
+  <a href="#s5" class="sn-link">05 — Output Generation</a>
+  <a href="#s6" class="sn-link">06 — Maintenance</a>
+  <a href="#s7" class="sn-link">07 — Research</a>
+  <div class="sn-divider"></div>
+  <a href="#appendix" class="sn-link">Appendix</a>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+<!-- WELCOME -->
+<section class="section" id="welcome">
+  <div class="section-header">
+    <div class="section-eyebrow">Leadership OS Starter Kit · v1.0</div>
+    <h1 class="section-title">Complete your<br><em>Leadership OS.</em></h1>
+    <p class="section-subtitle">A self-guided process. Seven steps. About 90–120 minutes. You leave with four working documents about how you lead.</p>
+  </div>
+
+  <div class="time-row">
+    <span class="time-badge"><span>Total time</span> 90–120 minutes</span>
+    <span class="time-badge"><span>Sessions</span> One sitting recommended</span>
+    <span class="time-badge"><span>Outputs</span> 4 working documents</span>
+  </div>
+
+  <div class="sk-example-callout">
+    <div class="sk-ec-text">
+      <strong>Want to see what you'll produce before you start?</strong>
+      Walk through a complete worked example — every input and all four finished documents for one synthetic leader.
+    </div>
+    <a href="leadership-os-sample-outputs.html" class="sk-ec-btn">See a full example →</a>
+  </div>
+
+  <h2 class="sub-head">What this is</h2>
+  <p>Leadership OS is a structured process for developing a working model of how you operate as a leader — grounded in assessment data, behavioral patterns, and structured reflection rather than self-description alone.</p>
+  <p>It combines three inputs: a personality assessment, a behavioral audit of your AI conversation history, and six structured reflection prompts. Your AI tool synthesizes these into working documents you can use, share, and update over time.</p>
+
+  <div class="highlight">
+    <p><strong>What you will produce</strong></p>
+  </div>
+  <div class="outputs-grid">
+    <div class="output-card">
+      <div class="oc-num">Document 01</div>
+      <div class="oc-title">Leadership User Manual</div>
+      <div class="oc-desc">3–4 pages. How you think, decide, engage, and lead. First person. Designed to be shared with a manager, team member, or collaborator.</div>
+    </div>
+    <div class="output-card">
+      <div class="oc-num">Document 02</div>
+      <div class="oc-title">Working-With-Me Guide</div>
+      <div class="oc-desc">1 page. The practical version. Readable in under 3 minutes. What to bring you, how to challenge you, what you need, what to watch for.</div>
+    </div>
+    <div class="output-card">
+      <div class="oc-num">Document 03</div>
+      <div class="oc-title">AI Calibration Document</div>
+      <div class="oc-desc">1 page. Teaches any AI assistant how you work. Paste it at the start of any new AI conversation to accelerate calibration.</div>
+    </div>
+    <div class="output-card">
+      <div class="oc-num">Document 04 · Private</div>
+      <div class="oc-title">Development Roadmap</div>
+      <div class="oc-desc">2–3 pages. Your private guide to where intentional practice would produce the most return. Not for sharing.</div>
+    </div>
+  </div>
+
+  
+  <!-- PROCESS TIMELINE VISUAL -->
+  <div style="margin:1.5rem 0;border:1px solid var(--rule);background:var(--surface);">
+    <div style="padding:0.6rem 1.25rem;border-bottom:1px solid var(--rule);background:var(--deep);">
+      <span style="font-family:var(--ff-m);font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);">Process at a glance</span>
+    </div>
+    <div style="padding:1.25rem;display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;">
+      <div style="text-align:center;padding:0.75rem 0.5rem;position:relative;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--deep);border:2px solid #5B5BD6;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-family:var(--ff-m);font-size:0.69rem;color:#5B5BD6;font-weight:400;">01</div>
+        <div style="font-family:var(--ff-d);font-size:1.0rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Assessment</div>
+        <div style="font-family:var(--ff-m);font-size:0.56rem;color:var(--ink-dim);">20 min</div>
+      </div>
+      <div style="text-align:center;padding:0.75rem 0.5rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--deep);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-family:var(--ff-m);font-size:0.69rem;color:var(--gold);">02</div>
+        <div style="font-family:var(--ff-d);font-size:1.0rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Corpus Audit</div>
+        <div style="font-family:var(--ff-m);font-size:0.56rem;color:var(--ink-dim);">15 min</div>
+      </div>
+      <div style="text-align:center;padding:0.75rem 0.5rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--deep);border:2px solid #1D9E75;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-family:var(--ff-m);font-size:0.69rem;color:#1D9E75;">03</div>
+        <div style="font-family:var(--ff-d);font-size:1.0rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Reflection</div>
+        <div style="font-family:var(--ff-m);font-size:0.56rem;color:var(--ink-dim);">35 min</div>
+      </div>
+      <div style="text-align:center;padding:0.75rem 0.5rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--deep);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-family:var(--ff-m);font-size:0.69rem;color:var(--ink);">04</div>
+        <div style="font-family:var(--ff-d);font-size:1.0rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Engine</div>
+        <div style="font-family:var(--ff-m);font-size:0.56rem;color:var(--ink-dim);">15 min</div>
+      </div>
+      <div style="text-align:center;padding:0.75rem 0.5rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--deep);border:2px solid #7F77DD;display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-family:var(--ff-m);font-size:0.58rem;color:#7F77DD;">4b</div>
+        <div style="font-family:var(--ff-d);font-size:1.0rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Constructs</div>
+        <div style="font-family:var(--ff-m);font-size:0.56rem;color:var(--ink-dim);">10 min</div>
+      </div>
+      <div style="text-align:center;padding:0.75rem 0.5rem;">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--gold);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;font-family:var(--ff-m);font-size:0.69rem;color:var(--void);">05</div>
+        <div style="font-family:var(--ff-d);font-size:1.0rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;">Outputs</div>
+        <div style="font-family:var(--ff-m);font-size:0.56rem;color:var(--ink-dim);">20 min</div>
+      </div>
+    </div>
+    <div style="padding:0.6rem 1.25rem;border-top:1px solid var(--rule);background:var(--deep);display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-family:var(--ff-m);font-size:0.58rem;color:rgba(26,22,18,0.35);letter-spacing:0.06em;">Steps 1–3: gather input · Step 4: initialize engine · Step 4b: construct analysis + Leadership Profile · Step 5: generate documents</span>
+      <span style="font-family:var(--ff-m);font-size:0.58rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">~135 min total</span>
+    </div>
+  </div>
+
+  <h2 class="sub-head">What this is not</h2>
+  <div class="not-box">
+    <p><strong>Not a personality test.</strong> The outputs are not scores or types. They are working documents.</p>
+    <p><strong>Not executive coaching or therapy.</strong> Leadership OS produces self-knowledge. What you do with it is up to you. If anything in this process surfaces something that feels clinical or distressing, set it aside and talk to a professional.</p>
+    <p><strong>Not a validated psychometric instrument.</strong> The outputs are hypotheses grounded in inputs — not scientifically validated findings. Some will be accurate immediately. Some will need correction. Your job is to notice which is which.</p>
+  </div>
+
+  <h2 class="sub-head">What you will need</h2>
+  <ul class="checklist">
+    <li>90–120 minutes of uninterrupted time (one sitting recommended)</li>
+    <li>Access to PrinciplesYou — free at <a href="https://principlesyou.com" target="_blank">principlesyou.com</a></li>
+    <li>Access to at least one AI tool: ChatGPT, Claude, or Gemini</li>
+    <li>Somewhere to save your outputs: Google Docs, Notes, or a folder on your computer</li>
+  </ul>
+
+  <div style="background:var(--deep);border-left:3px solid var(--gold);padding:0.85rem 1.25rem;margin-bottom:1.5rem;font-size:0.95rem;color:var(--ink-dim);line-height:1.75;"><strong style="color:var(--ink);">Methodology note:</strong> Leadership OS is a reflection and development methodology — not a validated assessment, diagnostic tool, or prediction instrument. Outputs are input-informed hypotheses for reflection and refinement.</div>
+
+<h2 class="sub-head">A note on quality</h2>
+  <p>The quality of your Leadership OS outputs depends almost entirely on the quality of your inputs. Vague reflection responses produce generic documents. Specific, honest responses produce a profile that surprises you with its accuracy.</p>
+  <p>The reflection section asks for real situations — specific examples with enough detail to be useful. That specificity is the work. Do not rush it.</p>
+
+  <div class="rule"></div>
+</section>
+
+<!-- SECTION 1 -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 01 · 20 minutes</div>
+    <h1 class="section-title">Assessment<br><em>Inputs.</em></h1>
+    <p class="section-subtitle">The scientific anchor. Personality assessments establish validated hypotheses about your tendencies that behavioral and reflection input will then confirm, complicate, or contradict.</p>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text"><strong>Important framing:</strong> Your assessment results are not facts about you. They are a set of hypotheses — grounded in research, useful as a starting point, and worth holding lightly until the other inputs weigh in.</div>
+  </div>
+
+  <h2 class="sub-head" id="s1-py">Step 1A — Take PrinciplesYou</h2>
+  <p><strong>Why PrinciplesYou:</strong> It is free, takes about 20 minutes, and produces output in language immediately useful for development conversations. It is grounded in Big Five personality science without requiring you to interpret raw factor scores.</p>
+
+  <div class="step-list">
+    <div class="step-item"><div class="step-num">01</div><div class="step-text">Go to <a href="https://principlesyou.com" target="_blank">principlesyou.com</a> and create a free account</div></div>
+    <div class="step-item"><div class="step-num">02</div><div class="step-text">Complete the assessment honestly — answer based on how you <em>actually</em> are, not how you want to be</div></div>
+    <div class="step-item"><div class="step-num">03</div><div class="step-text">When finished, navigate to your full results</div></div>
+    <div class="step-item"><div class="step-num">04</div><div class="step-text">Screenshot or export all pages of your results and save them somewhere accessible</div></div>
+  </div>
+
+  <h3 class="prompt-head">What to capture from your results</h3>
+  <ul class="checklist">
+    <li>Your primary archetype and its description</li>
+    <li>Your secondary attributes</li>
+    <li>The archetypes you are least like</li>
+    <li>Any facet-level scores that seem unusually high or low</li>
+    <li>The "You in Context" sections (how you interact, lead, plan, solve problems, handle stress)</li>
+  </ul>
+
+  <div class="highlight">
+    <p><strong>Example of what to save:</strong></p>
+    <p>Primary archetype: The Strategist. Secondary attributes: Growth Seeker, Deliberate. Least like: Improviser, Individualist.<br>Notable facet scores: Curious 78th percentile, Systematic 82nd percentile, Adaptable 71st percentile, Agile 55th percentile</p>
+  </div>
+
+  <h2 class="sub-head" id="s1-alt">Step 1B — Alternative assessments (optional)</h2>
+  <p>If you have results from any of the following, include them alongside PrinciplesYou:</p>
+
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-name">HEXACO</div>
+      <ul class="tool-steps">
+        <li>Free at <a href="https://hexaco.org" target="_blank">hexaco.org</a></li>
+        <li>~15 minutes</li>
+        <li>Six factors with four facets each</li>
+        <li>Recommended — adds Honesty-Humility dimension that Big Five misses</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">CliftonStrengths</div>
+      <ul class="tool-steps">
+        <li>Paid (Gallup)</li>
+        <li>Focuses on talent themes</li>
+        <li>Useful for Leadership Identity construct</li>
+        <li>Include Top 10 results if you have them</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Big Five (IPIP)</div>
+      <ul class="tool-steps">
+        <li>Free at <a href="https://ipip.ori.org" target="_blank">ipip.ori.org</a></li>
+        <li>Five factor scores with facets</li>
+        <li>More technical than PrinciplesYou</li>
+        <li>Include facet scores, not just factors</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">⚠</span>
+    <div class="note-text"><strong>What not to include:</strong> MBTI type indicators (I/E/N/S etc.) without underlying facet scores. The type labels alone are too coarse to be useful in Leadership OS.</div>
+  </div>
+
+  <div class="checkpoint">
+    <div class="checkpoint-label">Section 1 Checkpoint</div>
+    <ul>
+      <li>PrinciplesYou completed and results saved</li>
+      <li>Any additional assessment results saved and labeled with instrument name</li>
+      <li>You know where these files are</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 02 · 15 minutes</div>
+    <h1 class="section-title">Corpus<br><em>Audit.</em></h1>
+    <p class="section-subtitle">Behavioral signals from how you actually work. Not what you say about yourself — what a review of your actual work conversations suggests about you.</p>
+  </div>
+
+  <h2 class="sub-head">What corpus signal is</h2>
+  <p>If you use ChatGPT, Claude, Gemini, or any AI tool regularly, you have accumulated a behavioral record. Every decision you worked through, every communication you drafted, every problem you framed — that interaction left a record of how you were thinking at the time. The corpus audit asks your AI tool to identify patterns across that conversation record.</p>
+  <div class="callout" style="background:var(--deep,#f2ede6);border-left:3px solid var(--gold,#b8671e);padding:1rem 1.25rem;margin:1.25rem 0;border-radius:4px;">
+    <div style="font-family:var(--ff-m,monospace);font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold,#b8671e);margin-bottom:0.5rem;">If your corpus is thin</div>
+    <div style="font-size:0.95rem;line-height:1.7;color:var(--ink-dim,#5a544c);">The methodology still works without a deep AI history. If you have fewer than ~3 months of substantive professional AI use, the Analysis Engine will lean more heavily on your assessment and reflection input, and will explicitly mark behavioral signals as limited rather than inventing patterns. A thinner corpus produces a more tentative profile — more Emerging Hypotheses, fewer High Confidence findings — which is the honest result, not a degraded one. You can always re-run the corpus audit later as your AI history grows.</div>
+  </div>
+  <p><strong>This is the piece that makes Leadership OS different from any assessment that came before it.</strong> Assessments ask you to describe yourself. The corpus audit asks the system that reviewed your work conversations to describe what it saw.</p>
+
+  <h2 class="sub-head">What makes a strong corpus</h2>
+  <ul class="checklist">
+    <li>Strategic or analytical work (not just "summarize this article")</li>
+    <li>Decision-making conversations</li>
+    <li>Communication drafts — emails, presentations, messages</li>
+    <li>Problems you worked through in real time</li>
+    <li>Recurring topics and themes over time</li>
+  </ul>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text"><strong>Minimum useful corpus:</strong> About 3 months of regular professional AI use. If your corpus is thin, complete the audit anyway and note the limitation. Return to it in 3–6 months when more history has accumulated — the profile will improve. Run the audit in the AI tool where most of your substantive professional conversations live.</div>
+  </div>
+
+  <h2 class="sub-head" id="s2-prompt">The Corpus Audit Prompt</h2>
+  <p>Copy the prompt below and paste it into your AI tool. Do not edit it. Run it in the same AI tool where most of your professional conversations live.</p>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Corpus Audit Prompt — paste into your primary AI tool</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'corpus-audit-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="corpus-audit-text">I'd like you to reflect on our conversation history together.
+
+Do not summarize specific conversations.
+
+Instead, I want you to identify behavioral patterns — things you have observed repeatedly about how I think, work, and communicate.
+
+Please reflect on each of the following and share what you have noticed:
+
+1. How do I tend to frame problems? What patterns do you see in how I approach complex or ambiguous situations?
+
+2. What topics or domains come up most frequently in our conversations? Where does my thinking seem deepest and most developed?
+
+3. How would you describe my communication style — the way I ask questions, express disagreement, give feedback on your outputs, and make requests of you?
+
+4. What seems to energize me in our conversations? What kinds of work or problems do I gravitate toward?
+
+5. What frustrates me? Where do you see friction, impatience, or repeated difficulty in how I engage?
+
+6. What recurring questions or challenges keep coming up across our conversations?
+
+7. What are my decision-making tendencies — how I evaluate tradeoffs, what I seem to prioritize, what I consistently avoid?
+
+8. What do you notice about my relationship to structure, ambiguity, detail, and systems?
+
+Be specific and honest. I am not looking for flattery. I am looking for an accurate behavioral profile based on what you have actually observed across our conversations. If you are uncertain about something, say so rather than speculating.</div>
+  </div>
+
+  <h2 class="sub-head" id="s2-tools">Tool-specific instructions</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-name">ChatGPT</div>
+      <ul class="tool-steps">
+        <li>Paste in the account where most work conversations live</li>
+        <li>If you use Projects, paste inside the relevant project</li>
+        <li>ChatGPT's memory feature will draw on accumulated context</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Claude</div>
+      <ul class="tool-steps">
+        <li>Paste in a conversation in Claude</li>
+        <li>If you use Projects, paste inside the project with the most relevant context</li>
+        <li>Claude will draw on project memory and shared files</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Gemini</div>
+      <ul class="tool-steps">
+        <li>Paste into Gemini</li>
+        <li>Gemini Advanced draws on history associated with your Google account</li>
+        <li>Use the same Google account you use for work conversations</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sub-head">What to do with the output</h2>
+  <div class="step-list">
+    <div class="step-item"><div class="step-num">01</div><div class="step-text">Read the entire response</div></div>
+    <div class="step-item"><div class="step-num">02</div><div class="step-text"><strong>Note anything that surprises you</strong> — surprises are often the most useful findings</div></div>
+    <div class="step-item"><div class="step-num">03</div><div class="step-text"><strong>Note anything that seems inaccurate</strong> — you will correct it in Section 4</div></div>
+    <div class="step-item"><div class="step-num">04</div><div class="step-text">Copy the entire response into your notes. Label it: <em>Corpus Audit Output — [Date]</em></div></div>
+    <div class="step-item"><div class="step-num">05</div><div class="step-text">Do not edit the output before saving. You want the raw version.</div></div>
+  </div>
+
+  <h2 class="sub-head">Limitations to keep in mind</h2>
+  <p>The corpus audit captures written professional communication. It may not represent how you communicate verbally or informally, how you behave under significant stress or conflict, or any part of your professional life handled without AI assistance. These are not failures of the methodology — they are honest limits of the input.</p>
+
+  <div class="checkpoint">
+    <div class="checkpoint-label">Section 2 Checkpoint</div>
+    <ul>
+      <li>Corpus audit prompt pasted and run in your primary AI tool</li>
+      <li>Output saved and labeled with date</li>
+      <li>Surprises and inaccuracies noted separately</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 03 · 35–40 minutes</div>
+    <h1 class="section-title">Structured<br><em>Reflection.</em></h1>
+    <p class="section-subtitle">Six prompts that surface what no assessment can reach — specific behavioral examples from your actual work: how you appeared to operate under pressure, in decisions, and in relation to others.</p>
+  </div>
+
+  <h2 class="sub-head">Three ways to complete this section</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-name">Option A — AI Interview (recommended)</div>
+      <ul class="tool-steps">
+        <li>Paste the guided interview prompt into a new AI conversation</li>
+        <li>The AI asks one question at a time</li>
+        <li>Conversational reflection surfaces more than writing alone</li>
+        <li>Best for most people</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Option B — Written</div>
+      <ul class="tool-steps">
+        <li>Answer each prompt in writing below or in a separate document</li>
+        <li>Best for precise, detail-oriented thinkers</li>
+        <li>Take your time — do not rush</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Option C — Voice-to-Text</div>
+      <ul class="tool-steps">
+        <li>Record a voice memo answering each prompt</li>
+        <li>Use phone transcription or Otter.ai / Whisper</li>
+        <li>Paste transcript into notes or AI directly</li>
+        <li>Often produces richer, less edited responses</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <h2 class="sub-head" id="s3-p1">Prompt 1 — Peak Performance</h2>
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Prompt 1 of 6</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'p1-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="p1-text">Describe a specific situation where you were operating at your best as a leader. What were you doing, who were you with, what were the conditions — and what made it different from ordinary work?</div>
+  </div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row">
+      <div class="pm-label">Purpose</div>
+      <div class="pm-text">Surfaces your Flow conditions — the specific combination of challenge, context, and collaboration that produces your best work. These conditions are often invisible until you examine them deliberately.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Good response</div>
+      <div class="pm-text">Specific. Names the situation, the people, the challenge level, and what made it feel different. Not "I love building things" — <em>"During the Q4 system implementation, when the timeline compressed and stakeholders were pushing back, I found myself…"</em> The conditions matter as much as the content.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Common mistakes</div>
+      <div class="pm-text"><strong>Describing a successful outcome instead of the conditions that produced it.</strong> Staying vague about what made it feel different. Choosing the most impressive story rather than the most honest one.</div>
+    </div>
+  </div>
+  <div class="response-area">Your response here — or respond in the AI interview below...</div>
+
+  <h2 class="sub-head" id="s3-p2">Prompt 2 — Decision Process</h2>
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Prompt 2 of 6</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'p2-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="p2-text">Describe a decision you made in the past year that you are genuinely proud of. Not the outcome — the process. How did you get there?</div>
+  </div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row">
+      <div class="pm-label">Purpose</div>
+      <div class="pm-text">Reveals your decision architecture — how you gather information, stress-test assumptions, manage uncertainty, and commit. The process is where your actual tendencies live; the outcome is often noise.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Good response</div>
+      <div class="pm-text">Walks through the actual mechanics: what information you gathered, who you consulted, what alternatives you considered, what made you uncertain, and what made you commit. Should take 2–3 paragraphs.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Common mistakes</div>
+      <div class="pm-text"><strong>Describing the outcome rather than the process.</strong> Skipping the uncertainty ("I just knew what to do"). Choosing a decision that was actually easy.</div>
+    </div>
+  </div>
+  <div class="response-area">Your response here — or respond in the AI interview below...</div>
+
+  <h2 class="sub-head" id="s3-p3">Prompt 3 — A Decision You'd Make Differently</h2>
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Prompt 3 of 6</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'p3-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="p3-text">Describe a decision or situation you would handle differently if you could do it again. What happened, what did you do, and what does that tell you about how you operate under pressure or uncertainty?</div>
+  </div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row">
+      <div class="pm-label">Purpose</div>
+      <div class="pm-text">This is where the most useful development material lives. The pattern across examples like this reveals the specific conditions under which your defaults work against you.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Good response</div>
+      <div class="pm-text">Names the situation specifically. Describes what you actually did. Then reflects on what it reveals about your tendencies — not "I should have been more patient" but <em>"when the timeline compressed and I felt uncertain, I moved to premature closure rather than staying in the ambiguity."</em></div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Common mistakes</div>
+      <div class="pm-text"><strong>Attributing the difficulty entirely to external factors.</strong> Describing what you should have done without examining why you didn't. Choosing a situation where you were obviously wrong — makes the reflection feel performative.</div>
+    </div>
+  </div>
+  <div class="response-area">Your response here — or respond in the AI interview below...</div>
+
+  <h2 class="sub-head" id="s3-p4">Prompt 4 — Recurring Frustration</h2>
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Prompt 4 of 6</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'p4-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="p4-text">What is a recurring frustration in how you work — something that comes up repeatedly with other people, with organizations, or with yourself? Be specific about what triggers it and how it tends to show up.</div>
+  </div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row">
+      <div class="pm-label">Purpose</div>
+      <div class="pm-text">Recurring frustrations are diagnostic. They reveal the gap between how you expect things to work and how they actually do — which tells you something important about your standards, defaults, and the environments where you are most and least effective.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Good response</div>
+      <div class="pm-text">Names the specific trigger, not just the general theme. <em>"People who don't follow through"</em> is a theme. <em>"My peer who consistently agrees to deadlines in the meeting and then quietly lets them slip without flagging it early enough"</em> is a trigger. The specificity reveals the mechanism.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Common mistakes</div>
+      <div class="pm-text"><strong>Staying so general that the frustration could apply to any leader.</strong> Avoiding the honest frustration and choosing something more acceptable. Describing frustrations without reflecting on your role in them.</div>
+    </div>
+  </div>
+  <div class="response-area">Your response here — or respond in the AI interview below...</div>
+
+  <h2 class="sub-head" id="s3-p5">Prompt 5 — Energy Sources</h2>
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Prompt 5 of 6</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'p5-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="p5-text">When do you find the work genuinely energizing? Not "meaningful work" in the abstract — specific contexts, activities, types of people, kinds of problems. What is happening when you lose track of time?</div>
+  </div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row">
+      <div class="pm-label">Purpose</div>
+      <div class="pm-text">The input for your Flow profile — the specific conditions that produce your highest-quality engagement. The difference between <em>"I love building things"</em> and <em>"I am most energized when I am three months into a new system build, the complexity has become clear, I have a team I trust, and stakeholders are engaged but not yet impatient"</em> is the difference between a generic profile and a useful one.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Good response</div>
+      <div class="pm-text">Names the type of problem, the stage of the work, the team context, the stakes level. The more specific the better.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Common mistakes</div>
+      <div class="pm-text"><strong>Generic answers that could apply to any engaged leader.</strong> Confusing "work I am good at" with "work that genuinely energizes me" — these are sometimes different.</div>
+    </div>
+  </div>
+  <div class="response-area">Your response here — or respond in the AI interview below...</div>
+
+  <h2 class="sub-head" id="s3-p6">Prompt 6 — The Misread</h2>
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Prompt 6 of 6</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'p6-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="p6-text">What do people consistently get wrong about you — as a leader, as a colleague, as a person? What does that misread tell you about the gap between how you operate and how you come across?</div>
+  </div>
+  <div class="prompt-meta">
+    <div class="prompt-meta-row">
+      <div class="pm-label">Purpose</div>
+      <div class="pm-text">The most revealing prompt in the set. The gap between intent and impact is where most leadership development work actually happens — and most leaders never examine it directly. People who can articulate this clearly have done real self-reflection.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Good response</div>
+      <div class="pm-text">Names a specific, recurring misread that creates friction or confusion. Then reflects on what produces it — the gap between how you experience yourself and how others receive you.</div>
+    </div>
+    <div class="prompt-meta-row">
+      <div class="pm-label">Common mistakes</div>
+      <div class="pm-text"><strong>Choosing a misread that reflects well on you</strong> ("people think I'm too demanding because I have high standards"). Avoiding the honest misread. Describing it without reflecting on what causes it.</div>
+    </div>
+  </div>
+  <div class="response-area">Your response here — or respond in the AI interview below...</div>
+
+  <div class="rule"></div>
+
+  <h2 class="sub-head" id="s3-interview">Guided AI Interview Prompt (Option A)</h2>
+  <p>If you chose the AI-led interview, copy the prompt below and paste it into a new conversation with your AI tool. Tell it you are ready to begin when you want to start.</p>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Guided Interview Prompt — paste into a new AI conversation</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'interview-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="interview-text">I would like you to conduct a structured reflection interview with me.
+This is part of building my Leadership Operating System.
+
+Your role in this conversation is interviewer and pattern observer.
+You are not a coach, advisor, or therapist.
+Ask one question at a time.
+Wait for my response.
+If my response is vague or general, ask one specific follow-up question.
+Then move to the next question.
+Do not offer evaluations, advice, or interpretations during the interview.
+
+The six questions, in order:
+
+1. Describe a specific situation where you were operating at your best as a leader.
+What were you doing, who were you with, what were the conditions —
+and what made it different from ordinary work?
+
+2. Describe a decision you made in the past year that you are genuinely proud of.
+Not the outcome — the process. How did you get there?
+
+3. Describe a decision or situation you would handle differently if you could do it again.
+What happened, what did you do, and what does that tell you about
+how you operate under pressure or uncertainty?
+
+4. What is a recurring frustration in how you work?
+Something that comes up repeatedly with other people, with organizations,
+or with yourself. Be specific about what triggers it and how it tends to show up.
+
+5. When do you find the work genuinely energizing?
+Not meaningful work in the abstract — specific contexts, activities,
+types of people, kinds of problems. What is happening when you lose track of time?
+
+6. What do people consistently get wrong about you as a leader or colleague?
+What does that misread tell you about the gap between how you operate
+and how you come across?
+
+After I have answered all six questions, please provide a summary of the key
+behavioral patterns you observed — organized into four categories:
+Decision style and process
+Energy and flow conditions
+Friction points and recurring challenges
+How I come across versus how I intend to come across
+
+Begin with question one when I say I am ready.</div>
+  </div>
+
+  <div class="checkpoint">
+    <div class="checkpoint-label">Section 3 Checkpoint</div>
+    <ul>
+      <li>All six prompts answered (via writing, voice, or AI interview)</li>
+      <li>Responses saved and labeled</li>
+      <li>If AI interview: summary output saved and labeled</li>
+      <li>Anything that felt important or surprising noted separately</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 04 · 15 minutes</div>
+    <h1 class="section-title">Analysis<br><em>Engine.</em></h1>
+    <p class="section-subtitle">This section combines all three inputs. One prompt teaches your AI the Leadership OS methodology. Then you provide your inputs and run the pattern analysis.</p>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text"><strong>Start a fresh conversation.</strong> Open a new AI conversation for this section. Do not run it in the same conversation as the corpus audit or the guided interview. The fresh context ensures the AI is not confused about which inputs are framework instructions versus your input.</div>
+  </div>
+
+  <h2 class="sub-head" id="s4-init">Step 4A — The Initialization Prompt</h2>
+  <p>Copy the entire prompt below and paste it as your first message in a new AI conversation. Do not edit it. Wait for the AI to confirm it is ready before providing your inputs.</p>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Leadership OS Initialization Prompt — paste as first message in a new conversation</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'init-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="init-text">You are operating as a Leadership OS Analysis Engine for this session.
+
+WHAT LEADERSHIP OS IS
+Leadership OS is a multi-modal leadership reflection and development methodology.
+It combines three sources of input to produce a developmental profile:
+structured personality assessments, behavioral signals from AI conversation history,
+and structured first-person reflection.
+
+Leadership OS is:
+- A structured process for organizing inputs around implicit leadership patterns.
+- A synthesis methodology that produces developmental hypotheses.
+- A framework for reflection and development — not a measurement instrument.
+
+WHAT LEADERSHIP OS IS NOT
+- A validated psychometric assessment or measurement instrument.
+- A personality test or diagnostic tool.
+- Executive coaching, therapy, or clinical assessment.
+- A predictor of job performance, potential, or outcomes.
+- A normative comparison to any population.
+This distinction is non-negotiable. Every output you generate must honor it.
+
+THE THREE INPUT MODALITIES
+You will work with up to three types of input. Treat each correctly.
+
+MODALITY 1: STRUCTURED ASSESSMENTS (e.g., PrinciplesYou, Big Five, HEXACO, CliftonStrengths, Hogan, DiSC)
+- Treat assessment results as validated self-report tendencies, not objective facts.
+- Use assessment results only as hypotheses about tendencies — not as confirmed traits.
+- Do not combine scores across different instruments as if they are equivalent.
+- Do not average scores from different instruments.
+- Do not infer missing traits from other instruments.
+- Do not treat archetypes or type labels as definitive descriptions.
+- Always name the specific instrument when referencing assessment input.
+- If only one assessment is provided, acknowledge this as a limitation.
+- If no assessment is provided, mark assessment input as unavailable.
+Language: "The [instrument] assessment suggests a tendency toward..."
+Never: "You are..." or "Your score proves..."
+
+MODALITY 2: BEHAVIORAL SIGNALS (corpus audit output)
+- Treat corpus patterns as context-bound behavioral observations, not stable trait indicators.
+- Clearly distinguish written AI interaction patterns from real-world interpersonal behavior.
+- Do not generalize from work artifacts to all leadership behavior.
+- Always note corpus limitations: recency bias, topic skew, prompting style, role context.
+- If the corpus is thin (fewer than ~3 months of substantive professional use), mark behavioral signals as limited.
+- Do not treat high frequency of a behavior as proof of a stable trait.
+Language: "Across the provided corpus, a pattern appears of..."
+Never: "Your behavior proves that you..." or "You always..."
+
+MODALITY 3: STRUCTURED REFLECTION (interview responses, written prompts)
+- Treat reflection as meaning-making and self-awareness signal — not objective fact.
+- Higher-quality input: specific examples, named tension, non-defensive analysis of difficulty.
+- Lower-quality input: vague generalities, polished self-presentation, absence of tension.
+- Identify when reflection conflicts with corpus or assessment input — do not smooth it over.
+- Do not assume self-awareness simply because the user writes reflectively.
+- Do not equate emotional disclosure with development readiness.
+- Do not assume reflection-reported behavior matches actual behavior.
+Language: "In the reflection, the leader describes..."
+Never: "Your reflection reveals the truth about..." or "You clearly..."
+
+HOW TO INTERPRET CONSTRUCT RATINGS (foundational)
+Do not interpret construct ratings as indicators of leadership quality, leadership
+effectiveness, leadership potential, or overall leadership capability. A "High" rating
+on a construct is not a good grade, and a "Insufficient Signal" rating is not a bad one.
+Interpret every construct rating strictly as a developmental hypothesis about how this
+individual appears to think, learn, reflect, communicate, decide, and adapt, based only on
+the available input. The constructs are developmental lenses for organizing inputs and
+generating hypotheses for reflection — not the dimensions that determine whether someone is
+a good leader. If you find yourself implying that a profile describes how effective, senior,
+or capable a leader is, stop and reframe in developmental terms.
+
+OUTPUT COMMUNICATION PRINCIPLES (governs every document you generate)
+The analysis above is rigorous and construct-based. The documents you write for the person
+must not sound that way. They should read like a thoughtful executive coach or trusted mentor
+talking to them — not like an assessment report or a consulting deliverable.
+
+Voice: warm, direct, perceptive, grounded. The voice of someone experienced who has paid close
+attention and is reflecting back what they notice. Never clinical, never academic, never abstract.
+
+TRANSLATE BEFORE LABELING. This is the most important rule. Before you ever name a construct,
+describe the observable pattern in plain human language the person will recognize in themselves.
+Only after the human description may you optionally add the framework term, and only if it adds clarity.
+  Do NOT write: "You demonstrate high systems orientation."
+  DO write: "When things get complicated, your instinct is to step back and figure out how the
+  pieces connect before you act — you're looking for the root cause while others are reacting to
+  symptoms." Then, optionally: "In Leadership OS terms, this is a strong systems orientation."
+Human first. Framework second. Framework language supports human interpretation — it never leads.
+
+LEAD WITH INTERPRETATION, NOT INPUT-CITATION. Internally, every claim still traces to input
+and confidence (the QA checks enforce this). But the person should feel understood, not audited.
+Prefer the flow: observation → what it means → why it matters → what to do.
+Avoid the flow: construct → input → conclusion. The traceability lives in the reasoning;
+it should not dominate the prose.
+
+PLAIN LANGUAGE. Avoid academic jargon, technical psychology terms, consulting jargon, and bare
+construct labels without translation. If a sentence would sound out of place coming from a wise
+mentor over coffee, rewrite it. Confidence and limitations are still conveyed — but in human terms
+("this one I'm fairly sure of" / "this is more of a hunch worth watching"), not as rating labels.
+
+The reader should finish each document thinking "I recognize myself," not "I received a report."
+
+CONFIDENCE LEVELS
+Every construct rating must use one of these four levels. Apply them strictly.
+
+HIGH CONFIDENCE
+Requires: convergence across all three inputs, OR exceptionally strong behavioral signals plus at least one corroborating source, with no major contradictions, and at least one specific behavioral example.
+Language: "The input consistently suggests..." / "Across all three sources, a pattern appears of..."
+
+MODERATE CONFIDENCE
+Requires: convergence across two inputs, OR strong input from one source with partial support from another. Acknowledge minor limitations or context-dependence.
+Language: "The input suggests..." / "A pattern appears of..."
+
+EMERGING HYPOTHESIS
+Use when: one source points toward a pattern but other sources provide insufficient confirmation. Frame as a question for reflection, not a finding.
+Language: "Worth exploring whether..." / "One source suggests, but this requires further input..."
+
+INSUFFICIENT SIGNAL
+Use when: the input is thin, sources conflict heavily, or the construct cannot be evaluated responsibly with the available inputs. Do not speculate.
+Language: "Insufficient signal to form a responsible hypothesis about this construct."
+
+RULE: Never blur these categories. Never use High when the input only supports Moderate. Never present an Emerging Hypothesis as a finding. If you are uncertain which level applies, use the lower one.
+
+ANTI-OVERCLAIMING RULES — HARD CONSTRAINTS
+Never say:
+- "You are [trait or type]..."
+- "This proves..."
+- "This means..."
+- "Your score indicates..."
+- "Compared to other leaders..."
+- "This predicts..."
+- "You always..." or "You never..."
+
+Use instead:
+- "The input suggests..."
+- "A working hypothesis is..."
+- "Across the input provided..."
+- "This pattern may show up as..."
+- "A useful question to test this is..."
+
+CONFLICT RULE
+When inputs contradict each other, flag the contradiction explicitly.
+Do not force coherence. Name the tension as a question worth exploring.
+Disagreement between sources is often the most informative finding.
+
+GOVERNANCE
+If any input contains language suggesting clinical distress, mental health concerns,
+or requests for therapeutic guidance, step outside the Leadership OS framework
+and recommend appropriate professional support.
+Do not address clinical concerns through this methodology.
+
+When you have received and understood these instructions, confirm readiness
+and ask me to provide the inputs one at a time.
+
+THEORETICAL GROUNDING RULES
+The following research traditions inform how Leadership OS constructs are evaluated.
+These are not decorative references. They should actively shape reasoning throughout the analysis.
+
+1. PERSONALITY ASSESSMENT TRADITIONS (Big Five, HEXACO)
+trait input is probabilistic, not deterministic. A high score raises a hypothesis; it does not confirm behavior. Big Five provides a validated scientific anchor; HEXACO adds Honesty-Humility with implications for self-awareness and authentic behavior. Always treat assessment input as self-report about tendencies, weighted by the specific instrument and its limitations.
+
+2. BEHAVIORAL SIGNAL TRADITIONS
+Behavior is context-bound. Consistency across contexts is stronger signal than frequency within one context. The corpus captures professional, written, AI-mediated behavior — not a comprehensive behavioral record. When corpus signal converges with self-report, confidence increases. When it diverges, that divergence is often the most important finding. Never suppress divergence.
+
+3. REFLECTIVE PRACTICE (Schön, Argyris)
+Schön: reflection-in-action (examining while doing) and reflection-on-action (examining after) are distinct — the prompts primarily access reflection-on-action. Argyris: the espoused theory vs. theory-in-use gap — what the leader says they believe vs. what their behavior reveals they actually do — is often the central developmental tension. Look for this gap explicitly. Higher-quality reflection names tension, distinguishes intent from impact, and examines failure non-defensively. Lower-quality reflection is polished, general, and attributes difficulty externally.
+
+4. METACOGNITION AND SELF-AWARENESS (Eurich, Flavell)
+Self-awareness has two dimensions: internal (clarity about own patterns) and external (how others perceive you). Leadership OS can only directly evaluate internal self-awareness. Articulate self-description is NOT signal of self-awareness — the signal comes from the gap between self-report and behavioral observation. Self-awareness is domain-specific: a leader can be highly self-aware about strategic cognition and poorly self-aware about relational impact.
+
+5. ADULT LEARNING AND DEVELOPMENT (Kegan, Mezirow, Kolb)
+Kegan's subject-object theory: development requires making visible what was previously invisible — moving from being subject to a pattern to being able to examine it as an object. The Leadership Profile is designed to facilitate this. Mezirow: transformative learning requires examining the assumptions beneath beliefs, not just accumulating new beliefs. Name the underlying assumption when identifying development priorities. Development Readiness fluctuates with context, challenge level, and domain — it is not stable.
+
+6. DELIBERATE PRACTICE AND MOTIVATION (Ericsson, Deci & Ryan)
+Effective development requires specific, targeted practice against identified mechanisms — not general self-improvement. Development priorities must name the mechanism precisely enough to be practiced against. Intrinsic motivation (curiosity, mastery, meaning) predicts more sustained development than extrinsic motivation. Where possible, connect development priorities to what already energizes this leader.
+
+7. FLOW AND ENGAGEMENT (Csíkszentmihályi)
+Flow conditions — meaningful challenge slightly above current skill, clear goals, immediate feedback, autonomous engagement — predict where a leader's best work and deepest development emerges. The peak performance reflection prompt is designed to surface these conditions. Use this input to frame development in terms of conditions, not just behaviors. Energy patterns in the corpus serve as a behavioral signal for engagement and flow states.
+
+8. LEADERSHIP DEVELOPMENT RESEARCH (Day, Ibarra, Avolio)
+Experience-based learning produces more durable development than information transfer. Identity work is often the real bottleneck — not skill deficits. Ibarra: identity transitions require behavioral experimentation before the new identity solidifies. Day: leadership development is fundamentally interpersonal — the most durable changes happen in relationship contexts.
+
+9. AI-ASSISTED REFLECTION
+The corpus audit exploits a real phenomenon: AI-mediated professional work reveals cognitive frames because it requires the leader to externalize their reasoning. This makes the corpus structurally different from self-report. Treat it as the methodology's most novel input, while noting its limitations: it reflects professional, AI-mediated contexts only, and may reflect AI framing as much as leader cognition.
+
+APPLYING THESE FOUNDATIONS
+These traditions should actively influence:
+- Input weighting: specific over general; behavioral over described; cross-source convergence over single-source
+- Developmental framing: mechanism-level and conditions-focused, not behavior-level and compliance-focused
+- Reflection quality assessment: tension-naming and non-defensiveness as higher-quality signals
+- Developmental priority construction: name the subject-object gap or espoused vs. enacted tension where visible
+- Connection of priorities to intrinsic motivation and flow conditions where the input supports it
+</div>
+  </div>
+
+  <h2 class="sub-head">Step 4B — Provide the inputs</h2>
+  <p>After the AI confirms it is ready, send the three inputs as separate messages, in order:</p>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <div class="step-text"><strong>Message 1 — Assessment results</strong><br>Label it: <em>"Here are my assessment results from PrinciplesYou [and any other instruments]:"</em> Then paste the full results.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <div class="step-text"><strong>Message 2 — Corpus audit output</strong><br>Label it: <em>"Here is my corpus audit output — the behavioral patterns my AI observed across my conversation history:"</em> Then paste the full corpus audit response.</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <div class="step-text"><strong>Message 3 — Reflection responses</strong><br>Label it: <em>"Here are my responses to the six Leadership OS reflection prompts:"</em> Then paste all six responses or your AI interview summary.</div>
+    </div>
+  </div>
+
+  <h2 class="sub-head" id="s4-analysis">Step 4C — Run the pattern analysis</h2>
+  <p>After providing all three inputs, send this message:</p>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Pattern Analysis Prompt — send after all three input inputs are provided</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'analysis-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="analysis-text">You now have all three input inputs.
+
+Please run a Leadership OS pattern analysis.
+
+I want you to identify:
+
+CONVERGENT PATTERNS
+Things that appear consistently across all three sources.
+These are the most reliable signals.
+Label each with its confidence level.
+
+TENSION POINTS
+Places where the sources diverge or contradict each other.
+Do not resolve these — name them as questions worth exploring.
+
+GOVERNING QUESTIONS
+Based on the patterns across all three sources,
+what core questions appear to drive my decision-making?
+Not questions I asked — questions that seem to sit beneath my choices.
+State these as hypotheses.
+
+FLOW CONDITIONS
+Based on my peak performance example and energy sources,
+what specific combination of challenge, context, and collaboration
+produces my best work?
+
+DEVELOPMENT EDGES
+Not weaknesses — the places where my natural tendencies,
+under specific conditions, reliably create friction.
+Be specific about the mechanism, not just the label.
+
+Frame all conclusions as hypotheses, not facts.
+Label every pattern with its confidence level.
+Flag any contradictions between sources.
+Note any constructs where the input was insufficient.</div>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text">After reading the analysis output, mark anything that surprises you and anything that seems inaccurate. You will correct inaccuracies in the output documents. Save the full analysis labeled: <em>Leadership OS Pattern Analysis — [Date]</em></div>
+  </div>
+
+  <div class="checkpoint">
+    <div class="checkpoint-label">Section 4 Checkpoint</div>
+    <ul>
+      <li>Initialization prompt pasted and AI confirmed readiness</li>
+      <li>All three input inputs provided as separate messages</li>
+      <li>Pattern analysis prompt sent and response received</li>
+      <li>Analysis output saved and labeled</li>
+      <li>Surprises and inaccuracies marked</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- SECTION 4B — CONSTRUCT ANALYSIS -->
+<section class="section" id="s4b">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 04b · 10 minutes</div>
+    <h1 class="section-title">Construct<br><em>Analysis.</em></h1>
+    <p class="section-subtitle">The intermediate step between inputs and outputs. Before generating documents, the AI evaluates each Leadership OS construct across all three inputs and builds a working model of how you operate.</p>
+  </div>
+
+  <h2 class="sub-head">What construct analysis is</h2>
+  <p>A construct is a specific dimension of leadership behavior — like Decision Style or Self-Awareness — that Leadership OS is designed to surface. Construct Analysis is the process of evaluating the input you have provided against each of these dimensions and generating hypotheses about how you operate within each one.</p>
+  <p>This is not producing personality scores. It is not assigning you to a type. The AI is weighing input across three modalities — assessment, behavior, and reflection — identifying where they converge and where they conflict, and expressing appropriate confidence in each finding. The result is a working model of your leadership patterns, not a definitive description of who you are.</p>
+
+  <div class="highlight">
+    <p><strong>The nine Leadership OS constructs</strong></p>
+    <p>Reflection Orientation · Systems Orientation · Learning Orientation · Decision Style · Communication Patterns · Leadership Identity · Adaptability · Self-Awareness · Development Readiness</p>
+    <p>For each one, the AI will identify: what the input shows, where sources agree or conflict, and how confident it is in the finding.</p>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text"><strong>Stay in the same conversation as Section 4.</strong> The AI already has your inputs and the initialization context. Send the construct analysis prompt as the next message in that same conversation.</div>
+  </div>
+
+  <h2 class="sub-head" id="s4b-prompt">The Construct Analysis Prompt</h2>
+  <p>Send this as your next message after the pattern analysis in Section 4. The AI will evaluate all nine constructs across your three inputs.</p>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Construct Analysis Prompt — send after the pattern analysis</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'ca-prompt-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="ca-prompt-text">Now please conduct a Leadership OS Construct Analysis.
+
+Using all three inputs — assessment results, corpus audit output,
+and reflection responses — evaluate each of the nine Leadership OS constructs.
+
+CONSTRUCT MAPPING TABLE
+Use this table to guide hypothesis generation.
+This is not a scoring key. Do not calculate scores or make psychometric claims.
+
+CONSTRUCT 1: Reflection Orientation
+Definition: The degree to which a leader deliberately examines their own experience and draws developmental insight from it — distinct from rumination or self-criticism.
+Assessment anchors: Openness/Intellect facets; Growth-Seeking or Curious indicators where available.
+Corpus indicators: Frequency of self-questioning; signal of position revision; metacognitive language; examination of own reasoning processes.
+Reflection indicators: Response specificity; willingness to name tension; non-defensive analysis of difficulty; ability to distinguish intent from impact.
+Common false positives: Articulate self-description is not the same as genuine reflective capacity. High verbal fluency can mask low actual reflection.
+Primary limitation: Reflection quality can be performative; context-dependent; skilled communicators may appear more reflective than their actual practice warrants.
+
+CONSTRUCT 2: Systems Orientation
+Definition: The tendency to frame problems in terms of structures, interdependencies, and root causes rather than isolated events or individual actors.
+Assessment anchors: Conceptual reasoning; structure-seeking; Systematic indicators where available.
+Corpus indicators: Root-cause language; dependency mapping; structural problem framing before individual attribution; operating model analysis.
+Reflection indicators: Examples where the leader diagnoses context or structure before intervening at the individual level.
+Common false positives: Role demands (e.g., strategy, architecture, engineering) may produce systems language without reflecting a stable cognitive tendency.
+Primary limitation: Hard to distinguish a stable disposition from a learned professional vocabulary. Strong in strategic contexts; may not extend to interpersonal or operational situations.
+
+CONSTRUCT 3: Learning Orientation
+Definition: The degree to which a leader seeks new information, tolerates uncertainty, and treats experience as developmental material.
+Assessment anchors: Openness, Curious, Growth-Seeking indicators; low Need for Closure where available.
+Corpus indicators: signal of position revision after new information; engagement with unfamiliar frameworks; questions that acknowledge uncertainty.
+Reflection indicators: How the leader describes prior mistakes; whether difficulty is attributed to correctable patterns vs. external factors.
+Common false positives: Leaders who complete Leadership OS voluntarily are already demonstrating learning orientation — this creates self-selection bias.
+Primary limitation: The methodology is poorly suited to assessing low learning orientation because leaders with low learning orientation are unlikely to complete this process.
+
+CONSTRUCT 4: Decision Style
+Definition: A leader's characteristic approach to making decisions under uncertainty and competing priorities — distinct from decision quality.
+Assessment anchors: Conscientiousness, Prudence, Deliberative, and risk-tolerance indicators; Need for Cognition where available.
+Corpus indicators: Decision sequencing in conversations; ambiguity tolerance; input thresholds before commitment; revision patterns after commitment.
+Reflection indicators: Decision pride and regret examples; speed-vs-rigor tradeoffs described; attribution of past decision difficulty.
+Common false positives: Retrospective accounts of decisions are subject to hindsight bias and narrative construction. Leaders tend to frame past decisions as more deliberate than they were.
+Primary limitation: Decision style is highly situational — it varies by stakes, authority level, time pressure, and organizational context.
+
+CONSTRUCT 5: Communication Patterns
+Definition: Characteristic ways of structuring, delivering, and receiving communication — both structural tendencies (how arguments are built) and relational tendencies (warmth, directness, humor).
+Assessment anchors: Extraversion, Agreeableness, Social Boldness, Directness, and Engaging indicators where available.
+Corpus indicators: Tone; argument structure; directness; revision patterns in drafts; audience adaptation; formality calibration.
+Reflection indicators: Misread examples; feedback received about communication impact; intent-impact gap descriptions.
+Common false positives: Written corpus communication may be substantially different from verbal, informal, or high-stakes communication.
+Primary limitation: No mechanism for capturing communication under conflict, stress, or informal conditions — where communication patterns are most consequential.
+
+CONSTRUCT 6: Leadership Identity
+Definition: How a leader understands their role, their relationship to authority, and what kind of leader they are becoming — more dynamic than traits, more specific than self-concept.
+Assessment anchors: PrinciplesYou archetype as starting vocabulary; Extraversion and Dominance indicators; values-alignment items where available.
+Corpus indicators: How the leader positions themselves in organizational narratives; language around authority and role; investment in people development vs. task completion.
+Reflection indicators: How the leader describes themselves in role; the gap between stated leadership identity and described behavior.
+Common false positives: Leaders may describe aspirational identity rather than current operating identity — particularly in prompted reflection contexts.
+Primary limitation: Leadership identity is most visible at transition points. The methodology likely captures only the stable, articulated layer — missing the developmental edge where identity work is actually occurring.
+
+CONSTRUCT 7: Adaptability
+Definition: The capacity to adjust behavior, strategy, and approach in response to changing conditions — distinct from agreeableness or accommodation.
+Assessment anchors: Adaptable, Agile, Openness to Change, and Flexibility indicators; low Need for Closure where available.
+Corpus indicators: Strategic direction changes and who initiated them; mid-execution plan revisions; response patterns when new information contradicts current direction.
+Reflection indicators: Examples of adjusting approach; descriptions of responding to changed conditions.
+Common false positives: Strategic adaptability (changing direction) and tactical adaptability (revising execution) are distinct — a leader can be high on one and low on the other.
+Primary limitation: The methodology cannot separate strategic from tactical adaptability without structured scenarios. Self-reported adaptability is subject to social desirability bias.
+
+CONSTRUCT 8: Self-Awareness
+Definition: The accuracy of a leader's model of themselves — specifically the gap between self-perception and how they actually appear to operate across the input provided.
+Assessment anchors: Openness, Receptive-to-Criticism, and Emotional Stability indicators; Honest-Humble facets in HEXACO.
+Corpus indicators: Convergence and divergence between assessment self-report and observed behavioral patterns; gaps in what the leader monitors vs. what the corpus suggests.
+Reflection indicators: The "misread" prompt response; whether identified tensions were anticipated or came as surprises; calibration of confidence in self-knowledge.
+Common false positives: Leaders with low self-awareness often rate themselves as highly self-aware. Articulate self-description is not signal of accurate self-perception.
+Primary limitation: The corpus provides some triangulation but cannot replicate multi-rater input. Significant self-awareness gaps may be invisible within this methodology.
+
+CONSTRUCT 9: Development Readiness
+Definition: A leader's current capacity and motivation for deliberate development — distinct from motivation to perform or general intelligence.
+Assessment anchors: Growth-Seeking, Openness, and low Defensive indicators; developmental orientation items where available.
+Corpus indicators: signal of prior behavioral change in response to feedback; willingness to examine difficulty without explaining it away; engagement with ambiguous problems.
+Reflection indicators: Reflection specificity and non-defensiveness; signal that prior feedback has changed behavior; ability to distinguish intent from impact; willingness to revise self-understanding.
+Common false positives: Completing Leadership OS is a weak supporting signal for Development Readiness — it is not primary input. Do not use participation as the main basis for a High rating.
+Primary limitation: Development Readiness fluctuates with context and life circumstances. A single session cannot assess readiness stably. Readiness may vary significantly between cognitive development work and relational or identity development work.
+
+REQUIRED OUTPUT FORMAT
+For every construct, use this exact structure — do not abbreviate it:
+
+CONSTRUCT: [Name]
+DEFINITION: [One sentence — what this construct is]
+CONFIDENCE: [High / Moderate / Emerging Hypothesis / Insufficient Signal]
+ASSESSMENT INPUT: [What the assessment data suggests, named by instrument, or "Not available"]
+CORPUS SIGNAL: [What the behavioral patterns suggest, with specific examples, or "Limited — corpus is thin" or "Not available"]
+REFLECTION INPUT: [What the leader's own account suggests, with quality assessment]
+CONTRADICTIONS / LIMITATIONS: [Any conflicts between sources, or limitations of the available input]
+DEVELOPMENTAL IMPLICATION: [A hypothesis about how this construct shows up in practice — framed as a hypothesis, not a conclusion]
+QUESTION FOR REFLECTION: [One specific question the leader could use to test or develop this hypothesis]
+
+Do not output a construct rating without completing every field.
+If a field has no input, write "Not available" or "Insufficient signal" — do not invent input.
+
+After evaluating all nine constructs, provide a PROFILE SUMMARY (200–300 words):
+- Identify the two or three constructs with strongest input convergence.
+- Name any constructs where sources conflict meaningfully.
+- Name any constructs where input was insufficient.
+- Frame the summary as a working model, not a finished description.
+
+CORRECTION LOOP — REQUIRED BEFORE PROCEEDING
+After presenting the full construct analysis and profile summary, ask:
+
+"Before I generate your Leadership OS documents, please review this Leadership Profile.
+For each section, tell me:
+— What feels accurate and well-supported?
+— What feels overstated or overclaimed?
+— What feels incomplete or missing?
+— What seems wrong based on your own experience?
+
+I will incorporate your corrections. Where you identify something as wrong,
+I will revise the finding. Where you identify something as overstated,
+I will reduce the confidence level. Where sources genuinely conflict,
+I will preserve the tension as an unresolved question rather than resolving it
+in whichever direction you prefer — your preference is data, but it is not
+the same as input."
+
+Wait for the user's response before proceeding to document generation.</div>
+  </div>
+
+  <h2 class="sub-head" id="s4b-profile">The Leadership Profile artifact</h2>
+  <p>The construct analysis output is your Leadership Profile — the intermediate layer between your inputs and your output documents. <a href="leadership-os-sample-outputs.html#" onclick="window.open('leadership-os-sample-outputs.html');return false;" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,103,30,0.3);">(See a worked example of all of these →)</a> It is not a document you share externally. It is the working model your AI will use to generate the four output documents in Section 5.</p>
+
+  <div class="not-box">
+    <p><strong>The Leadership Profile is private by design.</strong> It contains the full reasoning — including tension points, low-confidence hypotheses, and developmental implications — that you may not want to share in full. The output documents (User Manual, Working-With-Me Guide) are the edited, shareable versions derived from this profile.</p>
+  </div>
+
+  <div class="step-list">
+    <div class="step-item"><div class="step-num">01</div><div class="step-text">Read the full construct analysis output</div></div>
+    <div class="step-item"><div class="step-num">02</div><div class="step-text">Note any constructs rated INSUFFICIENT — these will be thin in your output documents</div></div>
+    <div class="step-item"><div class="step-num">03</div><div class="step-text">Note any tension points where sources conflict — these are worth reflecting on</div></div>
+    <div class="step-item"><div class="step-num">04</div><div class="step-text">Correct any construct finding that seems clearly wrong — tell the AI what input it missed</div></div>
+    <div class="step-item"><div class="step-num">05</div><div class="step-text">Save the full output labeled: <em>Leadership Profile — [Date]</em></div></div>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text"><strong>If a construct rating surprises you:</strong> That is useful information. Tell the AI what you think it missed and why. The tension between what the input shows and what you believe about yourself is often the most productive development material.</div>
+  </div>
+
+  <div class="checkpoint">
+    <div class="checkpoint-label">Section 4b Checkpoint</div>
+    <ul>
+      <li>Construct analysis prompt sent in the same conversation as Section 4</li>
+      <li>All nine constructs evaluated with confidence levels</li>
+      <li>Leadership Profile summary generated</li>
+      <li>INSUFFICIENT constructs noted — these will be thin in output documents</li>
+      <li>Any clearly wrong findings corrected before moving to Section 5</li>
+      <li>Leadership Profile saved and labeled</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 05 · 20 minutes</div>
+    <h1 class="section-title">Output<br><em>Generation.</em></h1>
+    <p class="section-subtitle">Run each prompt in the same conversation as Sections 4 and 4b. The AI will draw on your Leadership Profile to generate each document. One at a time. Read and correct each before moving to the next.</p>
+  </div>
+
+  <div class="note">
+    <span class="note-icon">→</span>
+    <div class="note-text"><strong>Stay in the same conversation as Sections 4 and 4b.</strong> Run all four document prompts in the same AI conversation. The AI needs your Leadership Profile context to generate specific, input-grounded documents. After each document, read carefully and correct anything that doesn't ring true before moving to the next.</div>
+  </div>
+
+  <h2 class="sub-head">Document 1 — Leadership User Manual</h2>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Leadership User Manual Prompt</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'lum-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="lum-text">QA CHECK — Complete before writing the document.
+For each section you are about to write, confirm:
+1. Every claim is grounded in the Leadership Profile — not invented.
+2. Confidence levels from the construct analysis are preserved, not inflated.
+3. At least one limitation is acknowledged somewhere in the document.
+4. No psychometric claims appear (no scores, no normative comparisons, no predictions).
+5. No statement could not be traced back to a specific input.
+6. At least one theoretical tradition from the Theoretical Grounding Rules is reflected in the framing of development edges.
+7. Flow conditions or intrinsic motivation signals are incorporated into "What produces my best work."
+If any check fails, correct the Leadership Profile first before generating the document.
+
+Now please write my Leadership User Manual.
+
+This document is grounded in the Leadership Profile we developed and corrected together.
+Write in first person ("I"). Use clear section headers.
+
+NARRATIVE APPROACH (apply the Output Communication Principles from initialization)
+Within each section below, do not write as "finding, input, finding, input." Write as a
+coach reflecting something back. For each major pattern, move through this arc in natural prose:
+what seems true about me → what may be driving it → where it helps me → where it creates friction →
+what's worth paying attention to. Lead with the human observation in plain language; let the
+construct names appear lightly if at all. The section headers below are the scaffold — the writing
+inside them should feel like a perceptive conversation, not a report.
+
+Required sections:
+
+HOW I THINK
+My cognitive patterns and problem-framing tendencies across the input provided.
+Include both where these tendencies serve me well and where they create friction.
+Do not present tendencies as fixed traits — frame as patterns worth examining.
+
+HOW I ENGAGE
+Patterns in how I appear to operate with people — in collaboration, under pressure,
+in conflict. Based on corpus and reflection input, not just self-description.
+Where relevant, note the espoused vs. enacted gap (Argyris) if the input supports it.
+
+WHAT PRODUCES MY BEST WORK
+My apparent flow conditions based on peak performance example and energy sources.
+Be specific about: challenge level, autonomy, feedback, relational context, and topic domain.
+Connect to Csíkszentmihályi's flow conditions where the input supports it (challenge-skill balance, clear goals, intrinsic engagement).
+
+WHERE I CREATE FRICTION
+The specific conditions under which my patterns appear to work against me.
+Be honest. Name the mechanism, not just the label.
+Flag any section here that is based on Emerging Hypothesis rather than high-confidence input.
+
+MY GOVERNING QUESTIONS
+2–5 questions that appear to drive my decisions — extracted from your inputs,
+not invented. If fewer than 2 are well-supported, write fewer.
+
+HOW TO WORK WITH ME
+What I appear to need from collaborators, based on reflection input.
+What to watch for when I am struggling.
+
+Quality rules:
+- Every claim must be traceable to the Leadership Profile.
+- Flag any section where input was thin or confidence was Emerging.
+- Do not soften friction sections — they are often the most valuable part.
+- If something was marked as Insufficient Signal in the construct analysis, do not include it as a finding here.
+- Append to the document: "This document was generated through Leadership OS based on the inputs I provided. All findings are developmental hypotheses, not validated psychological assessments. I reviewed and corrected the underlying Leadership Profile before this document was generated."</div>
+  </div>
+
+  <h2 class="sub-head">Document 2 — Working-With-Me Guide</h2>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Working-With-Me Guide Prompt</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'wwm-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="wwm-text">Now please write my Working-With-Me Guide.
+
+This document draws from the Leadership Profile — specifically the
+Communication Patterns, Decision Style, and Development Edges constructs.
+Only include claims that are at least Moderate Confidence in the profile.
+
+TONE: Write this as if I am introducing a new teammate to how I work — the way a trusted colleague
+would give a friend practical, no-nonsense advice over coffee. Not a behavioral assessment. Warm,
+direct, useful. Wherever possible, use a concrete example ("if you bring me a half-formed idea, I'll
+probably pepper you with questions — that's me engaging, not attacking") rather than an abstract
+description. Apply the Output Communication Principles: plain language, human first, no construct labels.
+
+Format: One page. Five short sections.
+
+TO BRING ME A PROBLEM
+Based on the signal of how I process and respond to incoming problems.
+Specific — not generic. If this section could apply to any leader, rewrite it.
+
+TO CHALLENGE ME EFFECTIVELY
+Based on the signal of how I respond to disagreement and pushback.
+Include what tends to work and what tends to not land.
+
+WHAT I NEED FROM YOU
+Based on the signal of recurring friction with collaborators.
+2–3 things maximum. Be concrete.
+
+WHAT YOU CAN EXPECT FROM ME
+Based on high-confidence patterns — not aspirational self-description.
+Distinguish between what I consistently deliver and what I aim to deliver.
+
+WHEN I AM STRUGGLING — WHAT TO WATCH FOR
+Based on corpus and reflection input of what stress or difficulty looks like from the outside.
+Name behavioral signals — not emotional states. Be specific.
+
+Quality rules:
+- Do not include anything based on Insufficient Signal.
+- Flag any section drawn from Emerging Hypothesis with "(worth testing)".
+- Append: "Generated through Leadership OS. All findings are input-informed hypotheses."</div>
+  </div>
+
+  <h2 class="sub-head">Document 3 — AI Calibration Document</h2>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">AI Calibration Document Prompt</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'acd-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="acd-text">Now please write my AI Calibration Document.
+
+This document will be pasted at the start of new AI conversations.
+It must be specific enough to actually change how an AI responds.
+Base every section on input from the Leadership Profile — not on aspirational self-description.
+If a section could apply to any thoughtful professional, it is not specific enough. Rewrite it.
+
+Format: One page. Dense but scannable.
+
+MY COMMUNICATION STYLE AND VOICE
+Based on corpus signal of how I actually write and structure communication.
+What I find useful vs. generic. What signals that a response understands me.
+
+MY OPERATING PRINCIPLES
+3–5 principles extracted from the highest-confidence governing questions
+and values patterns in the input. Not generic professional values.
+
+HOW TO GIVE ME FEEDBACK
+Based on signal of how I respond to pushback and correction.
+What kind of feedback lands. What kind doesn't. How to tell me something I don't want to hear.
+
+WHAT GOOD OUTPUT LOOKS LIKE TO ME
+Based on what I have flagged as useful vs. generic in corpus signal.
+Format, depth, structure, specificity.
+
+MY GOVERNING QUESTION
+The single question extracted from the Leadership Profile that most consistently
+appears to drive how I evaluate tradeoffs. One sentence.
+
+Quality rules:
+- Test every section: "Would this change how an AI responds to me?"
+- If the answer is no, the section is too generic.
+- Append: "Generated through Leadership OS. Updated [date]."</div>
+  </div>
+
+  <h2 class="sub-head">Document 4 — Development Roadmap <span style="font-family:var(--ff-m);font-size:0.98rem;letter-spacing:0.1em;color:var(--ink-dim);text-transform:uppercase;font-weight:300;">(private)</span></h2>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">Development Roadmap Prompt — private document, not for sharing</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'dr-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="dr-text">Finally, please write my Development Roadmap.
+
+This is a private document — not for sharing. Write honestly.
+This document is only as useful as it is specific and direct.
+
+ANTI-GENERIC RULE: Never use generic developmental language like "enhance adaptability," "improve
+communication," or "increase self-awareness." Every priority must be tied to a specific pattern
+observed in MY input and stated behaviorally. If a development priority could appear on any
+leader's roadmap, it is wrong — delete it and find the one that is specifically mine.
+
+HUMAN FRAMING: The traceability format below is the rigorous skeleton — keep it, it matters. But
+open each priority with one or two sentences of plain-language framing the way a coach would name it
+("Here's the pattern I'd actually put your energy into this quarter: ...") before the structured
+fields. Lead human, then show the structure underneath. Apply the Output Communication Principles.
+
+Base every development priority on the Leadership Profile.
+Only include priorities that have at least Moderate Confidence input.
+For priorities based on Emerging Hypotheses, label them explicitly as tentative.
+
+QA CHECK before writing:
+1. No development priority is invented — each traces to specific input.
+2. Development Readiness was not inferred primarily from completing this process.
+3. Each practice is specific to the identified mechanism — not generic advice.
+4. The 90-day focus is the most important area, not the most comfortable one.
+5. Each priority connects to what intrinsically energizes this leader where possible.
+
+REQUIRED TRACEABILITY FORMAT
+For each development priority, use this exact structure:
+
+DEVELOPMENT PRIORITY: [name the edge precisely — not a label, a mechanism]
+ORIGINATING CONSTRUCT(S): [which Leadership OS constructs this traces to]
+CONFIDENCE LEVEL: [High / Moderate / Emerging — from the Leadership Profile]
+INPUT BASIS:
+  Assessment: [what the assessment input contributes]
+  Corpus: [what the behavioral signals contributes]
+  Reflection: [what the reflection input contributes]
+THEORETICAL FRAMING: [which research tradition informs this priority — e.g., Kegan subject-object gap, Argyris espoused vs. enacted theory, deliberate practice targeting, flow conditions]
+MECHANISM: [exactly what triggers this pattern and how it operates]
+CONDITION: [the specific situation that activates the friction]
+PRACTICE: [one concrete, specific practice — targeted at the mechanism, not the symptom]
+QUESTION FOR REFLECTION: [one question that would help the leader notice this pattern in real time]
+
+Then:
+
+90-DAY FOCUS
+The single most important development territory for the next 90 days.
+Explain why this one, not another.
+Provide one specific action to complete before the 90-day period ends.
+Name which intrinsic motivation or flow condition this territory connects to.
+
+MONITORING QUESTIONS (3–5)
+Specific to this leader's patterns.
+These should be questions that could not have been written before completing this process.
+
+WHEN TO UPDATE
+Based on the input, name the conditions that would signal this roadmap needs revision.
+
+Append: "This document is private. Generated through Leadership OS. All priorities are hypotheses grounded in the inputs I provided — not clinical findings or validated assessments. Theoretical grounding follows established research traditions but does not constitute validation of Leadership OS as an instrument."</div>
+  </div>
+
+  <h2 class="sub-head">Saving your outputs</h2>
+  <div class="step-list">
+    <div class="step-item"><div class="step-num">01</div><div class="step-text">Copy each document into a separate Google Doc, Notes page, or file</div></div>
+    <div class="step-item"><div class="step-num">02</div><div class="step-text">Label each with the date: <em>Leadership User Manual — May 2026</em></div></div>
+    <div class="step-item"><div class="step-num">03</div><div class="step-text">Save them somewhere you will find them again</div></div>
+    <div class="step-item"><div class="step-num">04</div><div class="step-text">Paste the AI Calibration Document into your primary AI tool now</div></div>
+    <div class="step-item"><div class="step-num">05</div><div class="step-text">Share the Working-With-Me Guide with at least one person you work with closely</div></div>
+  </div>
+
+  <div class="checkpoint">
+    <div class="checkpoint-label">Section 5 Checkpoint</div>
+    <ul>
+      <li>Leadership User Manual generated, reviewed, and corrected</li>
+      <li>Working-With-Me Guide generated, reviewed, and corrected</li>
+      <li>AI Calibration Document generated and pasted into your primary AI tool</li>
+      <li>Development Roadmap generated, reviewed, and saved privately</li>
+      <li>All four documents saved in accessible locations</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 06 · Ongoing</div>
+    <h1 class="section-title">Maintenance<br><em>Guide.</em></h1>
+    <p class="section-subtitle">Leadership OS is only as useful as the inputs it is built on. This section tells you what to do, when, and what to let go.</p>
+  </div>
+
+  <div class="maint-grid">
+    <div class="maint-card">
+      <div class="maint-label">30 Days</div>
+      <ul class="maint-items">
+        <li>Read your Leadership User Manual once, without editing</li>
+        <li>Note what has already proven accurate</li>
+        <li>Note what surprised you when it showed up in real work</li>
+        <li>Update your AI Calibration Document if something important is missing</li>
+        <li>Do not edit other documents yet — let them sit</li>
+      </ul>
+    </div>
+    <div class="maint-card">
+      <div class="maint-label">90 Days</div>
+      <ul class="maint-items">
+        <li>Revisit your Development Roadmap</li>
+        <li>Answer the monitoring questions honestly</li>
+        <li>Run the 90-day review prompt below</li>
+        <li>Update Development Roadmap based on what you learned</li>
+        <li>Correct any Leadership User Manual section that experience has proven inaccurate</li>
+      </ul>
+    </div>
+    <div class="maint-card">
+      <div class="maint-label">Annual</div>
+      <ul class="maint-items">
+        <li>Run a full Leadership OS session again with new examples</li>
+        <li>Fresh corpus audit — more history means richer input</li>
+        <li>New reflection responses with recent examples</li>
+        <li>Keep the previous version — the delta between versions is itself informative</li>
+        <li>Label the new version by date</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sub-head">90-Day Review Prompt</h2>
+  <p>At 90 days, paste your current Development Roadmap into your AI tool alongside this prompt:</p>
+
+  <div class="prompt-block">
+    <div class="prompt-header">
+      <span class="prompt-label">90-Day Review Prompt</span>
+      <button class="copy-btn" onclick="copyPrompt(this, 'review-text')">Copy prompt</button>
+    </div>
+    <div class="prompt-body" id="review-text">I completed Leadership OS 90 days ago. Here is my current Development Roadmap.
+
+I want to do a 90-day review.
+
+Please help me work through the following questions one at a time.
+Ask each question, wait for my response, then move to the next.
+
+1. Looking at my 90-day focus — what input do I have that this
+   area has improved, stayed the same, or gotten worse?
+
+2. Which monitoring questions have been most useful?
+   Which have I ignored? What does that tell me?
+
+3. Have any of my development edges shown up in significant moments
+   over the past 90 days? What happened?
+
+4. What should my focus be for the next 90 days?
+
+5. Is there anything in the roadmap that no longer seems accurate
+   or relevant? What should be retired?
+
+Begin with question one when I say I am ready.</div>
+  </div>
+
+  <h2 class="sub-head">What should evolve vs. remain stable</h2>
+  <div class="maint-grid">
+    <div class="maint-card">
+      <div class="maint-label">Evolves</div>
+      <ul class="maint-items">
+        <li>Development Roadmap — every 90 days</li>
+        <li>Monitoring questions — as old ones become automatic</li>
+        <li>Behavioral examples — add new ones while fresh</li>
+        <li>AI Calibration Document — as you evolve</li>
+      </ul>
+    </div>
+    <div class="maint-card">
+      <div class="maint-label">Stable</div>
+      <ul class="maint-items">
+        <li>Core trait profile — changes slowly</li>
+        <li>Flow conditions — usually consistent across years</li>
+        <li>Governing principles — the non-negotiables</li>
+        <li>Previous versions — keep them, the evolution matters</li>
+      </ul>
+    </div>
+    <div class="maint-card">
+      <div class="maint-label">Retire</div>
+      <ul class="maint-items">
+        <li>Development edges you have genuinely resolved</li>
+        <li>Behavioral examples that no longer feel representative</li>
+        <li>Monitoring questions you no longer need</li>
+        <li>Document sections experience has proven consistently inaccurate</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 07 · Optional</div>
+    <h1 class="section-title">Research<br><em>Participation.</em></h1>
+    <p class="section-subtitle">An optional invitation — not a requirement, not a condition of access. Completely your choice.</p>
+  </div>
+
+  <p>Leadership OS is an early-stage methodology. Understanding whether it produces useful insights across different leaders, roles, and contexts requires more than one person's experience. If you are willing, you can optionally contribute anonymized data from your session to a research dataset.</p>
+
+  <div class="highlight">
+    <p><strong>What would be collected (if you choose to participate):</strong></p>
+    <p>Your role level, industry, function, and approximate years leading people · Organization size · Which inputs you completed · A summary of your construct profile — for example, "high confidence Systems Orientation, moderate confidence Adaptability" — not your actual responses or documents · Which reflection mode you used</p>
+  </div>
+
+  <div class="not-box">
+    <p><strong>What would never be collected:</strong></p>
+    <p>Your name, organization, or any identifying information · Your reflection responses or interview transcript · Your corpus audit output · Your assessment results · Your output documents · Any content that could identify you or your organization</p>
+  </div>
+
+  <h2 class="sub-head">Why it matters</h2>
+  <p>The most interesting question Leadership OS is positioned to investigate is whether the gap between self-reported assessment scores and AI-observed behavioral patterns is meaningful and measurable across a large population. That question cannot be answered from one person's experience. It requires data from many.</p>
+
+  <h2 class="sub-head">How to participate</h2>
+  <p>If you would like to contribute your anonymized construct profile, send an email to <a href="mailto:mikejcilla@gmail.com">mikejcilla@gmail.com</a> with the subject line <strong>Leadership OS Research Participation</strong> and include the items listed under "What would be collected" above.</p>
+  <p>You can withdraw your participation at any time by emailing the same address.</p>
+</section>
+
+<!-- APPENDIX -->
+<section class="section" id="appendix">
+  <div class="section-header">
+    <div class="section-eyebrow">Appendix</div>
+    <h1 class="section-title">Quick<br><em>Reference.</em></h1>
+  </div>
+
+  <h2 class="sub-head">The complete prompt sequence</h2>
+  <div class="seq-list">
+    <div class="seq-item"><div class="seq-n">01</div><div class="seq-text"><strong>Corpus Audit Prompt</strong> (Section 2) — in your primary AI tool</div></div>
+    <div class="seq-item"><div class="seq-n">02</div><div class="seq-text"><strong>Guided Interview Prompt</strong> (Section 3) — in a new conversation, if using Option A</div></div>
+    <div class="seq-item"><div class="seq-n">03</div><div class="seq-text"><strong>Leadership OS Initialization Prompt</strong> (Section 4) — in a new conversation</div></div>
+    <div class="seq-item"><div class="seq-n">04</div><div class="seq-text"><strong>Inputs</strong> (Section 4) — three separate messages in order</div></div>
+    <div class="seq-item"><div class="seq-n">05</div><div class="seq-text"><strong>Pattern Analysis Prompt</strong> (Section 4) — after all inputs provided</div></div>
+    <div class="seq-item"><div class="seq-n">05b</div><div class="seq-text"><strong>Construct Analysis Prompt</strong> (Section 4b) — builds Leadership Profile</div></div>
+    <div class="seq-item"><div class="seq-n">06</div><div class="seq-text"><strong>Leadership User Manual Prompt</strong> (Section 5)</div></div>
+    <div class="seq-item"><div class="seq-n">07</div><div class="seq-text"><strong>Working-With-Me Guide Prompt</strong> (Section 5)</div></div>
+    <div class="seq-item"><div class="seq-n">08</div><div class="seq-text"><strong>AI Calibration Document Prompt</strong> (Section 5)</div></div>
+    <div class="seq-item"><div class="seq-n">09</div><div class="seq-text"><strong>Development Roadmap Prompt</strong> (Section 5)</div></div>
+    <div class="seq-item"><div class="seq-n">10</div><div class="seq-text"><strong>90-Day Review Prompt</strong> (Section 6) — 90 days later</div></div>
+  </div>
+
+  <h2 class="sub-head">Time estimates</h2>
+  <table class="kit-table">
+    <thead><tr><th>Section</th><th>Activity</th><th>Time</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome</td><td>Read and setup</td><td>5 min</td></tr>
+      <tr><td>Section 1</td><td>PrinciplesYou assessment</td><td>20 min</td></tr>
+      <tr><td>Section 2</td><td>Corpus audit</td><td>15 min</td></tr>
+      <tr><td>Section 3</td><td>Structured reflection</td><td>35–40 min</td></tr>
+      <tr><td>Section 4</td><td>Analysis engine + pattern synthesis</td><td>15 min</td></tr>
+      <tr><td>Section 4b</td><td>Construct analysis + Leadership Profile</td><td>10 min</td></tr>
+      <tr><td>Section 5</td><td>Output generation</td><td>20 min</td></tr>
+      <tr><td>Section 5</td><td>Review and correction</td><td>15 min</td></tr>
+    </tbody>
+    <tfoot><tr><td>Total</td><td></td><td>~135 min</td></tr></tfoot>
+  </table>
+
+  <h2 class="sub-head">AI tool quick-start</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <div class="tool-name">ChatGPT</div>
+      <ul class="tool-steps">
+        <li>Click "New Chat" in left sidebar for a new conversation</li>
+        <li>Stay in one conversation for Sections 4 and 5</li>
+        <li>If context is lost, paste the initialization prompt again</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Claude</div>
+      <ul class="tool-steps">
+        <li>Click "+" or "New Conversation" for a new conversation</li>
+        <li>Stay in one conversation for Sections 4 and 5</li>
+        <li>Projects maintain context across sessions if needed</li>
+      </ul>
+    </div>
+    <div class="tool-card">
+      <div class="tool-name">Gemini</div>
+      <ul class="tool-steps">
+        <li>Click "New Chat" at top left for a new conversation</li>
+        <li>Stay in one conversation for Sections 4 and 5</li>
+        <li>Gemini Advanced has better context retention</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="sub-head">A final note</h2>
+  <p>Your Leadership OS documents are a first draft, not a finished profile. Some findings will be accurate immediately. Some will require correction. Some will prove accurate over time in ways that aren't obvious today.</p>
+  <p>The document that will teach you the most is not the one you produce in this session — it is the one you produce 12 months from now, after experience has tested the first version against reality. Keep the first version. The evolution is the point.</p>
+</section>
+
+</main>
+</div><!-- /layout -->
+
+<!-- FOOTER -->
+
+<!-- FEEDBACK LOOP (personal, not lead-gen) -->
+<section id="feedback" style="scroll-margin-top:52px;">
+  <div class="fb-wrap">
+    <div class="fb-rule"></div>
+    <div class="fb-eyebrow">One genuine ask</div>
+    <h2 class="fb-headline">If you actually do this,<br><em>I'd love to hear how it went.</em></h2>
+    <p class="fb-body">Leadership OS is something I built and I'm still learning what it does in other people's hands. If you complete it, I'd genuinely like to know: what was useful, what wasn't, and what surprised you. Good or bad — the unflattering version is the more useful one.</p>
+    <p class="fb-body">No form, no list, no follow-up sequence. Just an email to a real person who will read it.</p>
+    <a href="mailto:mikejcilla@gmail.com?subject=Leadership%20OS%20feedback" class="fb-btn">mikejcilla@gmail.com</a>
+    <p class="fb-sig">— Mike</p>
+  </div>
+</section>
+
+
+<footer id="footer">
+  <a href="https://mikecilla.com" class="footer-mark">Mike Cilla<span>.</span></a>
+  <div class="footer-disc">Leadership OS is a reflection and development methodology — not an assessment, diagnosis, or prediction instrument. All outputs are developmental hypotheses, not validated psychological findings. Leadership OS Starter Kit v1.0 · © 2026 Mike Cilla</div>
+</footer>
+
+<script>
+// ── Copy prompt buttons ──
+function copyPrompt(btn, id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text.trim()).then(function() {
+    var orig = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ── Active nav tracking ──
+var sections = Array.from(document.querySelectorAll('section[id], h2[id], h3[id]'));
+var navLinks = Array.from(document.querySelectorAll('.sn-link'));
+var ticking = false;
+
+function updateNav() {
+  var scrollY = window.scrollY + 80;
+  var current = '';
+  sections.forEach(function(sec) {
+    if (sec.offsetTop <= scrollY) { current = sec.id; }
+  });
+  navLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    link.classList.toggle('active', href === '#' + current);
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', function() {
+  if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
+}, { passive: true });
+
+updateNav();
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>

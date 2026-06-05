@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://leadershipos.org/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://leadershipos.org/leadership-os-why.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://leadershipos.org/leadership-os-how.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://leadershipos.org/leadership-os-model.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://leadershipos.org/leadership-os-research.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leadershipos.org/leadership-os-sample-outputs.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://leadershipos.org/leadership-os-starter-kit.html</loc>
+    <priority>0.9</priority>
+  </url>
+</urlset>

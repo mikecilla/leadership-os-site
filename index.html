@@ -55,8 +55,6 @@ body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-siz
 .hero-sub{font-family:var(--ff-display);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:300;font-style:italic;color:var(--ink-dim);border-left:2px solid var(--gold);padding-left:1.25rem;margin:1.75rem 0 2.5rem;line-height:1.55;max-width:600px;}
 .hero-desc{font-size:1.15rem;font-weight:300;color:var(--ink-dim);line-height:2.0;max-width:600px;margin-bottom:2.25rem;}
 .hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.25rem;}
-.hero-faq-link{display:inline-block;font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.06em;color:var(--gold);text-decoration:none;margin:-1.25rem 0 2.25rem;transition:opacity 0.2s;border-bottom:1px solid rgba(184,103,30,0.25);padding-bottom:2px;}
-.hero-faq-link:hover{opacity:0.72;}
 .btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--ink);color:var(--void);padding:0.9rem 2rem;font-family:var(--ff-body);font-size:1.01rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;position:relative;overflow:hidden;}
 .btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,0.1);transform:skewX(-20deg);transition:left 0.4s;}
 .btn-primary:hover{background:var(--gold);}
@@ -550,12 +548,11 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 <header id="header">
   <a href="https://mikecilla.com" class="h-mark">Mike Cilla<span>.</span></a>
   <nav class="h-nav">
-    <a href="leadership-os-why.html" class="h-nav-link">Why it exists</a>
-    <a href="#outcomes" class="hide-mobile h-nav-link">What you get</a>
+    <a href="index.html" class="h-nav-link">What it is</a>
     <a href="leadership-os-how.html" class="h-nav-link">How it works</a>
-    <a href="leadership-os-model.html" class="h-nav-link">The model</a>
     <a href="leadership-os-research.html" class="h-nav-link">Methodology</a>
-    <a href="leadership-os-faq.html" class="hide-mobile h-nav-link">Questions</a>
+    <a href="leadership-os-sample-outputs.html" class="hide-mobile h-nav-link">Sample outputs</a>
+    <a href="leadership-os-faq.html" class="h-nav-link">FAQs</a>
     <a href="leadership-os-starter-kit.html" class="h-nav-link">Starter Kit</a>
   </nav>
 </header>
@@ -578,7 +575,6 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
         <a href="leadership-os-starter-kit.html" class="btn-primary">Start Leadership OS →</a>
         <a href="leadership-os-sample-outputs.html" class="btn-ghost">See sample outputs</a>
       </div>
-      <a href="leadership-os-faq.html" class="hero-faq-link reveal" style="transition-delay:.48s">Questions &amp; skepticism welcome — start here →</a>
       <div class="hero-proof reveal" style="transition-delay:.52s">
         <span class="hp-item">90–120 minutes</span>
         <span class="hp-sep">·</span>

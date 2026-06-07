@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questions We Expect You to Ask — Leadership OS</title>
+<meta name="description" content="The questions thoughtful leaders, coaches, and researchers ask before investing time in Leadership OS — answered honestly, including how much confidence to place in the outputs and where the evidence is thin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8B7D4VZ08"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q8B7D4VZ08');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#faf8f4;
+  --deep:#f2ede6;
+  --surface:#ffffff;
+  --lift:#ede8e1;
+  --ink:#1a1612;
+  --ink-dim:rgba(26,22,18,0.62);
+  --ink-ghost:rgba(26,22,18,0.12);
+  --gold:#b8671e;
+  --gold-light:#c9843a;
+  --gold-dim:rgba(184,103,30,0.1);
+  --rule:rgba(26,22,18,0.1);
+  --c1:#5B5BD6;
+  --c2:var(--gold);
+  --c3:#1D9E75;
+  --ff-display:'Cormorant Garamond',Georgia,serif;
+  --ff-body:'Outfit',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
+
+/* HEADER */
+#header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.75rem 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);background:rgba(250,248,244,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+.h-mark{font-family:var(--ff-display);font-size:1rem;font-weight:400;letter-spacing:0.06em;color:var(--ink);text-decoration:none;}
+.h-mark span{color:var(--gold);}
+.h-nav{display:flex;align-items:center;gap:2rem;}
+.h-nav a{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;transition:color 0.2s;}
+.h-nav a:hover{color:var(--gold);}
+.h-nav a.current{color:var(--gold);}
+
+/* SECTION COMMONS */
+.s-label{font-family:var(--ff-mono);font-size:0.78rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+.s-label::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);opacity:0.5;}
+
+/* HERO */
+.faq-hero{padding:7rem 4vw 3.5rem;max-width:880px;margin:0 auto;border-bottom:1px solid var(--rule);}
+.faq-eyebrow{font-family:var(--ff-mono);font-size:0.74rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.faq-hero h1{font-family:var(--ff-display);font-size:clamp(2.6rem,6vw,4.2rem);font-weight:500;line-height:1.05;color:var(--ink);margin-bottom:1.5rem;letter-spacing:-0.01em;}
+.faq-hero h1 em{font-style:italic;color:var(--gold);}
+.faq-lede{font-size:1.15rem;line-height:1.7;color:var(--ink-dim);max-width:680px;}
+.faq-status{margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.6rem;}
+.faq-chip{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.05em;color:var(--ink-dim);border:1px solid var(--rule);border-radius:5px;padding:0.4rem 0.8rem;}
+
+/* TOC */
+.faq-toc{max-width:880px;margin:0 auto;padding:2.5rem 4vw;border-bottom:1px solid var(--rule);}
+.faq-toc-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
+.faq-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 2rem;}
+.faq-toc-grid a{font-size:0.95rem;color:var(--ink-dim);text-decoration:none;padding:0.35rem 0;transition:color 0.2s;display:flex;gap:0.6rem;}
+.faq-toc-grid a:hover{color:var(--gold);}
+.faq-toc-num{font-family:var(--ff-mono);font-size:0.8rem;color:var(--gold);opacity:0.7;flex-shrink:0;}
+
+/* SECTIONS */
+.faq-section{max-width:880px;margin:0 auto;padding:4rem 4vw;border-bottom:1px solid var(--rule);}
+.faq-sec-num{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.14em;color:var(--gold);margin-bottom:0.85rem;}
+.faq-section h2{font-family:var(--ff-display);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:500;line-height:1.12;color:var(--ink);margin-bottom:1rem;letter-spacing:-0.01em;}
+.faq-section>p{font-size:1.02rem;line-height:1.75;color:var(--ink-dim);margin-bottom:1.1rem;}
+.faq-section p strong{color:var(--ink);font-weight:600;}
+.faq-section em{color:var(--ink);font-style:italic;}
+
+/* FEATURED CONFIDENCE QUESTION */
+.faq-featured{background:var(--ink);}
+.faq-featured-inner{max-width:880px;margin:0 auto;padding:4.5rem 4vw;}
+.faq-featured-eyebrow{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.faq-featured-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold-light);opacity:0.6;}
+.faq-featured h2{font-family:var(--ff-display);font-size:clamp(2rem,4.5vw,3rem);font-weight:500;line-height:1.1;color:#f0ece4;margin-bottom:1.5rem;letter-spacing:-0.01em;}
+.faq-featured h2 em{font-style:italic;color:var(--gold-light);}
+.faq-featured p{font-size:1.08rem;line-height:1.8;color:rgba(240,236,228,0.62);margin-bottom:1.2rem;max-width:720px;}
+.faq-featured p strong{color:#f0ece4;font-weight:600;}
+.faq-featured p em{color:#f0ece4;font-style:italic;}
+.faq-featured-pull{font-family:var(--ff-display);font-size:clamp(1.4rem,2.8vw,1.95rem);font-style:italic;font-weight:300;color:#f0ece4;line-height:1.4;border-left:3px solid var(--gold-light);padding:0.4rem 0 0.4rem 1.75rem;margin:2.25rem 0;}
+
+/* Confidence ladder (dark variant) */
+.conf-ladder{display:flex;flex-direction:column;gap:1px;background:rgba(240,236,228,0.08);border:1px solid rgba(240,236,228,0.08);margin:2.25rem 0;}
+.conf-rung{background:#1c1a18;padding:1.35rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;}
+.conf-tag{font-family:var(--ff-mono);font-size:0.74rem;font-weight:500;letter-spacing:0.03em;padding:0.4rem 0.85rem;border-radius:5px;white-space:nowrap;text-align:center;align-self:start;}
+.conf-tag.high{background:rgba(29,158,117,0.16);color:#2bbd8e;}
+.conf-tag.mod{background:rgba(201,132,58,0.16);color:var(--gold-light);}
+.conf-tag.emerg{background:rgba(120,120,224,0.18);color:#9a9aef;}
+.conf-tag.thin{background:rgba(192,57,43,0.16);color:#e07a6e;}
+.conf-text{font-size:0.98rem;line-height:1.7;color:rgba(240,236,228,0.62);}
+.conf-text strong{color:#f0ece4;font-weight:500;}
+
+/* BIG QUESTION CARDS */
+.bigq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.bigq{background:var(--surface);padding:1.75rem 1.85rem;}
+.bigq-num{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.14em;color:var(--gold);opacity:0.6;margin-bottom:0.75rem;}
+.bigq-q{font-family:var(--ff-display);font-size:1.35rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:0.75rem;}
+.bigq-a{font-size:1.0rem;line-height:1.75;color:var(--ink-dim);}
+.bigq-a strong{color:var(--ink);font-weight:600;}
+.bigq-a em{color:var(--ink);font-style:italic;}
+
+/* IS / IS-NOT COMPARISON */
+.isnot-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;}
+.isnot-col{border-radius:8px;padding:1.6rem 1.75rem;}
+.isnot-no{background:rgba(192,57,43,0.05);border:1px solid rgba(192,57,43,0.18);}
+.isnot-yes{background:rgba(29,158,117,0.07);border:1px solid rgba(29,158,117,0.2);}
+.isnot-label{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+.isnot-no .isnot-label{color:#c0392b;}
+.isnot-yes .isnot-label{color:#1D9E75;}
+.isnot-col ul{margin:0;padding:0;list-style:none;}
+.isnot-col li{position:relative;padding-left:1.5rem;margin-bottom:0.7rem;font-size:1.0rem;line-height:1.55;color:var(--ink-dim);}
+.isnot-no li::before{content:'\00d7';position:absolute;left:0;color:#c0392b;font-weight:600;}
+.isnot-yes li::before{content:'\2713';position:absolute;left:0;color:#1D9E75;font-weight:600;}
+
+/* Q/A STACK (science, AI, privacy, practical) */
+.qa-stack{display:flex;flex-direction:column;gap:0;margin-top:0.5rem;}
+.qa{border-top:1px solid var(--rule);padding:1.5rem 0;}
+.qa:last-child{border-bottom:1px solid var(--rule);}
+.qa-q{font-family:var(--ff-display);font-size:1.25rem;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:0.6rem;}
+.qa-a{font-size:1.0rem;line-height:1.75;color:var(--ink-dim);}
+.qa-a strong{color:var(--ink);font-weight:600;}
+.qa-a em{color:var(--ink);font-style:italic;}
+.qa-a p+p{margin-top:0.85rem;}
+
+/* CALLOUT NOTE */
+.faq-note{background:var(--lift);border:1px solid var(--rule);border-radius:8px;padding:1.5rem 1.75rem;margin:2rem 0;}
+.faq-note-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+.faq-note p{margin:0;font-size:0.98rem;line-height:1.7;color:var(--ink-dim);}
+
+/* EVIDENCE STRIP (sourced findings) */
+.evidence-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.75rem 0;}
+.es-cell{background:var(--surface);padding:1.4rem 1.5rem;}
+.es-stat{font-family:var(--ff-display);font-size:2rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:0.5rem;}
+.es-label{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:0.6rem;}
+.es-desc{font-size:0.92rem;line-height:1.6;color:var(--ink-dim);}
+
+/* PULL QUOTE */
+.faq-pull{font-family:var(--ff-display);font-size:1.7rem;line-height:1.35;color:var(--ink);font-style:italic;border-left:3px solid var(--gold);padding:0.5rem 0 0.5rem 1.75rem;margin:2.5rem 0;}
+
+/* THE QUESTION THAT MATTERS MOST */
+.faq-closer{background:var(--deep);}
+.faq-closer-inner{max-width:760px;margin:0 auto;padding:5rem 4vw;}
+.faq-closer-eyebrow{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.faq-closer h2{font-family:var(--ff-display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;font-style:italic;line-height:1.08;color:var(--ink);margin-bottom:1.75rem;letter-spacing:-0.01em;}
+.faq-closer p{font-size:1.08rem;line-height:1.85;color:var(--ink-dim);margin-bottom:1.2rem;}
+.faq-closer p em{color:var(--ink);font-style:italic;}
+
+/* REFERENCES */
+.faq-refs{font-size:0.9rem;line-height:1.8;color:var(--ink-dim);}
+.faq-refs p{font-size:0.9rem;margin-bottom:0.6rem;padding-left:1.5rem;text-indent:-1.5rem;}
+
+/* NEXT-STEP CTA */
+.next-step{max-width:720px;margin:0 auto;padding:5rem 4vw 6.5rem;text-align:center;}
+.ns-wrap{max-width:580px;margin:0 auto;}
+.ns-eyebrow{font-family:var(--ff-mono);font-size:0.72rem;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.ns-headline{font-family:var(--ff-display);font-size:clamp(2rem,4.5vw,2.9rem);font-weight:500;line-height:1.1;color:var(--ink);letter-spacing:-0.01em;margin-bottom:1.25rem;}
+.ns-headline em{font-style:italic;color:var(--gold);}
+.ns-sub{font-size:1.08rem;line-height:1.7;color:var(--ink-dim);max-width:520px;margin:0 auto 2.25rem;}
+.ns-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.ns-btn-primary{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;background:var(--ink);color:var(--void);transition:background 0.2s,color 0.2s;}
+.ns-btn-primary:hover{background:var(--gold);}
+.ns-btn-ghost{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;color:var(--ink);border:1px solid rgba(26,22,18,0.25);transition:border-color 0.2s,color 0.2s;}
+.ns-btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+/* FOOTER */
+footer{padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);}
+.foot-inner{max-width:760px;margin:0 auto;text-align:center;}
+.foot-privacy{font-size:0.92rem;color:var(--ink-dim);line-height:1.7;margin-bottom:1.25rem;}
+.foot-meta-row{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.06em;color:var(--ink-dim);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;align-items:center;margin-bottom:0.85rem;}
+.foot-version{color:var(--gold);}
+.foot-sep{opacity:0.4;}
+.foot-disclaimer{font-size:0.82rem;color:var(--ink-dim);opacity:0.75;font-style:italic;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1);}
+.reveal.up{opacity:1;transform:translateY(0);}
+
+/* A11Y */
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:1px;}
+
+/* MOBILE */
+@media(max-width:768px){
+  .faq-hero{padding:5.5rem 1.5rem 3rem;}
+  .faq-toc{padding:2.5rem 1.5rem;}
+  .faq-section{padding:3rem 1.5rem;}
+  .faq-featured-inner{padding:3.5rem 1.5rem;}
+  .faq-closer-inner{padding:3.5rem 1.5rem;}
+  .faq-toc-grid{grid-template-columns:1fr;}
+  .bigq-grid{grid-template-columns:1fr;}
+  .isnot-grid{grid-template-columns:1fr;}
+  .evidence-strip{grid-template-columns:1fr;}
+  .conf-rung{grid-template-columns:1fr;gap:0.75rem;}
+  .conf-tag{justify-self:start;}
+  .faq-pull{font-size:1.4rem;}
+  #header .h-nav a:not(.current):not(.always-show){display:none;}
+}
+@media(max-width:600px){.next-step{padding:4rem 1.5rem 5rem;}footer{padding:2.5rem 1.5rem;}}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1 !important;transform:none !important;}
+  *{scroll-behavior:auto !important;}
+}
+</style>
+</head>
+<body>
+<header id="header">
+  <a href="https://mikecilla.com" class="h-mark">Mike Cilla<span>.</span></a>
+  <nav class="h-nav">
+    <a href="index.html" class="h-nav-link">What it is</a>
+    <a href="leadership-os-how.html" class="h-nav-link">How it works</a>
+    <a href="leadership-os-research.html" class="h-nav-link">Methodology</a>
+    <a href="leadership-os-sample-outputs.html" class="h-nav-link">Sample outputs</a>
+    <a href="leadership-os-faq.html" class="h-nav-link current always-show">Questions</a>
+    <a href="leadership-os-starter-kit.html" class="h-nav-link">Starter Kit</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <div class="faq-eyebrow">Questions we expect you to ask</div>
+  <h1>Skepticism is the<br><em>right reaction.</em></h1>
+  <p class="faq-lede">If you're anything like the leaders, coaches, and researchers who have reviewed Leadership OS so far, these are probably some of the questions running through your head. They're good questions. Most of them are the ones we've been asking ourselves. Here are honest answers — including the ones where the honest answer is "we don't know yet."</p>
+  <div class="faq-status">
+    <span class="faq-chip">Exploratory methodology</span>
+    <span class="faq-chip">Not a validated instrument</span>
+    <span class="faq-chip">Limitations stated, not buried</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="faq-toc">
+  <div class="faq-toc-label">On this page</div>
+  <div class="faq-toc-grid">
+    <a href="#confidence"><span class="faq-toc-num">★</span> How much should you trust this?</a>
+    <a href="#big"><span class="faq-toc-num">01</span> The big questions</a>
+    <a href="#isnot"><span class="faq-toc-num">02</span> What it is, and isn't</a>
+    <a href="#science"><span class="faq-toc-num">03</span> The science questions</a>
+    <a href="#ai"><span class="faq-toc-num">04</span> The AI questions</a>
+    <a href="#privacy"><span class="faq-toc-num">05</span> The privacy questions</a>
+    <a href="#practical"><span class="faq-toc-num">06</span> The practical questions</a>
+    <a href="#matters"><span class="faq-toc-num">07</span> The question that matters most</a>
+  </div>
+</nav>
+
+<!-- ★ FEATURED — CONFIDENCE -->
+<section class="faq-featured" id="confidence" style="scroll-margin-top:52px;">
+  <div class="faq-featured-inner reveal">
+    <div class="faq-featured-eyebrow">The question underneath every other question</div>
+    <h2>What level of confidence<br>should I have in <em>these outputs?</em></h2>
+
+    <p>This is the real question. Not whether Leadership OS is interesting, or useful, or well-designed — but how much weight to actually place on what it tells you about yourself. So here is the most honest answer we can give.</p>
+
+    <p class="faq-featured-pull">Treat the outputs as well-formed hypotheses about your patterns — strong enough to reflect on, not strong enough to act on without your own judgment.</p>
+
+    <p>That's not false modesty. It's where the evidence actually sits. Leadership OS combines three inputs — a validated assessment, your own structured reflection, and behavioral patterns drawn from your AI conversation history. Each of those carries a different weight of evidence, so your confidence should vary depending on which part of the output you're reading:</p>
+
+    <div class="conf-ladder">
+      <div class="conf-rung">
+        <span class="conf-tag high">Higher confidence</span>
+        <div class="conf-text">Anything anchored to a <strong>validated assessment</strong> you took, or that you recognize immediately because it matches behavior you can point to. These rest on decades of measurement science or on your own direct evidence.</div>
+      </div>
+      <div class="conf-rung">
+        <span class="conf-tag mod">Moderate confidence</span>
+        <div class="conf-text">Patterns where <strong>two of the three sources agree</strong> — say, the assessment and your reflection point the same direction. Convergence is meaningful. It's still your read of yourself plus a structured instrument, not an outside verdict.</div>
+      </div>
+      <div class="conf-rung">
+        <span class="conf-tag emerg">Treat as a prompt, not a finding</span>
+        <div class="conf-text">Anything inferred primarily from your <strong>AI conversation history</strong>. This is the newest and least proven input. Current research on inferring personality from real conversation finds the signal is <strong>weak and systematically biased</strong> — so read these as questions worth sitting with, not conclusions.</div>
+      </div>
+      <div class="conf-rung">
+        <span class="conf-tag thin">Low confidence by design</span>
+        <div class="conf-text">Anything the system itself flags as <strong>Insufficient Evidence</strong>. When it says it doesn't have enough to go on, believe it. A framework that knows what it doesn't know is the only kind worth pointing at a real person.</div>
+      </div>
+    </div>
+
+    <p>Why be this cautious about the conversation-history input specifically? Because the independent evidence is sobering, and we'd rather you hear it from us. A 2025 benchmark study compared large-language-model inferences of personality against people's own self-reports across 555 real interviews. The alignment was <strong>weak</strong> — and worse, the models showed a systematic distortion: a tendency to generate a flattering, articulate, prosocial "default persona" rather than read the actual person.</p>
+
+    <div class="evidence-strip">
+      <div class="es-cell">
+        <div class="es-stat">r ≤ 0.27</div>
+        <div class="es-label">AI-inferred vs. self-reported personality</div>
+        <div class="es-desc">A 2025 benchmark across 555 real interviews found only weak correlation between what an LLM inferred and what people reported about themselves.</div>
+      </div>
+      <div class="es-cell">
+        <div class="es-stat">Default<br>persona</div>
+        <div class="es-label">The flattering-bias problem</div>
+        <div class="es-desc">Models skewed toward prosocial, articulate, emotionally expressive profiles — describing a likable archetype more than the specific individual.</div>
+      </div>
+      <div class="es-cell">
+        <div class="es-stat">As&nbsp;good</div>
+        <div class="es-label">AI coaching on narrow goals</div>
+        <div class="es-desc">Where AI <em>has</em> shown real results: controlled trials found an AI coach matched human coaches on goal attainment. Narrow, structured, goal-oriented work — not personality reading.</div>
+      </div>
+    </div>
+
+    <p>The takeaway isn't "ignore the conversation-history part." It's that the input which feels the most magical is the one to hold the most loosely. The parts of Leadership OS built on validated assessment and on your own recognition are on firmer ground. The behavioral-inference layer is a genuinely novel idea that the wider evidence has not yet validated — which is exactly why every output is labeled with a confidence level, why findings are framed as hypotheses, and why the whole thing is offered as a beta in public rather than a finished instrument.</p>
+
+    <p><strong>So: how much confidence?</strong> Enough to take the patterns seriously and reflect on them. Enough to bring them to a coach, a trusted colleague, or your own quiet thinking. Not enough to treat any single output as a fact about who you are — and certainly not enough for anyone else to use it to judge you. The right posture is the same one you'd take with a sharp, well-read friend who's known you a while: worth listening to, worth arguing with, never the final word.</p>
+  </div>
+</section>
+
+<!-- SECTION 1 — THE BIG QUESTIONS -->
+<section class="faq-section" id="big" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">01 · The big questions</div>
+  <h2>The ones that come up first</h2>
+  <p>The questions a smart executive asks in the first five minutes — before deciding whether the next two hours are worth it.</p>
+
+  <div class="bigq-grid reveal" style="margin-top:1.75rem;">
+    <div class="bigq">
+      <div class="bigq-num">01</div>
+      <div class="bigq-q">Is Leadership OS scientifically validated?</div>
+      <div class="bigq-a">No, and it doesn't claim to be. It draws on validated assessments and decades of developmental research, but the combined methodology has not been through formal validation — no normative sample, no published reliability studies. It's an exploration grounded in real science, not a normed instrument. The credibility comes from <em>not</em> overclaiming.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">02</div>
+      <div class="bigq-q">Is this a personality assessment?</div>
+      <div class="bigq-a">No. It can <em>use</em> one as an input, but Leadership OS doesn't measure or score you. It produces a written, traceable set of hypotheses about how you appear to operate — not a type, a number, or a percentile.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">03</div>
+      <div class="bigq-q">How is this different from executive coaching?</div>
+      <div class="bigq-a">A coach brings a relationship, real-time judgment, and accountability that no tool replicates — and the research is clear that the relationship is what makes coaching work. Leadership OS isn't a substitute. It's the prep work: a structured starting point that can make a coaching conversation sharper, or stand in when no coach is available.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">04</div>
+      <div class="bigq-q">How is this different from colleague feedback?</div>
+      <div class="bigq-a">360 feedback tells you how others perceive you, filtered through their relationships and incentives. Leadership OS works from different evidence — your own assessments, reflection, and behavioral patterns. It's not better than feedback. It's a different angle on the same hard question, and most useful alongside it.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">05</div>
+      <div class="bigq-q">How is this different from just talking to ChatGPT?</div>
+      <div class="bigq-a">Mostly: structure and discipline. Ask an AI "what kind of leader am I?" and it will happily produce flattering, confident text from almost nothing. Leadership OS forces three evidence sources, makes the reasoning traceable, labels confidence, and is built to say "insufficient evidence" — the things a casual chat won't do on its own.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">06</div>
+      <div class="bigq-q">What if the profile gets something wrong?</div>
+      <div class="bigq-a">It will, somewhere — that's expected, not a failure. The outputs are hypotheses, and a wrong one is still useful: disagreeing with it sharpens what you actually believe about yourself. If a finding feels off, it probably is. Note it, discard it, and the exercise still did its job.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">07</div>
+      <div class="bigq-q">Why three evidence sources instead of one?</div>
+      <div class="bigq-a">Because no single source is trustworthy alone. Self-report is biased; assessments are narrow; behavioral inference is noisy. Triangulating three weak-but-independent signals — and treating the places they <em>disagree</em> as the interesting part — is more honest than trusting any one of them.</div>
+    </div>
+    <div class="bigq">
+      <div class="bigq-num">08</div>
+      <div class="bigq-q">Can AI actually understand leadership behavior?</div>
+      <div class="bigq-a">Not in any deep sense — and pattern-detection is not understanding. AI can surface regularities in how you write and decide that you might not notice yourself. That's genuinely useful. But "the model spotted a pattern" is the start of a conversation, not proof the pattern means what it seems to.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 — WHAT IT IS / ISN'T -->
+<section class="faq-section" id="isnot" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">02 · Boundaries</div>
+  <h2>What Leadership OS is — and isn't</h2>
+  <p>The fastest way to understand something is often to be clear about what it refuses to be.</p>
+
+  <div class="isnot-grid reveal">
+    <div class="isnot-col isnot-no">
+      <div class="isnot-label">It is not</div>
+      <ul>
+        <li>Therapy</li>
+        <li>Clinical psychology</li>
+        <li>An employee-selection tool</li>
+        <li>Performance management</li>
+        <li>A hiring assessment</li>
+        <li>A predictive algorithm</li>
+        <li>A diagnostic instrument</li>
+        <li>A replacement for human judgment</li>
+      </ul>
+    </div>
+    <div class="isnot-col isnot-yes">
+      <div class="isnot-label">It is</div>
+      <ul>
+        <li>Structured reflection</li>
+        <li>Pattern detection</li>
+        <li>Hypothesis generation</li>
+        <li>Developmental insight</li>
+        <li>A path to longitudinal self-awareness</li>
+        <li>Leadership learning, in your own hands</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="faq-note">
+    <div class="faq-note-label">The one boundary that matters most</div>
+    <p>Leadership OS is something you do <em>for yourself</em>. It is not something an organization can require you to do, and nothing it produces should ever be used by anyone else to evaluate, rank, or make decisions about you. More on that in the privacy section.</p>
+  </div>
+</section>
+
+<!-- SECTION 3 — SCIENCE -->
+<section class="faq-section" id="science" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">03 · The science questions</div>
+  <h2>What we actually know, and don't</h2>
+  <p>The honest version, for the people who'll check.</p>
+
+  <div class="qa-stack reveal">
+    <div class="qa">
+      <div class="qa-q">Why use validated assessments at all?</div>
+      <div class="qa-a">Because they're the most rigorous input available. Decades of measurement science sit behind a good personality or strengths assessment. It's the firmest ground in the whole methodology — so it's weighted accordingly.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why include reflection?</div>
+      <div class="qa-a">Because development happens through reflection, not information — that's one of the most settled findings in adult learning. Reflection is also where <em>you</em> stay in control of the meaning, rather than handing it to an instrument.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why analyze behavioral evidence from conversations?</div>
+      <div class="qa-a"><p>Because how you actually reasoned through real problems over months is richer than how you describe yourself in a survey. It's the genuinely novel input here.</p><p>It's also the least proven. The evidence that AI can read personality from conversation is currently weak — so this input is treated as the most tentative of the three, never as ground truth.</p></div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why not rely on a single source?</div>
+      <div class="qa-a">Because each one is flawed in a different direction. Self-report flatters; assessments are narrow; AI inference drifts toward a likable default. Three independent-but-imperfect signals, read against each other, are harder to fool than any one alone.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What does current research say about self-awareness?</div>
+      <div class="qa-a">That most people overestimate theirs, and that introspection alone doesn't make you accurate — internal and external self-awareness are different things and only weakly related. This is an argument <em>for</em> triangulation, and a caution that even your own reflection isn't a perfect mirror.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What does research say about personality and AI inference?</div>
+      <div class="qa-a">That inferring personality from real text is hard and currently unreliable. The strongest recent benchmark found only weak alignment with self-report and a systematic pull toward flattering, articulate profiles. We take that seriously — it's the main reason the conversation-history layer is labeled tentative.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">So what are the limitations, plainly?</div>
+      <div class="qa-a">No validation study. No normative sample. A core input (behavioral inference) that the wider literature hasn't validated. An n of essentially one during development. None of this makes the exercise worthless — it makes it an exploration, which is exactly what we call it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — AI -->
+<section class="faq-section" id="ai" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">04 · The AI questions</div>
+  <h2>On using AI without trusting it blindly</h2>
+  <p>The answer here is never "trust the AI." It's "use the AI as a thinking partner, and argue with it."</p>
+
+  <div class="qa-stack reveal">
+    <div class="qa">
+      <div class="qa-q">Why involve AI at all?</div>
+      <div class="qa-a">Because it can do something humans can't do cheaply: read across a long history of how you think and surface patterns at a scale no coach has time for. That's a real capability — bounded by real limits.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why not just use a coach?</div>
+      <div class="qa-a">If you have a great coach, use them — and bring this to your sessions. AI is the option that's available at 11pm, costs nothing, and never gets tired of the same question. It complements coaching; it doesn't replace the relationship that makes coaching work.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Can the AI hallucinate or make things up?</div>
+      <div class="qa-a">Yes. Language models generate plausible text, and plausible isn't the same as true. They can invent a confident-sounding pattern from thin evidence. This is a known failure mode, not an edge case — which is why the methodology is built to push against it.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">How does Leadership OS try to reduce that risk?</div>
+      <div class="qa-a"><p>Three ways: it requires the AI to tie claims back to specific evidence; it asks for confidence levels rather than flat assertions; and it explicitly licenses "insufficient evidence" as a valid answer so the model isn't pushed to fill silence with invention.</p><p>None of this eliminates the risk. It just makes invented confidence easier to spot.</p></div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why are confidence levels and hypotheses labeled?</div>
+      <div class="qa-a">So you can calibrate. A finding marked high-confidence and tied to your assessment deserves more weight than one inferred from a few conversations. Labeling forces the system to show its hand instead of presenting everything in the same authoritative voice.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Will two different AI models give different outputs?</div>
+      <div class="qa-a">Almost certainly, at least in wording and emphasis — and sometimes in substance. That's not a bug to hide; it's a reminder that no single run is definitive. If two models agree on a pattern, that's mild corroboration. If they diverge, that's a flag to think harder.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What should I do if I disagree with a finding?</div>
+      <div class="qa-a">Disagree with it. Out loud, in the tool. Tell it why it's wrong and watch whether its reasoning holds or collapses. The disagreement is often more revealing than the original finding — and it keeps you, not the model, in charge of the conclusion.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — PRIVACY -->
+<section class="faq-section" id="privacy" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">05 · The privacy questions</div>
+  <h2>Where your information goes</h2>
+  <p>Short version: it stays with you. The longer version matters enough to spell out.</p>
+
+  <div class="qa-stack reveal">
+    <div class="qa">
+      <div class="qa-q">What information does it use?</div>
+      <div class="qa-a">Three things you provide: results from an assessment you've taken, a read of your own AI conversation history, and your answers to a set of reflection prompts. Nothing more, and nothing you don't choose to bring.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Where does it come from, and who sees it?</div>
+      <div class="qa-a">It comes from you, and it runs inside whatever AI tool you already use. This site doesn't collect, store, or transmit any of it. The inputs and outputs live in your AI environment and your own files — not on a server we control.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Should I upload confidential information?</div>
+      <div class="qa-a"><p>Use judgment. Your conversation history may contain sensitive material, and it's running through a third-party AI tool with its own data policies. Read those, and don't feed in anything — about your company, your team, or anyone else — that you wouldn't be comfortable having in that tool.</p></div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Can my organization require me to do this?</div>
+      <div class="qa-a"><strong>No.</strong> Leadership OS is a personal, self-directed exercise. It is not built or validated for organizational use, and nothing it produces should be requested by an employer or used to evaluate you. If anyone asks you to hand over your profile, that's a misuse of the tool.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 — PRACTICAL -->
+<section class="faq-section" id="practical" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">06 · The practical questions</div>
+  <h2>If you decide to try it</h2>
+
+  <div class="qa-stack reveal">
+    <div class="qa">
+      <div class="qa-q">How long does it take?</div>
+      <div class="qa-a">About 90 to 120 minutes, once. Most of that is reflection you'd benefit from doing anyway, whether or not you ever feed it to anything.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Who is this best suited for?</div>
+      <div class="qa-a">Leaders who already work with AI and want to grow, not just move faster — plus coaches, advisors, and people-development practitioners curious about where this kind of method might go.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Who is it probably not for?</div>
+      <div class="qa-a">Anyone looking for a score, a verdict, or a credential. Anyone who wants certainty rather than good questions. And anyone hoping to use it on someone else — that's not what it's for.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Do I need assessments to start?</div>
+      <div class="qa-a">A validated assessment makes the output stronger, but you can take one as part of the process. The Starter Kit walks you through all three inputs, including which assessments work well.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Can I use different AI models?</div>
+      <div class="qa-a">Yes — it's designed to run in whatever tool you already use. Running it in more than one is a feature, not a problem: where models agree, you get corroboration; where they differ, you get something to examine.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">How often should I revisit it?</div>
+      <div class="qa-a">There's no schedule. The interesting version is longitudinal — running it again months later, when your history has grown, and watching what changed. That's where episodic development starts to become continuous.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What should I do after I get the outputs?</div>
+      <div class="qa-a">Read them as questions, not answers. Keep what resonates, argue with what doesn't, and bring the sharpest one or two to someone whose judgment you trust. The document isn't the point — the thinking it provokes is.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 — THE QUESTION THAT MATTERS MOST -->
+<section class="faq-closer" id="matters" style="scroll-margin-top:52px;">
+  <div class="faq-closer-inner reveal">
+    <div class="faq-closer-eyebrow">The question that matters most</div>
+    <h2>What if the profile is accurate?</h2>
+    <p>Most of this page is about doubt — how much to trust, where the evidence is thin, what the tool can't do. That's the right place to spend your skepticism. But there's a quieter question on the other side, and it's the one worth ending on.</p>
+    <p>Suppose even a portion of the patterns are right. Not all of them — just the few you read and think, <em>yes, that's actually true, and I've never said it out loud.</em> What becomes possible then?</p>
+    <p>A conversation with your team that starts from how you actually operate, instead of how you wish you came across. A decision made with one blind spot now visible. A coach who gets a running start because you arrived already knowing the question. A version of development that doesn't happen once a year in a workshop, but accumulates — quietly, continuously, in your own hands.</p>
+    <p>None of that requires the tool to be right about everything. It only requires it to be right about <em>something</em>, and for you to do the work of noticing which something. That's a low bar for a tool and a high bar for a person — which is, when you think about it, the correct way around.</p>
+    <p class="faq-pull">The outputs aren't the point. The attention they ask you to pay to yourself is.</p>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section class="faq-section" id="references" style="scroll-margin-top:52px;">
+  <div class="faq-sec-num">Notes &amp; sources</div>
+  <h2>Where the claims come from</h2>
+  <p>The cautious statements on this page — especially about AI inference and coaching — are grounded in current research, not our own optimism. A few of the key sources:</p>
+  <div class="faq-refs">
+    <p>Terblanche, N., Molyn, J., de Haan, E., &amp; Nilsson, V. O. (2022). Comparing artificial intelligence and human coaching goal attainment efficacy. <em>PLOS ONE / PMC.</em> (AI coaching matched human coaches on narrow goal attainment in a randomized trial.)</p>
+    <p>Benchmark study on LLM-inferred vs. self-reported personality across 555 real interviews (2025). (Weak alignment, r ≤ 0.27, with a systematic "default persona" bias toward prosocial, articulate profiles.)</p>
+    <p>Graßmann, C., &amp; Schermuly, C. C. (2021). Coaching with artificial intelligence: Concepts and capabilities. <em>Human Resource Development Review.</em></p>
+    <p>Eurich, T. (2017). <em>Insight.</em> (On the gap between internal and external self-awareness, and the unreliability of introspection alone.)</p>
+    <p>McCauley, C. D., Drath, W. H., Palus, C. J., O'Connor, P. M. G., &amp; Baker, B. A. (2006). The use of constructive-developmental theory to advance the understanding of leadership. <em>The Leadership Quarterly.</em></p>
+  </div>
+  <div class="faq-note">
+    <div class="faq-note-label">A note on these sources</div>
+    <p>The AI-coaching evidence base is still young and concentrated in a small number of research groups, and the personality-inference findings are recent. We cite them not because they settle the question, but because they're the most honest current read — and because the limitations they point to are the same ones this methodology is built to respect.</p>
+  </div>
+</section>
+
+<!-- NEXT-STEP CTA -->
+<section class="next-step" style="scroll-margin-top:52px;">
+  <div class="ns-wrap reveal">
+    <div class="ns-eyebrow">Next — see the reasoning in full</div>
+    <h2 class="ns-headline">Still skeptical?<br><em>Good. Read the methodology.</em></h2>
+    <p class="ns-sub">If these answers raised more questions than they settled, the technical reference lays out exactly how the framework works, why each construct exists, and what it does and doesn't claim.</p>
+    <div class="ns-row">
+      <a href="leadership-os-research.html" class="ns-btn-primary">Read the methodology →</a>
+      <a href="leadership-os-starter-kit.html" class="ns-btn-ghost">Or run it yourself</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-privacy">Your data stays inside the AI tool you choose to use. Leadership OS does not collect or store your assessment results, reflections, or conversation history. The methodology runs entirely within your chosen AI environment.</div>
+    <div class="foot-meta-row">
+      <span class="foot-version">Version 1.0 · Updated June 2026</span>
+      <span class="foot-sep">·</span>
+      <span>Questions &amp; Skepticism</span>
+      <span class="foot-sep">·</span>
+      <span>© 2026 Mike Cilla</span>
+    </div>
+    <div class="foot-disclaimer">A reflection and development methodology — not a validated assessment or prediction instrument.</div>
+  </div>
+</footer>
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver'in window)||reduce){els.forEach(function(el){el.classList.add('up');});return;}
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('up');},60);obs.unobserve(e.target);}});},{threshold:0.08});
+  els.forEach(function(el){obs.observe(el);});
+  setTimeout(function(){els.forEach(function(el){el.classList.add('up');});},3000);
+})();
+</script>
+</body>
+</html>

@@ -25,6 +25,10 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://leadershipos.org/leadership-os-faq.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://leadershipos.org/leadership-os-starter-kit.html</loc>
     <priority>0.9</priority>
   </url>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questions We Expect You to Ask — Leadership OS</title>
-<meta name="description" content="The questions thoughtful leaders, coaches, and researchers ask before investing time in Leadership OS — answered honestly, including how much confidence to place in the outputs and where the evidence is thin.">
+<title>Leadership OS — A Framework by Mike Cilla</title>
+<meta name="description" content="A structured methodology for building your Leadership Operating System — grounded in personality science, behavioral signals, and AI-assisted reflection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -24,9 +24,6 @@
   --gold-light:#c9843a;
   --gold-dim:rgba(184,103,30,0.1);
   --rule:rgba(26,22,18,0.1);
-  --c1:#5B5BD6;
-  --c2:var(--gold);
-  --c3:#1D9E75;
   --ff-display:'Cormorant Garamond',Georgia,serif;
   --ff-body:'Outfit',system-ui,sans-serif;
   --ff-mono:'JetBrains Mono',monospace;
@@ -35,153 +32,493 @@ html{scroll-behavior:smooth;}
 body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
 
 /* HEADER */
-#header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.75rem 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);background:rgba(250,248,244,0.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+#header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.75rem 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);background:rgba(250,248,244,0.94);backdrop-filter:blur(16px);}
 .h-mark{font-family:var(--ff-display);font-size:1rem;font-weight:400;letter-spacing:0.06em;color:var(--ink);text-decoration:none;}
 .h-mark span{color:var(--gold);}
 .h-nav{display:flex;align-items:center;gap:2rem;}
 .h-nav a{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;transition:color 0.2s;}
 .h-nav a:hover{color:var(--gold);}
-.h-nav a.current{color:var(--gold);}
-
-/* SECTION COMMONS */
-.s-label{font-family:var(--ff-mono);font-size:0.78rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
-.s-label::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);opacity:0.5;}
+@media(max-width:600px){.h-nav .hide-mobile{display:none;}}
 
 /* HERO */
-.faq-hero{padding:7rem 4vw 3.5rem;max-width:880px;margin:0 auto;border-bottom:1px solid var(--rule);}
-.faq-eyebrow{font-family:var(--ff-mono);font-size:0.74rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
-.faq-hero h1{font-family:var(--ff-display);font-size:clamp(2.6rem,6vw,4.2rem);font-weight:500;line-height:1.05;color:var(--ink);margin-bottom:1.5rem;letter-spacing:-0.01em;}
-.faq-hero h1 em{font-style:italic;color:var(--gold);}
-.faq-lede{font-size:1.15rem;line-height:1.7;color:var(--ink-dim);max-width:680px;}
-.faq-status{margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.6rem;}
-.faq-chip{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.05em;color:var(--ink-dim);border:1px solid var(--rule);border-radius:5px;padding:0.4rem 0.8rem;}
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1.15fr;align-items:center;gap:0;padding:0;background:var(--void);position:relative;overflow:hidden;padding-top:48px;}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(26,22,18,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(26,22,18,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+.hero-left{padding:4vw 3vw 4vw 5vw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1;}
+.hero-right{background:var(--deep);min-height:100vh;padding:3vw 3.5vw 3vw 3vw;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule);position:relative;overflow:hidden;}
+.hero-right::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);}
+.hero-inner{max-width:520px;}
+.hero-eyebrow{font-family:var(--ff-mono);font-size:1.06rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);}
+.hero-title{font-family:var(--ff-display);font-size:clamp(3rem,7vw,6.5rem);font-weight:300;line-height:0.95;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.15em;}
+.hero-title em{font-style:italic;font-weight:600;color:var(--gold);}
+.hero-title .block{display:block;}
+.hero-sub{font-family:var(--ff-display);font-size:clamp(1.2rem,2vw,1.6rem);font-weight:300;font-style:italic;color:var(--ink-dim);border-left:2px solid var(--gold);padding-left:1.25rem;margin:1.75rem 0 2.5rem;line-height:1.55;max-width:600px;}
+.hero-desc{font-size:1.15rem;font-weight:300;color:var(--ink-dim);line-height:2.0;max-width:600px;margin-bottom:2.25rem;}
+.hero-cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.25rem;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--ink);color:var(--void);padding:0.9rem 2rem;font-family:var(--ff-body);font-size:1.01rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;position:relative;overflow:hidden;}
+.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:rgba(255,255,255,0.1);transform:skewX(-20deg);transition:left 0.4s;}
+.btn-primary:hover{background:var(--gold);}
+.btn-primary:hover::after{left:150%;}
+.btn-ghost{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(26,22,18,0.25);color:var(--ink-dim);padding:0.9rem 2rem;font-family:var(--ff-body);font-size:1.01rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 
-/* TOC */
-.faq-toc{max-width:880px;margin:0 auto;padding:2.5rem 4vw;border-bottom:1px solid var(--rule);}
-.faq-toc-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;}
-.faq-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 2rem;}
-.faq-toc-grid a{font-size:0.95rem;color:var(--ink-dim);text-decoration:none;padding:0.35rem 0;transition:color 0.2s;display:flex;gap:0.6rem;}
-.faq-toc-grid a:hover{color:var(--gold);}
-.faq-toc-num{font-family:var(--ff-mono);font-size:0.8rem;color:var(--gold);opacity:0.7;flex-shrink:0;}
+/* QUICK EXPLAINER — 60 second read */
+#explainer{background:var(--deep);padding:3.75rem 4vw;}
+.explainer-headline{font-family:var(--ff-display);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:0.5rem;}
+.explainer-headline em{font-style:italic;font-weight:600;color:var(--gold);}
+.explainer-sub{font-size:1.12rem;font-weight:300;color:var(--ink-dim);margin-bottom:2.75rem;max-width:560px;line-height:1.9;}
+.explainer-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.75rem;}
+.ef-card{background:var(--surface);padding:1.5rem 1.6rem;position:relative;}
+.ef-icon{font-size:2rem;line-height:1;margin-bottom:1rem;display:block;}
+.ef-title{font-family:var(--ff-display);font-size:1.25rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;}
+.ef-desc{font-size:1.0rem;font-weight:300;color:var(--ink-dim);line-height:1.85;}
+.ef-arrow{display:flex;align-items:center;justify-content:center;background:transparent;padding:0.5rem;font-size:1.5rem;color:var(--gold);opacity:0.4;grid-column:1/-1;}
+.explainer-distinction{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.ed-cell{background:var(--surface);padding:1.35rem;}
+.ed-label{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:1rem;}
+.ed-label.old{color:rgba(26,22,18,0.35);}
+.ed-label.new{color:var(--gold);}
+.ed-items{display:flex;flex-direction:column;gap:0.5rem;}
+.ed-item{font-size:1.0rem;font-weight:300;color:var(--ink-dim);display:flex;align-items:flex-start;gap:0.6rem;line-height:1.6;}
+.ed-item .ed-icon{flex-shrink:0;font-size:1.01rem;margin-top:0.1rem;}
 
-/* SECTIONS */
-.faq-section{max-width:880px;margin:0 auto;padding:4rem 4vw;border-bottom:1px solid var(--rule);}
-.faq-sec-num{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.14em;color:var(--gold);margin-bottom:0.85rem;}
-.faq-section h2{font-family:var(--ff-display);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:500;line-height:1.12;color:var(--ink);margin-bottom:1rem;letter-spacing:-0.01em;}
-.faq-section>p{font-size:1.02rem;line-height:1.75;color:var(--ink-dim);margin-bottom:1.1rem;}
-.faq-section p strong{color:var(--ink);font-weight:600;}
-.faq-section em{color:var(--ink);font-style:italic;}
+/* SECTION COMMONS */
+section{padding:3.25rem 4vw;}
+.s-label{font-family:var(--ff-mono);font-size:0.78rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+.s-label::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);opacity:0.5;}
+.section-headline{font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:0.75rem;}
+.section-headline em{font-style:italic;font-weight:600;color:var(--gold);}
+.section-sub{font-size:1.12rem;font-weight:300;color:var(--ink-dim);line-height:2.0;max-width:640px;margin-bottom:2.25rem;}
 
-/* FEATURED CONFIDENCE QUESTION */
-.faq-featured{background:var(--ink);}
-.faq-featured-inner{max-width:880px;margin:0 auto;padding:4.5rem 4vw;}
-.faq-featured-eyebrow{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
-.faq-featured-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold-light);opacity:0.6;}
-.faq-featured h2{font-family:var(--ff-display);font-size:clamp(2rem,4.5vw,3rem);font-weight:500;line-height:1.1;color:#f0ece4;margin-bottom:1.5rem;letter-spacing:-0.01em;}
-.faq-featured h2 em{font-style:italic;color:var(--gold-light);}
-.faq-featured p{font-size:1.08rem;line-height:1.8;color:rgba(240,236,228,0.62);margin-bottom:1.2rem;max-width:720px;}
-.faq-featured p strong{color:#f0ece4;font-weight:600;}
-.faq-featured p em{color:#f0ece4;font-style:italic;}
-.faq-featured-pull{font-family:var(--ff-display);font-size:clamp(1.4rem,2.8vw,1.95rem);font-style:italic;font-weight:300;color:#f0ece4;line-height:1.4;border-left:3px solid var(--gold-light);padding:0.4rem 0 0.4rem 1.75rem;margin:2.25rem 0;}
+/* WORKFLOW — THE COMPLETE JOURNEY */
+#workflow{background:var(--void);}
+.workflow-steps{display:flex;flex-direction:column;}
+.wf-step{border-top:1px solid var(--rule);display:grid;grid-template-columns:72px 1fr;gap:2.5rem;padding:1.35rem 0;transition:border-color 0.3s;align-items:start;}
+.wf-step:hover{border-top-color:rgba(184,103,30,0.35);}
+.wf-num{font-family:var(--ff-display);font-size:3.5rem;font-weight:700;line-height:1;color:rgba(26,22,18,0.07);padding-top:0.2rem;}
+.wf-body{}
+.wf-tag{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.wf-title{font-family:var(--ff-display);font-size:1.65rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:0.75rem;}
+.wf-desc{font-size:1.08rem;font-weight:300;color:var(--ink-dim);line-height:2.0;margin-bottom:1.5rem;max-width:700px;}
+.wf-cols{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1rem;}
+.wf-col-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:0.6rem;opacity:0.6;}
+.wf-col-items{list-style:none;display:flex;flex-direction:column;gap:4px;}
+.wf-col-items li{font-size:1.06rem;font-weight:300;color:var(--ink-dim);padding-left:1rem;position:relative;line-height:1.6;}
+.wf-col-items li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:0.7rem;top:0.25rem;}
+.wf-time{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-dim);display:flex;align-items:center;gap:0.5rem;margin-top:0.5rem;}
+.wf-time::before{content:'';display:block;width:1rem;height:1px;background:var(--ink-dim);}
+.wf-prompt-toggle{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:none;border:1px solid rgba(184,103,30,0.3);padding:0.5rem 1rem;cursor:pointer;margin-top:1rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;}
+.wf-prompt-toggle:hover{background:var(--gold-dim);}
+.wf-prompt-box{display:none;margin-top:1.25rem;background:var(--deep);border-left:3px solid var(--gold);padding:1.5rem 1.75rem;}
+.wf-prompt-box.open{display:block;}
+.wf-prompt-label{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
+.wf-prompt-text{font-size:1.06rem;font-weight:300;color:var(--ink-dim);line-height:1.9;white-space:pre-wrap;}
+.wf-prompt-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--rule);}
+.wf-prompt-note{font-family:var(--ff-mono);font-size:0.6rem;color:rgba(26,22,18,0.3);line-height:1.5;max-width:400px;}
+.copy-btn{font-family:var(--ff-mono);font-size:1.01rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:none;border:1px solid rgba(184,103,30,0.3);padding:0.4rem 0.9rem;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.copy-btn:hover{background:var(--gold-dim);}
+.copy-btn.copied{color:var(--ink);border-color:var(--rule);}
 
-/* Confidence ladder (dark variant) */
-.conf-ladder{display:flex;flex-direction:column;gap:1px;background:rgba(240,236,228,0.08);border:1px solid rgba(240,236,228,0.08);margin:2.25rem 0;}
-.conf-rung{background:#1c1a18;padding:1.35rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;}
-.conf-tag{font-family:var(--ff-mono);font-size:0.74rem;font-weight:500;letter-spacing:0.03em;padding:0.4rem 0.85rem;border-radius:5px;white-space:nowrap;text-align:center;align-self:start;}
-.conf-tag.high{background:rgba(29,158,117,0.16);color:#2bbd8e;}
-.conf-tag.mod{background:rgba(201,132,58,0.16);color:var(--gold-light);}
-.conf-tag.emerg{background:rgba(120,120,224,0.18);color:#9a9aef;}
-.conf-tag.thin{background:rgba(192,57,43,0.16);color:#e07a6e;}
-.conf-text{font-size:0.98rem;line-height:1.7;color:rgba(240,236,228,0.62);}
-.conf-text strong{color:#f0ece4;font-weight:500;}
+/* REFLECTION METHODOLOGY */
+#reflection{background:var(--deep);}
+.refl-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.refl-intro{}
+.refl-modes{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.refl-mode{background:var(--surface);padding:1.35rem;}
+.refl-mode-icon{font-size:1.5rem;margin-bottom:0.75rem;display:block;}
+.refl-mode-title{font-family:var(--ff-display);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:0.35rem;}
+.refl-mode-desc{font-size:1.06rem;font-weight:300;color:var(--ink-dim);line-height:1.85;}
+.refl-principles{display:flex;flex-direction:column;gap:0;}
+.refl-principle{border-top:1px solid var(--rule);padding:1.1rem 0;display:grid;grid-template-columns:2.5rem 1fr;gap:1rem;align-items:start;}
+.rp-num{font-family:var(--ff-mono);font-size:1.01rem;color:var(--gold);opacity:0.6;padding-top:0.15rem;}
+.rp-text{font-size:1.0rem;font-weight:300;color:var(--ink-dim);line-height:1.8;}
+.rp-text strong{font-weight:500;color:var(--ink);}
 
-/* BIG QUESTION CARDS */
-.bigq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);}
-.bigq{background:var(--surface);padding:1.75rem 1.85rem;}
-.bigq-num{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.14em;color:var(--gold);opacity:0.6;margin-bottom:0.75rem;}
-.bigq-q{font-family:var(--ff-display);font-size:1.35rem;font-weight:600;color:var(--ink);line-height:1.2;margin-bottom:0.75rem;}
-.bigq-a{font-size:1.0rem;line-height:1.75;color:var(--ink-dim);}
-.bigq-a strong{color:var(--ink);font-weight:600;}
-.bigq-a em{color:var(--ink);font-style:italic;}
+/* GOVERNANCE */
+#governance{background:var(--void);}
+.gov-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.gov-card{background:var(--deep);border:1px solid var(--rule);padding:1.5rem;position:relative;}
+.gov-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.gov-card.allowed::before{background:#1D9E75;}
+.gov-card.avoid::before{background:#c0392b;}
+.gov-card-label{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:1rem;}
+.gov-card-label.allowed{color:#1D9E75;}
+.gov-card-label.avoid{color:#c0392b;}
+.gov-items{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.gov-items li{font-size:1.06rem;font-weight:300;color:var(--ink-dim);line-height:1.7;padding-left:1.1rem;position:relative;}
+.gov-items li::before{content:'→';position:absolute;left:0;font-size:0.7rem;top:0.28rem;}
+.gov-items.allowed li::before{color:#1D9E75;}
+.gov-items.avoid li::before{color:#c0392b;}
+.gov-statement{background:var(--deep);border-left:3px solid var(--gold);padding:1.5rem 1.75rem;margin-top:3rem;}
+.gov-statement-label{font-family:var(--ff-mono);font-size:1.01rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.gov-statement-text{font-family:var(--ff-display);font-size:1.15rem;font-style:italic;font-weight:300;color:var(--ink-dim);line-height:1.7;}
 
-/* IS / IS-NOT COMPARISON */
-.isnot-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;}
-.isnot-col{border-radius:8px;padding:1.6rem 1.75rem;}
-.isnot-no{background:rgba(192,57,43,0.05);border:1px solid rgba(192,57,43,0.18);}
-.isnot-yes{background:rgba(29,158,117,0.07);border:1px solid rgba(29,158,117,0.2);}
-.isnot-label{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
-.isnot-no .isnot-label{color:#c0392b;}
-.isnot-yes .isnot-label{color:#1D9E75;}
-.isnot-col ul{margin:0;padding:0;list-style:none;}
-.isnot-col li{position:relative;padding-left:1.5rem;margin-bottom:0.7rem;font-size:1.0rem;line-height:1.55;color:var(--ink-dim);}
-.isnot-no li::before{content:'\00d7';position:absolute;left:0;color:#c0392b;font-weight:600;}
-.isnot-yes li::before{content:'\2713';position:absolute;left:0;color:#1D9E75;font-weight:600;}
+/* PERSISTENCE */
+#persistence{background:var(--deep);}
+.persist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-bottom:2.25rem;}
+.persist-card{background:var(--surface);padding:1.5rem;position:relative;}
+.persist-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.persist-card.keep::before{background:#1D9E75;}
+.persist-card.update::before{background:var(--gold);}
+.persist-card.discard::before{background:rgba(26,22,18,0.2);}
+.persist-card-label{font-family:var(--ff-mono);font-size:1.01rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:1rem;}
+.persist-card-label.keep{color:#1D9E75;}
+.persist-card-label.update{color:var(--gold);}
+.persist-card-label.discard{color:rgba(26,22,18,0.35);}
+.persist-items{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.persist-items li{font-size:1.04rem;font-weight:300;color:var(--ink-dim);line-height:1.65;padding-left:1rem;position:relative;}
+.persist-items li::before{content:'→';position:absolute;left:0;font-size:1.00rem;top:0.28rem;color:var(--gold);}
 
-/* Q/A STACK (science, AI, privacy, practical) */
-.qa-stack{display:flex;flex-direction:column;gap:0;margin-top:0.5rem;}
-.qa{border-top:1px solid var(--rule);padding:1.5rem 0;}
-.qa:last-child{border-bottom:1px solid var(--rule);}
-.qa-q{font-family:var(--ff-display);font-size:1.25rem;font-weight:600;color:var(--ink);line-height:1.25;margin-bottom:0.6rem;}
-.qa-a{font-size:1.0rem;line-height:1.75;color:var(--ink-dim);}
-.qa-a strong{color:var(--ink);font-weight:600;}
-.qa-a em{color:var(--ink);font-style:italic;}
-.qa-a p+p{margin-top:0.85rem;}
+/* ABOUT */
+#about{background:var(--void);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.about-body{font-size:1.1rem;font-weight:300;color:var(--ink-dim);line-height:2.0;}
+.about-body p+p{margin-top:1.25rem;}
+.about-creds{margin-top:2rem;display:flex;flex-direction:column;}
+.about-cred{border-top:1px solid var(--rule);padding:0.85rem 0;display:grid;grid-template-columns:100px 1fr;gap:0.75rem;align-items:baseline;}
+.about-cred-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding-top:0.1rem;}
+.about-cred-value{font-size:0.97rem;font-weight:300;color:var(--ink-dim);line-height:1.7;min-width:0;word-break:break-word;}
+.about-cards{display:flex;flex-direction:column;gap:1.25rem;}
+.about-card{background:var(--deep);border:1px solid var(--rule);padding:1.35rem;border-left:3px solid var(--gold);}
+.about-card-label{font-family:var(--ff-mono);font-size:1.01rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.about-card-quote{font-family:var(--ff-display);font-size:1.1rem;font-style:italic;font-weight:300;color:var(--ink-dim);line-height:1.7;}
 
-/* CALLOUT NOTE */
-.faq-note{background:var(--lift);border:1px solid var(--rule);border-radius:8px;padding:1.5rem 1.75rem;margin:2rem 0;}
-.faq-note-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;}
-.faq-note p{margin:0;font-size:0.98rem;line-height:1.7;color:var(--ink-dim);}
-/* Deeper-methodology link */
-.faq-deeper{display:inline-block;font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.05em;color:var(--gold);text-decoration:none;margin-top:0.75rem;border-bottom:1px solid rgba(184,103,30,0.25);padding-bottom:1px;transition:opacity 0.2s;}
-.faq-deeper:hover{opacity:0.7;}
-.bigq-a .faq-deeper, .qa-a .faq-deeper{font-size:0.72rem;margin-top:0.6rem;}
+/* CTA */
 
-/* EVIDENCE STRIP (sourced findings) */
-.evidence-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.75rem 0;}
-.es-cell{background:var(--surface);padding:1.4rem 1.5rem;}
-.es-stat{font-family:var(--ff-display);font-size:2rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:0.5rem;}
-.es-label{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:0.6rem;}
-.es-desc{font-size:0.92rem;line-height:1.6;color:var(--ink-dim);}
+.cta-eyebrow{font-family:var(--ff-mono);font-size:0.80rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,132,58,0.7);margin-bottom:1.5rem;}
+.cta-headline{font-family:var(--ff-display);font-size:clamp(2.5rem,5vw,5rem);font-weight:300;font-style:italic;line-height:1.0;color:#f0ece4;margin-bottom:0.2em;}
+.cta-headline strong{font-weight:700;font-style:normal;color:var(--gold-light);}
+.cta-sub{font-size:1.1rem;font-weight:300;color:rgba(240,236,228,0.6);max-width:500px;margin:1.5rem auto 3rem;line-height:2.0;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
+.cta-btn-p{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold-light);color:#0c0b0a;padding:0.9rem 2rem;font-family:var(--ff-body);font-size:1.01rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+.cta-btn-p:hover{background:#e8b87a;}
+.cta-btn-g{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(240,236,228,0.2);color:rgba(240,236,228,0.7);padding:0.9rem 2rem;font-family:var(--ff-body);font-size:1.01rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+.cta-btn-g:hover{border-color:var(--gold-light);color:var(--gold-light);}
+.cta-note{font-size:0.8rem;color:rgba(240,236,228,0.22);font-style:italic;max-width:480px;margin:0 auto;}
 
-/* PULL QUOTE */
-.faq-pull{font-family:var(--ff-display);font-size:1.7rem;line-height:1.35;color:var(--ink);font-style:italic;border-left:3px solid var(--gold);padding:0.5rem 0 0.5rem 1.75rem;margin:2.5rem 0;}
+/* FOOTER */
+footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;justify-content:space-between;}
+.footer-mark{font-family:var(--ff-display);font-size:1.04rem;color:rgba(240,236,228,0.3);text-decoration:none;}
+.footer-mark span{color:rgba(201,132,58,0.5);}
+.footer-note{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.08em;color:rgba(240,236,228,0.12);}
 
-/* CHATGPT COMPARISON */
-.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.75rem 0;}
-.vs-col{border-radius:8px;padding:1.6rem 1.75rem;border:1px solid var(--rule);}
-.vs-plain{background:var(--surface);}
-.vs-los{background:var(--ink);border-color:var(--ink);}
-.vs-label{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
-.vs-plain .vs-label{color:var(--ink-dim);}
-.vs-los .vs-label{color:var(--gold-light);}
-.vs-col ul{margin:0;padding:0;list-style:none;}
-.vs-col li{position:relative;padding-left:1.4rem;margin-bottom:0.65rem;font-size:0.96rem;line-height:1.55;}
-.vs-plain li{color:var(--ink-dim);}
-.vs-plain li::before{content:'–';position:absolute;left:0;color:var(--ink-dim);opacity:0.5;}
-.vs-los li{color:rgba(240,236,228,0.72);}
-.vs-los li::before{content:'+';position:absolute;left:0;color:var(--gold-light);font-weight:600;}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1);}
+.reveal.up{opacity:1;transform:translateY(0);}
 
-/* SCIENCE TIERS */
-.sci-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:1.75rem 0;}
-.sci-tier{background:var(--surface);padding:1.5rem 1.6rem;}
-.sci-tier-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1rem;}
-.sci-know .sci-tier-label{color:#1D9E75;}
-.sci-maybe .sci-tier-label{color:var(--gold);}
-.sci-dont .sci-tier-label{color:var(--c1);}
-.sci-tier ul{margin:0;padding:0;list-style:none;}
-.sci-tier li{position:relative;padding-left:1.2rem;margin-bottom:0.7rem;font-size:0.95rem;line-height:1.55;color:var(--ink-dim);}
-.sci-know li::before{content:'\2713';position:absolute;left:0;color:#1D9E75;}
-.sci-maybe li::before{content:'~';position:absolute;left:0;color:var(--gold);font-weight:600;}
-.sci-dont li::before{content:'?';position:absolute;left:0;color:var(--c1);font-weight:600;}
 
-/* THE QUESTION THAT MATTERS MOST */.faq-closer{background:var(--deep);}
-.faq-closer-inner{max-width:760px;margin:0 auto;padding:5rem 4vw;}
-.faq-closer-eyebrow{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
-.faq-closer h2{font-family:var(--ff-display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;font-style:italic;line-height:1.08;color:var(--ink);margin-bottom:1.75rem;letter-spacing:-0.01em;}
-.faq-closer p{font-size:1.08rem;line-height:1.85;color:var(--ink-dim);margin-bottom:1.2rem;}
-.faq-closer p em{color:var(--ink);font-style:italic;}
+/* HERO EXTRAS */
+.hero-proof{display:flex;align-items:center;gap:0.5rem;margin-top:1.25rem;flex-wrap:wrap;}
+.hp-item{font-family:var(--ff-mono);font-size:1.00rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-dim);}
+.hp-sep{color:var(--rule);font-size:0.8rem;}
 
-/* NEXT-STEP CTA */
+/* PROFILE MOCKUP */
+
+/* EVIDENCE DIAGRAM */
+.evidence-diagram-wrap{margin:2rem 0;border:1px solid var(--rule);background:var(--surface);}
+.ev-header{padding:0.7rem 1.25rem;border-bottom:1px solid var(--rule);background:var(--deep);}
+.ev-header-label{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+.ev-flow{padding:1.5rem;display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1.2fr;gap:0;align-items:center;}
+.ev-source{padding:1rem 0.85rem;text-align:center;}
+.ev-s1{background:var(--deep);border-left:3px solid #5B5BD6;}
+.ev-s2{background:var(--deep);border-left:3px solid var(--gold);}
+.ev-s3{background:var(--deep);border-left:3px solid #1D9E75;}
+.ev-output{background:var(--ink);padding:1rem 0.85rem;text-align:center;}
+.ev-icon{font-size:1.4rem;margin-bottom:0.35rem;}
+.ev-source-name{font-family:var(--ff-mono);font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.25rem;}
+.ev-s1 .ev-source-name{color:#5B5BD6;}
+.ev-s2 .ev-source-name{color:var(--gold);}
+.ev-s3 .ev-source-name{color:#1D9E75;}
+.ev-output .ev-source-name{color:var(--gold-light);}
+.ev-source-desc{font-size:0.88rem;color:var(--ink-dim);line-height:1.55;}
+.ev-output .ev-source-desc{font-size:0.88rem;color:rgba(240,236,228,0.55);line-height:1.55;}
+.ev-plus{text-align:center;padding:0 0.6rem;font-family:var(--ff-mono);font-size:0.9rem;color:var(--gold);opacity:0.6;font-weight:500;}
+.ev-arrow{text-align:center;padding:0 0.75rem;font-size:1.2rem;color:var(--gold);opacity:0.7;}
+@media(max-width:700px){
+  .ev-flow{grid-template-columns:1fr;gap:0;}
+  .ev-plus,.ev-arrow{padding:0.4rem 0;font-size:1.1rem;transform:rotate(90deg);}
+  .ev-source,.ev-output{border-left:none;border-top:3px solid;}
+  .ev-s1{border-top-color:#5B5BD6;}
+  .ev-s2{border-top-color:var(--gold);}
+  .ev-s3{border-top-color:#1D9E75;}
+  .ev-output{border-top-color:var(--gold-light);}
+}
+
+.profile-mockup{background:#0d0c0b;border-radius:6px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,0.3),0 8px 24px rgba(0,0,0,0.15),0 0 0 1px rgba(255,255,255,0.04);width:100%;}
+.pm-topbar{background:#1b1a18;padding:0.65rem 1rem;display:flex;align-items:center;gap:0.75rem;border-bottom:1px solid rgba(255,255,255,0.05);}
+.pm-dots{display:flex;gap:5px;}
+.pm-dots span{width:11px;height:11px;border-radius:50%;}
+.pm-dots span:first-child{background:#ff5f57;}
+.pm-dots span:nth-child(2){background:#febc2e;}
+.pm-dots span:last-child{background:#28c840;}
+.pm-title{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.06em;color:rgba(240,236,228,0.25);flex:1;text-align:center;}
+.pm-badge{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.05em;color:rgba(201,132,58,0.55);border:1px solid rgba(201,132,58,0.18);padding:0.2rem 0.55rem;}
+.pm-body{padding:1.35rem 1.5rem 1.5rem;overflow-y:auto;max-height:calc(100vh - 200px);}
+.pm-label-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;padding-bottom:0.8rem;border-bottom:1px solid rgba(255,255,255,0.05);}
+.pm-section-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-light);}
+.pm-meta{font-family:var(--ff-mono);font-size:0.70rem;letter-spacing:0.06em;color:rgba(240,236,228,0.22);}
+.pm-construct{margin-bottom:0.9rem;padding:1rem 1.1rem 0.85rem;border-radius:4px;border:1px solid rgba(255,255,255,0.05);}
+.pm-construct.hi-c{background:#111a14;border-left:3px solid #1D9E75;}
+.pm-construct.mo-c{background:#1a1510;border-left:3px solid var(--gold-light);}
+.pm-c-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.6rem;gap:0.75rem;}
+.pm-c-left{display:flex;align-items:center;gap:0.5rem;}
+.pm-c-name{font-family:var(--ff-display);font-size:1.1rem;font-weight:600;color:#f2ede6;line-height:1.2;}
+.pm-c-badge{font-family:var(--ff-mono);font-size:0.70rem;letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap;padding:0.22rem 0.6rem;border-radius:2px;}
+.pm-c-badge.hi{color:#1D9E75;background:rgba(29,158,117,0.12);border:1px solid rgba(29,158,117,0.22);}
+.pm-c-badge.mo{color:var(--gold-light);background:rgba(201,132,58,0.1);border:1px solid rgba(201,132,58,0.2);}
+.pm-c-body{font-size:0.9rem;font-weight:300;color:rgba(240,236,228,0.68);line-height:1.8;}
+.pm-dev-block{background:#181310;border:1px solid rgba(201,132,58,0.15);border-left:3px solid var(--gold-light);padding:0.9rem 1.1rem;margin-bottom:0.9rem;}
+.pm-dev-label{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.45rem;}
+.pm-dev-text{font-size:0.9rem;font-weight:300;color:rgba(240,236,228,0.65);line-height:1.78;}
+.pm-dev-text em{font-style:italic;color:rgba(240,236,228,0.85);}
+.pm-gov-block{background:#111110;border:1px solid rgba(255,255,255,0.05);padding:0.9rem 1.1rem;}
+.pm-gov-label{font-family:var(--ff-mono);font-size:0.70rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(240,236,228,0.22);margin-bottom:0.4rem;}
+.pm-gov-text{font-family:var(--ff-display);font-size:1.05rem;font-style:italic;color:rgba(240,236,228,0.6);line-height:1.55;}
+.pm-caption{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.07em;color:rgba(26,22,18,0.3);text-align:center;margin-top:0.85rem;}
+.pm-cursor{display:inline-block;width:2px;height:1em;background:var(--gold-light);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* MOBILE HERO */
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr;padding-top:48px;min-height:auto;}
+  .hero-left{padding:3rem 2rem 2rem;}
+  .hero-right{min-height:auto;padding:2rem 2rem 3rem;border-left:none;border-top:1px solid var(--rule);}
+  .hero-right::before{display:none;}
+  
+}
+/* MOBILE */
+@media(max-width:768px){
+  /* Section padding */
+  section{padding:3rem 1.25rem;scroll-margin-top:52px;}
+  #explainer{padding:3rem 1.25rem;}
+
+  /* Nav */
+  .h-nav .hide-mobile{display:none;}
+  #header{padding:0.6rem 1.25rem;}
+
+  /* Hero */
+  .pm-body{max-height:min(360px, 60vh);padding:1rem 1.1rem;}
+  
+  .pm-c-body{font-size:0.85rem;}
+  .pm-dev-text{font-size:0.85rem;}
+  .pm-c-name{font-size:0.98rem;}
+  .hero-left{padding:2.5rem 1.25rem 2rem;}
+  .hero-right{padding:1.75rem 1.25rem 2.5rem;}
+  .hero-title{font-size:clamp(2.5rem,10vw,4rem);}
+  .hero-outputs-list{flex-direction:column;gap:0.25rem;}
+  .hol-sep{display:none;}
+  .hero-proof{font-size:0.7rem;}
+
+  /* Profile mockup on mobile */
+  .pm-c-body{font-size:0.85rem;}
+  .pm-dev-text{font-size:0.85rem;}
+  .pm-c-name{font-size:0.98rem;}
+  .pm-topbar{padding:0.5rem 0.85rem;}
+
+  /* Explainer */
+  .explainer-flow{grid-template-columns:1fr;}
+  .explainer-distinction{grid-template-columns:1fr;}
+
+  /* Confidence visual (4-col → 2-col) */
+  .confidence-visual-grid{grid-template-columns:1fr 1fr;}
+
+  /* Evidence diagram (hide connectors on mobile) */
+  .ev-connector-mobile{display:none;}
+
+  /* Workflow steps */
+  .wf-step{grid-template-columns:1fr;gap:0.75rem;}
+  .wf-num{font-size:2.2rem;}
+  .wf-cols{grid-template-columns:1fr;}
+  .wf-prompt-footer{flex-direction:column;gap:0.75rem;align-items:flex-start;}
+
+  /* Reflection */
+  .refl-grid{grid-template-columns:1fr;}
+
+  /* Governance */
+  .gov-grid{grid-template-columns:1fr;}
+
+  /* Persistence */
+  .persist-grid{grid-template-columns:1fr;}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .about-cred{grid-template-columns:80px 1fr;}
+  .about-cards{gap:1rem;}
+
+  /* Section headlines */
+  .section-headline{font-size:clamp(1.7rem,6vw,2.4rem);}
+  /* Evidence diagram inline grid */
+  .evidence-diagram-wrap .inner-grid{display:flex;flex-direction:column;}
+  /* Confidence 4-col grid */
+  .conf-4col{grid-template-columns:1fr 1fr !important;}
+}
+
+/* ═══════════ OUTCOMES SECTION ═══════════ */
+#outcomes{padding:6rem 4vw;background:var(--void);}
+.oc-head{max-width:760px;margin:0 auto 3.5rem;text-align:center;}
+.oc-head .section-sub{margin-left:auto;margin-right:auto;}
+
+/* Hero conversation screenshot */
+.oc-shot{max-width:780px;margin:0 auto 4rem;}
+.cs-frame{background:#0d0c0b;border-radius:10px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.32),0 10px 28px rgba(0,0,0,0.18),0 0 0 1px rgba(255,255,255,0.05);}
+.cs-bar{display:flex;align-items:center;gap:0.75rem;padding:0.7rem 1rem;background:#1b1a18;border-bottom:1px solid rgba(255,255,255,0.05);}
+.cs-dots{display:flex;gap:6px;}
+.cs-dots span{width:11px;height:11px;border-radius:50%;}
+.cs-dots span:nth-child(1){background:#ff5f57;}
+.cs-dots span:nth-child(2){background:#febc2e;}
+.cs-dots span:nth-child(3){background:#28c840;}
+.cs-bar-title{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.04em;color:rgba(240,236,228,0.4);flex:1;text-align:center;}
+.cs-model{font-family:var(--ff-mono);font-size:0.72rem;color:rgba(201,132,58,0.6);border:1px solid rgba(201,132,58,0.25);border-radius:4px;padding:0.15rem 0.5rem;}
+.cs-body{padding:1.5rem 1.5rem 1.75rem;}
+.cs-msg{display:flex;gap:0.85rem;margin-bottom:1.5rem;}
+.cs-msg:last-child{margin-bottom:0;}
+.cs-avatar{width:30px;height:30px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--ff-mono);font-size:0.7rem;font-weight:500;}
+.cs-au{background:rgba(240,236,228,0.1);color:rgba(240,236,228,0.6);}
+.cs-aa{background:var(--gold);color:#0d0c0b;}
+.cs-bubble{flex:1;}
+.cs-ub{font-size:0.95rem;line-height:1.65;color:rgba(240,236,228,0.78);padding-top:0.35rem;}
+.cs-ab{background:#161513;border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:1.25rem 1.35rem;}
+.cs-doc-tag{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.85rem;padding-bottom:0.65rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.cs-lead{font-size:0.95rem;line-height:1.65;color:rgba(240,236,228,0.75);margin-bottom:1.1rem;}
+.cs-construct{margin-bottom:1.1rem;padding-left:0.9rem;border-left:2px solid rgba(255,255,255,0.08);}
+.cs-con-head{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.4rem;flex-wrap:wrap;}
+.cs-con-name{font-family:var(--ff-display);font-size:1.15rem;font-weight:500;color:#f0ece4;}
+.cs-con-conf{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.03em;white-space:nowrap;}
+.cf-high{color:#5fcd7a;}
+.cf-mod{color:#d9a441;}
+.cs-con-text{font-size:0.9rem;line-height:1.6;color:rgba(240,236,228,0.62);}
+.cs-insight{background:rgba(184,103,30,0.08);border:1px solid rgba(184,103,30,0.2);border-radius:6px;padding:0.95rem 1.1rem;margin:1.1rem 0;}
+.cs-insight-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--gold-light);margin-bottom:0.4rem;}
+.cs-insight-text{font-size:0.9rem;line-height:1.6;color:rgba(240,236,228,0.72);}
+.cs-foot{font-size:0.76rem;line-height:1.5;color:rgba(240,236,228,0.35);font-style:italic;margin-top:0.85rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.05);}
+.oc-shot-cap{text-align:center;font-family:var(--ff-mono);font-size:0.76rem;letter-spacing:0.04em;color:var(--ink-dim);margin-top:1rem;}
+
+/* Four outputs grid */
+.oc-grid{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.oc-card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.75rem 1.75rem 1.5rem;position:relative;transition:border-color 0.25s,box-shadow 0.25s;}
+.oc-card:hover{border-color:rgba(184,103,30,0.35);box-shadow:0 8px 28px rgba(0,0,0,0.06);}
+.oc-num{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.75rem;}
+.oc-card-name{font-family:var(--ff-display);font-size:1.55rem;font-weight:500;color:var(--ink);margin-bottom:0.7rem;line-height:1.1;}
+.oc-card-desc{font-size:0.98rem;line-height:1.65;color:var(--ink-dim);margin-bottom:0.9rem;}
+.oc-card-use{font-size:0.9rem;line-height:1.55;color:var(--ink);padding-top:0.85rem;border-top:1px solid var(--rule);}
+.oc-card-use::before{content:'→ ';color:var(--gold);}
+
+/* ═══════════ HOW IT'S PRODUCED BANNER ═══════════ */
+#how-banner{padding:4rem 4vw;background:var(--deep);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.hb-inner{max-width:760px;margin:0 auto;text-align:center;}
+.hb-label{font-family:var(--ff-mono);font-size:0.78rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.75rem;}
+.hb-flow{display:flex;flex-direction:column;align-items:center;gap:0.65rem;margin-bottom:1.75rem;}
+.hb-sources{display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;}
+.hb-src{font-family:var(--ff-mono);font-size:0.84rem;letter-spacing:0.02em;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.45rem;}
+.hb-s1{border-bottom:2px solid #5B5BD6;}
+.hb-s2{border-bottom:2px solid var(--gold);}
+.hb-s3{border-bottom:2px solid #1D9E75;}
+.hb-ic{font-size:1rem;}
+.hb-arrow{font-size:1.2rem;color:var(--gold);opacity:0.55;}
+.hb-step{font-family:var(--ff-mono);font-size:0.84rem;letter-spacing:0.04em;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:0.6rem 1.4rem;}
+.hb-result{font-family:var(--ff-display);font-size:1.5rem;font-weight:500;color:var(--ink);background:var(--ink);color:#f0ece4;border-radius:6px;padding:0.7rem 1.75rem;}
+.hb-note{font-size:1rem;line-height:1.7;color:var(--ink-dim);max-width:580px;margin:0 auto;}
+.hb-link{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,103,30,0.3);transition:border-color 0.2s;white-space:nowrap;}
+.hb-link:hover{border-color:var(--gold);}
+
+@media(max-width:760px){
+  #outcomes{padding:4rem 1.5rem;}
+  .oc-grid{grid-template-columns:1fr;}
+  .cs-body{padding:1.1rem 1rem 1.25rem;}
+  .cs-con-head{flex-direction:column;align-items:flex-start;gap:0.25rem;}
+  .cs-ab{padding:1rem 1rem;}
+  #how-banner{padding:3rem 1.5rem;}
+  .hb-result{font-size:1.3rem;}
+}
+@media(max-width:480px){
+  .cs-bar-title{display:none;}
+  .oc-card{padding:1.4rem 1.4rem 1.2rem;}
+  .oc-card-name{font-size:1.35rem;}
+}
+
+/* WHAT IT TAKES BAND */
+.oc-takes{max-width:880px;margin:0 auto 3.5rem;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.75rem 2rem;}
+.ot-label{font-family:var(--ff-mono);font-size:0.72rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;text-align:center;}
+.ot-items{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 2rem;}
+.ot-item{display:flex;gap:0.85rem;align-items:flex-start;}
+.ot-ic{font-size:1.25rem;flex-shrink:0;line-height:1.3;}
+.ot-txt{font-size:0.95rem;line-height:1.6;color:var(--ink-dim);}
+.ot-txt strong{color:var(--ink);font-weight:500;}
+@media(max-width:680px){
+  .oc-takes{padding:1.4rem 1.4rem;}
+  .ot-items{grid-template-columns:1fr;gap:0.9rem;}
+}
+
+/* ═══════════ HOW IT'S EVOLVING ═══════════ */
+#evolving{padding:6rem 4vw;background:var(--void);border-top:1px solid var(--rule);}
+.ev-wrap{max-width:1040px;margin:0 auto;}
+.ev-wrap .section-sub{max-width:640px;}
+.evo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;}
+.evo-card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.6rem 1.6rem 1.5rem;}
+.evo-card-label{font-family:var(--ff-mono);font-size:0.72rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.evo-card-body{font-size:0.95rem;line-height:1.65;color:var(--ink-dim);}
+.evo-card-body p{margin-bottom:0.6rem;}
+.evo-card-body p strong{color:var(--ink);font-weight:500;}
+.evo-list{list-style:none;padding:0;margin:0;}
+.evo-list li{position:relative;padding-left:1.1rem;margin-bottom:0.7rem;font-size:0.92rem;line-height:1.55;color:var(--ink-dim);}
+.evo-list li::before{content:'·';position:absolute;left:0.2rem;color:var(--gold);font-weight:700;}
+
+/* ═══════════ STAY CONNECTED ═══════════ */
+#connect{padding:6rem 4vw;background:var(--deep);border-top:1px solid var(--rule);}
+.cn-wrap{max-width:1040px;margin:0 auto;}
+.cn-wrap .section-sub{max-width:660px;}
+.cn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;}
+.cn-card{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.75rem 1.6rem 1.6rem;display:flex;flex-direction:column;}
+.cn-num{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.1em;color:var(--gold);margin-bottom:0.85rem;}
+.cn-card-name{font-family:var(--ff-display);font-size:1.4rem;font-weight:500;color:var(--ink);line-height:1.15;margin-bottom:0.75rem;}
+.cn-card-desc{font-size:0.95rem;line-height:1.65;color:var(--ink-dim);margin-bottom:1.4rem;flex:1;}
+.cn-btn{display:inline-block;align-self:flex-start;font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.06em;color:var(--gold);text-decoration:none;border:1px solid rgba(184,103,30,0.3);border-radius:5px;padding:0.55rem 1rem;transition:all 0.2s;}
+.cn-btn:hover{background:rgba(184,103,30,0.08);border-color:var(--gold);}
+.cn-foot{text-align:center;font-size:0.88rem;line-height:1.6;color:var(--ink-dim);margin-top:2rem;font-style:italic;}
+
+@media(max-width:860px){
+  .evo-grid,.cn-grid{grid-template-columns:1fr;}
+  #evolving,#connect{padding:4rem 1.5rem;}
+}
+
+.footer-links{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;margin:1.25rem 0;}
+.footer-links a{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.06em;color:var(--ink-dim);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+
+
+/* CTA (revised) */
+
+.cta-inner .cta-headline{font-family:var(--ff-display);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;line-height:1.08;color:var(--ink);margin-bottom:1.5rem;}
+.cta-inner .cta-headline strong{color:var(--gold);font-weight:500;}
+.cta-sub{font-size:1.12rem;line-height:1.7;color:var(--ink-dim);max-width:560px;margin:0 auto 2.5rem;}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;}
+.cta-btn-primary{font-family:var(--ff-mono);font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;background:var(--ink);color:var(--void);transition:all 0.2s;}
+.cta-btn-primary:hover{background:var(--gold);}
+.cta-btn-ghost{font-family:var(--ff-mono);font-size:0.76rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;color:var(--ink);border:1px solid rgba(26,22,18,0.25);transition:all 0.2s;}
+.cta-btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.cta-foot{font-size:0.9rem;color:var(--ink-dim);margin-top:0.5rem;}
+@media(max-width:680px){}
+
+/* ENGINE / LLM + INSTRUCTION COMPONENT */
+#engine{max-width:900px;margin:0 auto;padding:5rem 4vw;}
+.eng-wrap .section-sub{max-width:620px;}
+.eng-equation{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:1.25rem;align-items:center;margin:2.5rem 0 2rem;}
+.eng-part{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.4rem 1.5rem;align-self:stretch;}
+.eng-result{border-top:2px solid var(--gold);background:var(--deep);}
+.eng-part-label{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:0.7rem;}
+.eng-part p{font-size:0.92rem;line-height:1.6;color:var(--ink-dim);margin:0;}
+.eng-result p em{color:var(--ink);font-style:italic;font-weight:500;}
+.eng-plus,.eng-equals{font-family:var(--ff-display);font-size:2rem;color:var(--gold);opacity:0.6;text-align:center;}
+.eng-honest{font-size:0.98rem;line-height:1.7;color:var(--ink-dim);max-width:660px;background:var(--lift);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;}
+.eng-honest em{color:var(--ink);font-style:italic;}
+.eng-link{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,103,30,0.3);white-space:nowrap;}
+@media(max-width:760px){
+  #engine{padding:4rem 1.5rem;}
+  .eng-equation{grid-template-columns:1fr;gap:0.75rem;}
+  .eng-plus,.eng-equals{font-size:1.5rem;}
+}
+
+/* UNIFIED NEXT-STEP CTA */
 .next-step{max-width:720px;margin:0 auto;padding:5rem 4vw 6.5rem;text-align:center;}
 .ns-wrap{max-width:580px;margin:0 auto;}
 .ns-eyebrow{font-family:var(--ff-mono);font-size:0.72rem;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
@@ -189,513 +526,696 @@ body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-siz
 .ns-headline em{font-style:italic;color:var(--gold);}
 .ns-sub{font-size:1.08rem;line-height:1.7;color:var(--ink-dim);max-width:520px;margin:0 auto 2.25rem;}
 .ns-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.ns-btn-primary{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;background:var(--ink);color:var(--void);transition:background 0.2s,color 0.2s;}
+.ns-btn-primary{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;background:var(--ink);color:var(--void);transition:all 0.2s;}
 .ns-btn-primary:hover{background:var(--gold);}
-.ns-btn-ghost{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;color:var(--ink);border:1px solid rgba(26,22,18,0.25);transition:border-color 0.2s,color 0.2s;}
+.ns-btn-ghost{font-family:var(--ff-mono);font-size:0.74rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:0.9rem 1.6rem;border-radius:6px;color:var(--ink);border:1px solid rgba(26,22,18,0.25);transition:all 0.2s;}
 .ns-btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+@media(max-width:680px){.next-step{padding:4rem 1.5rem 5rem;}}
+.ns-foot{font-size:0.9rem;color:var(--ink-dim);margin-top:1.5rem;}
+.ns-foot a{color:var(--gold);text-decoration:none;}
 
-/* FOOTER */
-footer{padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);}
-.foot-inner{max-width:760px;margin:0 auto;text-align:center;}
-.foot-privacy{font-size:0.92rem;color:var(--ink-dim);line-height:1.7;margin-bottom:1.25rem;}
-.foot-meta-row{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.06em;color:var(--ink-dim);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;align-items:center;margin-bottom:0.85rem;}
-.foot-version{color:var(--gold);}
-.foot-sep{opacity:0.4;}
-.foot-disclaimer{font-size:0.82rem;color:var(--ink-dim);opacity:0.75;font-style:italic;}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1);}
-.reveal.up{opacity:1;transform:translateY(0);}
+/* EXPECTATION-SETTING CALLOUT */
+.expect-note-wrap{max-width:760px;margin:0 auto;padding:1rem 4vw 2.5rem;}
+.expect-note{background:var(--deep);border-left:3px solid var(--gold);border-radius:8px;padding:1.5rem 1.75rem;}
+.expect-note p{font-family:var(--ff-display);font-size:1.45rem;line-height:1.5;color:var(--ink);margin:0;font-weight:400;}
+@media(max-width:600px){.expect-note p{font-size:1.2rem;}.expect-note{padding:1.25rem 1.4rem;}}
 
-/* A11Y */
-a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:1px;}
-
-/* MOBILE */
-@media(max-width:768px){
-  .faq-hero{padding:5.5rem 1.5rem 3rem;}
-  .faq-toc{padding:2.5rem 1.5rem;}
-  .faq-section{padding:3rem 1.5rem;}
-  .faq-featured-inner{padding:3.5rem 1.5rem;}
-  .faq-closer-inner{padding:3.5rem 1.5rem;}
-  .faq-toc-grid{grid-template-columns:1fr;}
-  .bigq-grid{grid-template-columns:1fr;}
-  .isnot-grid{grid-template-columns:1fr;}
-  .evidence-strip{grid-template-columns:1fr;}
-  .vs-grid{grid-template-columns:1fr;}
-  .sci-tiers{grid-template-columns:1fr;}
-  .conf-rung{grid-template-columns:1fr;gap:0.75rem;}
-  .conf-tag{justify-self:start;}
-  .faq-pull{font-size:1.4rem;}
-  #header .h-nav a:not(.current):not(.always-show){display:none;}
-}
-@media(max-width:600px){.next-step{padding:4rem 1.5rem 5rem;}footer{padding:2.5rem 1.5rem;}}
-
-@media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1 !important;transform:none !important;}
-  *{scroll-behavior:auto !important;}
-}
 </style>
+<style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 </head>
 <body>
+
 <header id="header">
   <a href="https://mikecilla.com" class="h-mark">Mike Cilla<span>.</span></a>
   <nav class="h-nav">
-    <a href="index.html" class="h-nav-link">What it is</a>
+    <a href="index.html" class="h-nav-link" aria-current="page">What it is</a>
+    <a href="leadership-os-why.html" class="h-nav-link hide-mobile">Why it exists</a>
     <a href="leadership-os-how.html" class="h-nav-link">How it works</a>
-    <a href="leadership-os-research.html" class="h-nav-link">Methodology</a>
-    <a href="leadership-os-sample-outputs.html" class="h-nav-link">Sample outputs</a>
-    <a href="leadership-os-faq.html" class="h-nav-link current always-show">FAQs</a>
+    <a href="leadership-os-model.html" class="h-nav-link hide-mobile">The model</a>
+    <a href="leadership-os-research.html" class="h-nav-link hide-mobile">Methodology</a>
+    <a href="leadership-os-sample-outputs.html" class="h-nav-link hide-mobile">Sample outputs</a>
+    <a href="leadership-os-faq.html" class="h-nav-link">FAQs</a>
     <a href="leadership-os-starter-kit.html" class="h-nav-link">Starter Kit</a>
+    <a href="leadership-os-guided-starter-kit.html" class="h-nav-link">Guided Kit</a>
   </nav>
 </header>
 
 <!-- HERO -->
-<div class="faq-hero">
-  <div class="faq-eyebrow">Questions we expect you to ask</div>
-  <h1>Skepticism is the<br><em>right reaction.</em></h1>
-  <p class="faq-lede">If you're anything like the leaders, coaches, and researchers who have reviewed Leadership OS so far, these are probably some of the questions running through your head. They're good questions. Most of them are the ones we've been asking ourselves. Here are honest answers — including the ones where the honest answer is "we don't know yet."</p>
-  <div class="faq-status">
-    <span class="faq-chip">Exploratory methodology</span>
-    <span class="faq-chip">Not a validated instrument</span>
-    <span class="faq-chip">Limitations stated, not buried</span>
-  </div>
-</div>
+<section id="hero">
 
-<!-- TOC -->
-<nav class="faq-toc">
-  <div class="faq-toc-label">On this page</div>
-  <div class="faq-toc-grid">
-    <a href="#confidence"><span class="faq-toc-num">★</span> How much should you trust this?</a>
-    <a href="#wrong"><span class="faq-toc-num">★</span> Can it be wrong?</a>
-    <a href="#big"><span class="faq-toc-num">01</span> The big questions</a>
-    <a href="#isnot"><span class="faq-toc-num">02</span> What it is, and isn't</a>
-    <a href="#vs-chatgpt"><span class="faq-toc-num">03</span> Why not just use ChatGPT?</a>
-    <a href="#science"><span class="faq-toc-num">04</span> Current state of the science</a>
-    <a href="#ai"><span class="faq-toc-num">05</span> The AI questions</a>
-    <a href="#privacy"><span class="faq-toc-num">06</span> The privacy questions</a>
-    <a href="#practical"><span class="faq-toc-num">07</span> The practical questions</a>
-    <a href="#matters"><span class="faq-toc-num">08</span> The question that matters most</a>
-  </div>
-</nav>
+  <!-- LEFT: Value-first copy -->
+  <div class="hero-left">
+    <div class="hero-inner">
+      <div class="hero-eyebrow reveal" style="transition-delay:.05s">An open exploration of leadership development in an AI-native world</div>
+    <h1 class="hero-title reveal" style="transition-delay:.1s">
+        <span class="block">The leadership</span>
+        <span class="block">manual nobody</span>
+        <span class="block">ever <em>gave you</em>.</span>
+      </h1>
+      <p class="hero-sub reveal" style="transition-delay:.2s">Leadership OS turns assessments, your AI conversation history, and structured reflection into four practical tools — for understanding yourself, working with your team, getting more from AI, and knowing where to grow next.</p>
 
-<!-- ★ FEATURED — CONFIDENCE -->
-<section class="faq-featured" id="confidence" style="scroll-margin-top:52px;">
-  <div class="faq-featured-inner reveal">
-    <div class="faq-featured-eyebrow">The question underneath every other question</div>
-    <h2>What level of confidence<br>should I have in <em>these outputs?</em></h2>
-
-    <p>This is the real question. Not whether Leadership OS is interesting, or useful, or well-designed — but how much weight to actually place on what it tells you about yourself. So here is the most honest answer we can give.</p>
-
-    <p class="faq-featured-pull">Treat the outputs as well-formed hypotheses about your patterns — strong enough to reflect on, not strong enough to act on without your own judgment.</p>
-
-    <p>That's not false modesty. It's where the evidence actually sits. Leadership OS combines three inputs — a validated assessment, your own structured reflection, and behavioral patterns drawn from your AI conversation history. Each of those carries a different weight of evidence, so your confidence should vary depending on which part of the output you're reading:</p>
-
-    <div class="conf-ladder">
-      <div class="conf-rung">
-        <span class="conf-tag high">Higher confidence</span>
-        <div class="conf-text">Anything anchored to a <strong>validated assessment</strong> you took, or that you recognize immediately because it matches behavior you can point to. These rest on decades of measurement science or on your own direct evidence.</div>
+      <div class="hero-cta-row reveal" style="transition-delay:.42s">
+        <a href="leadership-os-starter-kit.html" class="btn-primary">Start Leadership OS →</a>
+        <a href="leadership-os-sample-outputs.html" class="btn-ghost">See sample outputs</a>
       </div>
-      <div class="conf-rung">
-        <span class="conf-tag mod">Moderate confidence</span>
-        <div class="conf-text">Patterns where <strong>two of the three sources agree</strong> — say, the assessment and your reflection point the same direction. Convergence is meaningful. It's still your read of yourself plus a structured instrument, not an outside verdict.</div>
-      </div>
-      <div class="conf-rung">
-        <span class="conf-tag emerg">Treat as a prompt, not a finding</span>
-        <div class="conf-text">Anything inferred primarily from your <strong>AI conversation history</strong>. This is the newest and least proven input. Current research on inferring personality from real conversation finds the signal is <strong>weak and systematically biased</strong> — so read these as questions worth sitting with, not conclusions.</div>
-      </div>
-      <div class="conf-rung">
-        <span class="conf-tag thin">Low confidence by design</span>
-        <div class="conf-text">Anything the system itself flags as <strong>Insufficient Evidence</strong>. When it says it doesn't have enough to go on, believe it. A framework that knows what it doesn't know is the only kind worth pointing at a real person.</div>
+      <div class="hero-proof reveal" style="transition-delay:.52s">
+        <span class="hp-item">90–120 minutes</span>
+        <span class="hp-sep">·</span>
+        <span class="hp-item">Works with any AI tool</span>
+        <span class="hp-sep">·</span>
+        <span class="hp-item">Free</span> <span class="hp-sep">·</span> <span class="hp-item">In beta, evolving in public</span>
       </div>
     </div>
+  </div>
 
-    <p>Why be this cautious about the conversation-history input specifically? Because the independent evidence is sobering, and we'd rather you hear it from us. Recent research that tested AI systems on inferring personality from real conversation found the signal weak — and worse, systematically biased toward a flattering, articulate "default persona" rather than the actual person.</p>
-
-    <div class="evidence-strip">
-      <div class="es-cell">
-        <div class="es-stat">Weak</div>
-        <div class="es-label">AI-inferred vs. self-reported personality</div>
-        <div class="es-desc">A 2025 benchmark across hundreds of real interviews found only weak correlation between what an AI inferred and what people reported about themselves.</div>
+  <!-- RIGHT: High-fidelity AI output mockup -->
+  <div class="hero-right">
+    <div class="profile-mockup">
+      <div class="pm-topbar">
+        <div class="pm-dots"><span></span><span></span><span></span></div>
+        <div class="pm-title">Leadership OS · Analysis Engine</div>
+        <div class="pm-badge">claude-opus-4</div>
       </div>
-      <div class="es-cell">
-        <div class="es-stat">Default<br>persona</div>
-        <div class="es-label">The flattering-bias problem</div>
-        <div class="es-desc">Models skewed toward likable, articulate profiles — describing a pleasant archetype more than the specific individual.</div>
+      <div class="pm-body" id="pm-body">
+        <div class="pm-label-row">
+          <span class="pm-section-label">Leadership Profile — Sample Output</span>
+          <span class="pm-meta">3 sources · 9 constructs</span>
+        </div>
+
+        <div class="pm-construct hi-c">
+          <div class="pm-c-header">
+            <div class="pm-c-left">
+              <span class="pm-c-name">How you approach problems</span>
+            </div>
+            <span class="pm-c-badge hi">● fairly sure of this</span>
+          </div>
+          <div class="pm-c-body">When you hit something complicated, your first move is to step back and look for how the pieces connect — you're after the root cause while other people are still reacting to symptoms. It shows up everywhere, not just in strategy, but in how you describe ordinary problems too. <span style="opacity:0.5">(Leadership OS calls this systems orientation.)</span></div>
+        </div>
+
+        <div class="pm-construct mo-c">
+          <div class="pm-c-header">
+            <div class="pm-c-left">
+              <span class="pm-c-name">How you make the call</span>
+            </div>
+            <span class="pm-c-badge mo">● a likely pattern</span>
+          </div>
+          <div class="pm-c-body">You take your time and weigh everything — a real strength when the call is genuinely hard. The watch-out: sometimes you wait past the point where waiting helps. Your own history shows the signs were often clear well before you let yourself commit.</div>
+        </div>
+
+        <div class="pm-dev-block">
+          <div class="pm-dev-label">→ The one worth your attention</div>
+          <div class="pm-dev-text" id="pm-typed-text">Delegation appears less constrained by trust and more constrained by personal quality standards. The growth edge is not "delegate more" — it is defining what good enough looks like <em>before</em> the work begins, not after.</div>
+        </div>
+
+        <div class="pm-gov-block">
+          <div class="pm-gov-label">Governing question (extracted from your inputs)</div>
+          <div class="pm-gov-text">"Is this actually sound — or does it just look right?"</div>
+        </div>
+
       </div>
-      <div class="es-cell">
-        <div class="es-stat">As&nbsp;good</div>
-        <div class="es-label">AI coaching on narrow goals</div>
-        <div class="es-desc">Where AI <em>has</em> shown results: trials found an AI coach matched human coaches on goal attainment. Structured, goal-oriented work — not personality reading.</div>
+    </div>
+    <div class="pm-caption">Sample output · Fictional persona · Generated from 3 inputs</div>
+  </div>
+
+</section>
+
+<!-- ═══════════ WHAT YOU WALK AWAY WITH ═══════════ -->
+<section id="outcomes">
+  <div class="oc-head">
+    <div class="s-label reveal">What you walk away with</div>
+    <h2 class="section-headline reveal" style="transition-delay:.05s">Four tools you'll<br><em>keep using.</em></h2>
+    <p class="section-sub reveal" style="transition-delay:.1s">Not a score. Not a report you read once and forget. Four tools you'll come back to — to understand yourself, work better with your team, get sharper output from AI, and keep growing — each one written in plain language and built from your own evidence, which is why they read as specifically yours rather than generic.</p>
+  </div>
+
+  <!-- WHAT IT TAKES -->
+  <div class="oc-takes reveal" style="transition-delay:.12s">
+    <div class="ot-label">What it takes</div>
+    <div class="ot-items">
+      <div class="ot-item">
+        <div class="ot-ic">⏱</div>
+        <div class="ot-txt"><strong>90–120 minutes</strong>, once. Most of it is reflection you'd benefit from anyway.</div>
+      </div>
+      <div class="ot-item">
+        <div class="ot-ic">📋</div>
+        <div class="ot-txt"><strong>A personality assessment</strong> — free options work. We point you to one.</div>
+      </div>
+      <div class="ot-item">
+        <div class="ot-ic">💬</div>
+        <div class="ot-txt"><strong>Some existing AI chat history</strong> — and it still works if yours is thin.</div>
+      </div>
+      <div class="ot-item">
+        <div class="ot-ic">🔒</div>
+        <div class="ot-txt"><strong>The AI tool you already use.</strong> Nothing to install. Nothing leaves your account.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- HERO SCREENSHOT: realistic LLM conversation -->
+  <div class="oc-shot reveal" style="transition-delay:.15s">
+    <div class="cs-frame">
+      <div class="cs-bar">
+        <div class="cs-dots"><span></span><span></span><span></span></div>
+        <div class="cs-bar-title">Leadership OS · Analysis Engine</div>
+        <div class="cs-model">claude-opus-4</div>
+      </div>
+      <div class="cs-body">
+        <div class="cs-msg cs-user">
+          <div class="cs-avatar cs-au">You</div>
+          <div class="cs-bubble cs-ub">Here are my three inputs — my PrinciplesYou results, the behavioral audit from my AI history, and my six reflection responses. Please generate my Leadership Profile.</div>
+        </div>
+        <div class="cs-msg cs-ai">
+          <div class="cs-avatar cs-aa">OS</div>
+          <div class="cs-bubble cs-ab">
+            <div class="cs-doc-tag">Your Leadership Profile · drawn from all three of your sources</div>
+            <p class="cs-lead">Here's what I'm seeing across your three sources. I'll tell you how sure I am of each one as we go — some of this is solid, some is more of a hunch worth sitting with.</p>
+
+            <div class="cs-construct">
+              <div class="cs-con-head">
+                <span class="cs-con-name">How you make the call</span>
+                <span class="cs-con-conf cf-high">● fairly sure of this</span>
+              </div>
+              <p class="cs-con-text">You sit with complexity longer than most people can stand to — and when the situation is genuinely murky, that patience is one of your real strengths. But there's a flip side I kept noticing: once you've said a direction out loud to people, changing your mind starts to feel like a cost you don't want to pay. The signs were often clear well before you let yourself move. <span style="opacity:0.55">(Leadership OS calls this your decision style.)</span></p>
+            </div>
+
+            <div class="cs-construct">
+              <div class="cs-con-head">
+                <span class="cs-con-name">How you come across</span>
+                <span class="cs-con-conf cf-mod">● a likely pattern</span>
+              </div>
+              <p class="cs-con-text">When you write, it's clear and tight — no wasted words. The thing to watch: when you're under time pressure, that same tightness can read as cold. What feels efficient to you can land as curt to the person reading it, especially when they can't hear your tone.</p>
+            </div>
+
+            <div class="cs-insight">
+              <div class="cs-insight-label">→ The one worth your attention</div>
+              <p class="cs-insight-text">Your instinct is to solve the problem in front of you — which is exactly why your team brings you problems instead of solving them. The growth edge isn't a skill you're missing. It's that stepping back feels like doing less, when for you it's the harder, higher-value work.</p>
+            </div>
+
+            <div class="cs-foot">Input-informed hypotheses for reflection — not a validated assessment. Synthetic illustrative example.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="oc-shot-cap">A sample of the Leadership Profile, generated inside the AI tool you already use.</div>
+  </div>
+
+  <!-- FOUR OUTPUTS -->
+  <div class="oc-grid">
+    <div class="oc-card reveal" style="transition-delay:.05s">
+      <div class="oc-num">01</div>
+      <div class="oc-card-name">Leadership Profile</div>
+      <div class="oc-card-desc">Put precise language to leadership patterns you've probably felt for years but never fully articulated — where your instincts serve you, and where they quietly work against you.</div>
+      <div class="oc-card-use">The self-understanding everything else is built on.</div>
+    </div>
+    <div class="oc-card reveal" style="transition-delay:.1s">
+      <div class="oc-num">02</div>
+      <div class="oc-card-name">Working-With-Me Guide</div>
+      <div class="oc-card-desc">Give a new teammate, report, or boss a six-month head start on working effectively with you — how you communicate, how you decide, and how to give you feedback that actually lands.</div>
+      <div class="oc-card-use">Skip the months people usually spend figuring each other out.</div>
+    </div>
+    <div class="oc-card reveal" style="transition-delay:.15s">
+      <div class="oc-num">03</div>
+      <div class="oc-card-name">AI Calibration Document</div>
+      <div class="oc-card-desc">Make every AI tool you use respond like it already knows how you think — tuned to your style and standards from the first message, instead of generic from the first message every time.</div>
+      <div class="oc-card-use">Paste it into any new chat. Reuse it for years.</div>
+    </div>
+    <div class="oc-card reveal" style="transition-delay:.2s">
+      <div class="oc-num">04</div>
+      <div class="oc-card-name">Development Roadmap</div>
+      <div class="oc-card-desc">Stop guessing where to focus. Get specific growth priorities traced to your own inputs — not generic leadership advice — with concrete practices and a 90-day focus.</div>
+      <div class="oc-card-use">Private by design. Revisit each quarter to see what's shifted.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOW IT'S PRODUCED — INPUTS BANNER ═══════════ -->
+<section id="explainer" style="scroll-margin-top:52px;">
+  <div class="s-label reveal">Understand it in 60 seconds</div>
+  <h2 class="explainer-headline reveal" style="transition-delay:.05s">What it is.<br><em>Why it's different.</em></h2>
+  <p class="explainer-sub reveal" style="transition-delay:.1s">Four ideas. No jargon. Read this first.</p>
+
+  <div class="explainer-flow reveal" style="transition-delay:.15s">
+    <div class="ef-card">
+      <span class="ef-icon">📥</span>
+      <div class="ef-title">You bring three inputs</div>
+      <div class="ef-desc">A personality assessment. A structured reflection on how you work. And a behavioral audit from your existing AI conversation history — a record of patterns in how you think, not how you describe yourself thinking.</div>
+    </div>
+    <div class="ef-card">
+      <span class="ef-icon">🧠</span>
+      <div class="ef-title">Your AI finds the patterns</div>
+      <div class="ef-desc">A synthesis prompt guides your AI to identify your decision tendencies, communication patterns, energy sources, friction points, and governing questions — across all three inputs simultaneously.</div>
+    </div>
+    <div class="ef-card">
+      <span class="ef-icon">📘</span>
+      <div class="ef-title">You get three working documents</div>
+      <div class="ef-desc">A Leadership User Manual. A Working-With-Me Guide. An AI Calibration Document. Not a report. Documents you share, update, and return to as your leadership evolves.</div>
+    </div>
+  </div>
+
+  <div class="explainer-distinction reveal" style="transition-delay:.2s">
+    <div class="ed-cell">
+      <div class="ed-label old">Traditional assessments</div>
+      <div class="ed-items">
+        <div class="ed-item"><span class="ed-icon">○</span>Based on self-report only</div>
+        <div class="ed-item"><span class="ed-icon">○</span>Produces a report you read once</div>
+        <div class="ed-item"><span class="ed-icon">○</span>Static — a snapshot at one point in time</div>
+        <div class="ed-item"><span class="ed-icon">○</span>No connection to how you actually work</div>
+        <div class="ed-item"><span class="ed-icon">○</span>Insight fades within weeks</div>
+      </div>
+    </div>
+    <div class="ed-cell">
+      <div class="ed-label new">Leadership OS</div>
+      <div class="ed-items">
+        <div class="ed-item"><span class="ed-icon">→</span>Combines self-report with behavioral signals</div>
+        <div class="ed-item"><span class="ed-icon">→</span>Produces documents you use and update</div>
+        <div class="ed-item"><span class="ed-icon">→</span>Living — gets more accurate over time</div>
+        <div class="ed-item"><span class="ed-icon">→</span>Grounded in patterns across the input you provide</div>
+        <div class="ed-item"><span class="ed-icon">→</span>Built to persist and compound</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-banner">
+  <div class="hb-inner reveal">
+    <div class="hb-label">How it's produced</div>
+    <div class="hb-flow">
+      <div class="hb-sources">
+        <div class="hb-src hb-s1"><span class="hb-ic">📋</span>Assessments</div>
+        <div class="hb-src hb-s2"><span class="hb-ic">🔍</span>AI Corpus</div>
+        <div class="hb-src hb-s3"><span class="hb-ic">🪞</span>Reflection</div>
+      </div>
+      <div class="hb-arrow">↓</div>
+      <div class="hb-step">Construct Analysis</div>
+      <div class="hb-arrow">↓</div>
+      <div class="hb-result">Leadership Profile</div>
+    </div>
+    <p class="hb-note">Three kinds of input about how you operate, synthesized into one profile across nine leadership constructs. <a href="leadership-os-model.html" class="hb-link">See how the methodology works →</a></p>
+  </div>
+</section>
+
+<section class="expect-note-wrap">
+  <div class="expect-note reveal">
+    <p>Most people spend their time trying to understand the framework. The real value tends to show up once you move through the process and read your own outputs back — it's the difference between studying a menu and actually sitting down to eat.</p>
+  </div>
+</section>
+
+<!-- HOW THE LLM PRODUCES A STANDARDIZED-ISH ANALYSIS -->
+<section id="engine" style="scroll-margin-top:52px;">
+  <div class="eng-wrap reveal">
+    <div class="s-label">What's actually doing the work</div>
+    <h2 class="section-headline">Your AI does the thinking.<br>The method keeps it <em>consistent.</em></h2>
+    <p class="section-sub">Leadership OS doesn't contain a scoring algorithm. It runs inside whatever capable AI tool you already use — and its job is to make that AI reason about you the same careful way every time, instead of improvising.</p>
+
+    <div class="eng-equation">
+      <div class="eng-part">
+        <div class="eng-part-label">Your AI's ability</div>
+        <p>Reading patterns across a lot of text, holding nuance, weighing one thing against another, writing in plain language.</p>
+      </div>
+      <div class="eng-plus">+</div>
+      <div class="eng-part">
+        <div class="eng-part-label">Our guided instruction</div>
+        <p>A fixed sequence of directives — what to look at, in what order, how to weigh agreement and disagreement, when to hold back, and how to label confidence.</p>
+      </div>
+      <div class="eng-equals">=</div>
+      <div class="eng-part eng-result">
+        <div class="eng-part-label">A repeatable analysis</div>
+        <p>The same structured reasoning applied to your inputs — a <em>somewhat</em> standardized read, run by a general-purpose model rather than a clinical instrument.</p>
       </div>
     </div>
 
-    <p><strong>So: how much confidence?</strong> Enough to take the patterns seriously and reflect on them. Enough to bring them to a coach, a trusted colleague, or your own quiet thinking. Not enough to treat any single output as a fact about who you are — and not enough for anyone else to use it to judge you. The right posture is the one you'd take with a sharp friend who's known you a while: worth listening to, worth arguing with, never the final word.</p>
-    <a href="leadership-os-research.html#limitations" class="faq-deeper" style="color:var(--gold-light);border-color:rgba(201,132,58,0.4);">See the current limitations in full →</a>
+    <p class="eng-honest">The word doing real work there is <em>somewhat</em>. Because the analysis runs on a general AI model, two runs won't be identical the way a scored test would be — and we say so plainly. What the guided instruction buys is consistency of <em>method</em>: the same questions asked in the same order, the same discipline about what the inputs can and can't support, every time. <a href="leadership-os-research.html#confidence" class="eng-link">How consistency and confidence are handled →</a></p>
   </div>
 </section>
 
-<!-- FEATURE — CAN IT BE WRONG -->
-<section class="faq-section" id="wrong" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">★ · The honest part</div>
-  <h2>Can Leadership OS be wrong?</h2>
-  <p>Yes. Easily, and in specific ways worth naming. A tool that couldn't be wrong wouldn't be worth trusting, so here's exactly where it breaks.</p>
 
-  <div class="isnot-grid reveal" style="grid-template-columns:1fr;">
-    <div class="isnot-col isnot-no">
-      <div class="isnot-label">It can be wrong when</div>
-      <ul>
-        <li>The evidence you give it is incomplete or one-sided</li>
-        <li>Your reflection answers are thin or rushed</li>
-        <li>Your AI conversation history is short or unrepresentative</li>
-        <li>The model over-reads a pattern that isn't really there</li>
-        <li>You behave differently across contexts than your history shows</li>
-        <li>The AI introduces its own interpretation errors</li>
-        <li>It captures a moment in time and reads it as a permanent truth</li>
+<section style="background:var(--deep);padding:3.5rem 4vw;border-top:1px solid var(--rule);">
+  <div style="max-width:900px;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;">
+    <div>
+      <div style="font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;">Framework Design</div>
+      <div style="font-family:var(--ff-display);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:0.5rem;line-height:1.2;">Want to understand the underlying model?</div>
+      <div style="font-size:1.0rem;font-weight:300;color:var(--ink-dim);line-height:1.85;max-width:560px;">The model page explains what Leadership OS is evaluating, how conclusions are formed, the developmental constructs it's designed to surface, and how it connects to established research in personality science, reflective practice, and leadership development.</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;align-items:flex-start;">
+    <a href="leadership-os-model.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--ink);color:var(--void);padding:0.9rem 1.75rem;font-family:var(--ff-body);font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--gold)'" onmouseout="this.style.background='#1a1612'">View the model →</a>
+    <a href="leadership-os-sample-outputs.html" style="display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--rule);color:var(--ink-dim);padding:0.9rem 1.75rem;font-family:var(--ff-body);font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='';this.style.color=''">See sample outputs →</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- 60-SECOND EXPLAINER -->
+<!-- INPUTS SYNTHESIS DIAGRAM -->
+    <div class="evidence-diagram-wrap">
+      <div class="ev-header">
+        <span class="ev-header-label">How your inputs become a profile</span>
+      </div>
+      <div class="ev-flow">
+        <div class="ev-source ev-s1">
+          <div class="ev-icon">📋</div>
+          <div class="ev-source-name">Assessments</div>
+          <div class="ev-source-desc">Trait tendencies &amp; self-report</div>
+        </div>
+        <div class="ev-plus">+</div>
+        <div class="ev-source ev-s2">
+          <div class="ev-icon">🔍</div>
+          <div class="ev-source-name">Corpus</div>
+          <div class="ev-source-desc">Behavioral patterns in practice</div>
+        </div>
+        <div class="ev-plus">+</div>
+        <div class="ev-source ev-s3">
+          <div class="ev-icon">🪞</div>
+          <div class="ev-source-name">Reflection</div>
+          <div class="ev-source-desc">Meaning-making &amp; self-awareness</div>
+        </div>
+        <div class="ev-arrow">→</div>
+        <div class="ev-output">
+          <div class="ev-icon">⚖️</div>
+          <div class="ev-source-name">Leadership Profile</div>
+          <div class="ev-source-desc">9 constructs · Confidence-labeled</div>
+        </div>
+      </div>
+    </div>
+
+
+
+<!-- COMPLETE WORKFLOW -->
+<!-- STARTER KIT CTA -->
+<!-- REFLECTION METHODOLOGY -->
+<!-- GOVERNANCE -->
+<section id="governance" style="scroll-margin-top:52px;">
+  <div class="s-label reveal">Quality control</div>
+  <h2 class="section-headline reveal" style="transition-delay:.05s">What this is.<br><em>What it isn't.</em></h2>
+  <p class="section-sub reveal" style="transition-delay:.1s">The Leadership OS is a self-knowledge methodology, not a psychological assessment. Understanding the boundaries keeps the outputs honest and useful.</p>
+  <div class="gov-grid reveal" style="transition-delay:.15s">
+    <div class="gov-card allowed">
+      <div class="gov-card-label allowed">Leadership OS can honestly claim</div>
+      <ul class="gov-items allowed">
+        <li>Synthesizing patterns across multiple data sources</li>
+        <li>Surfacing hypotheses about how you operate</li>
+        <li>Grounding insights in validated personality science as one input</li>
+        <li>Producing documents that reflect your own stated experience</li>
+        <li>Getting more accurate as input accumulates</li>
+        <li>Being a structured way to make implicit patterns explicit</li>
+      </ul>
+    </div>
+    <div class="gov-card avoid">
+      <div class="gov-card-label avoid">Leadership OS does not claim</div>
+      <ul class="gov-items avoid">
+        <li>Validity or reliability in a psychometric sense</li>
+        <li>Normative comparison to any population</li>
+        <li>Predictive power for job performance or outcomes</li>
+        <li>Clinical or therapeutic conclusions</li>
+        <li>That AI observations are objective or unbiased</li>
+        <li>That the outputs are final or definitive</li>
       </ul>
     </div>
   </div>
-
-  <p class="faq-pull">The outputs are not verdicts. They're structured hypotheses — meant to be reviewed, challenged, corrected, and refined.</p>
-
-  <p>This is the difference between Leadership OS and a test that hands you a score. A score asks to be believed. A hypothesis asks to be checked. When a finding is wrong, that's not the tool failing — it's the process working, because noticing what's wrong sharpens what's actually true. The next question covers what to do when that happens.</p>
+  <div class="gov-statement reveal" style="transition-delay:.2s">
+    <div class="gov-statement-label">The honest framing</div>
+    <div class="gov-statement-text">"This is a structured way to make your own patterns visible — using the best available inputs. The outputs are hypotheses, not facts. They're only as good as the input you bring. And they're most useful when you treat them as a starting point for reflection, not a finished description of who you are."</div>
+  </div>
 </section>
 
-<!-- SECTION 1 — THE BIG QUESTIONS -->
-<section class="faq-section" id="big" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">01 · The big questions</div>
-  <h2>The ones that come up first</h2>
-  <p>The questions a smart executive asks in the first five minutes — before deciding whether the next two hours are worth it.</p>
-
-  <div class="bigq-grid reveal" style="margin-top:1.75rem;">
-    <div class="bigq">
-      <div class="bigq-num">01</div>
-      <div class="bigq-q">Is Leadership OS scientifically validated?</div>
-      <div class="bigq-a">No, and it doesn't claim to be. It draws on validated assessments and decades of developmental research, but the combined methodology has not been through formal validation — no normative sample, no published reliability studies. It's an exploration grounded in real science, not a normed instrument. The credibility comes from <em>not</em> overclaiming.</div>
+<!-- PERSISTENCE -->
+<!-- MODEL CALLOUT -->
+<!-- ABOUT -->
+<section id="about" style="scroll-margin-top:52px;">
+  <div class="s-label reveal">About this framework</div>
+  <div class="about-grid">
+    <div class="reveal" style="transition-delay:.1s">
+      <h2 class="section-headline">Built from an<br>experiment I ran<br><em>on myself.</em></h2>
+      <div class="about-body">
+        <p>I didn't set out to build a leadership methodology. I was trying to make my AI tools more useful at work.</p>
+        <p>Over 2.5 years as a VP of People Operations, I accumulated hundreds of working conversations with AI — workforce analytics, HR system design, organizational design, business cases, leadership decisions. At some point I realized I'd accidentally built something: a detailed record of how I actually think.</p>
+        <p>When I transferred that context to a new AI tool, I had to make my thinking explicit in ways it had never been before. What came out of that process was the most accurate leadership profile I'd ever received — more specific than any 360, more honest than most coaching engagements, and grounded in actual behavioral signals rather than survey responses.</p>
+        <p>The Leadership OS is an attempt to make that process replicable for anyone, using whatever AI tools they already have, in about 90–120 minutes.</p>
+      </div>
+      <div class="about-creds">
+        <div class="about-cred">
+          <span class="about-cred-label">Background</span>
+          <span class="about-cred-value">M.S. Industrial-Organizational Psychology, San Jose State University</span>
+        </div>
+        <div class="about-cred">
+          <span class="about-cred-label">Experience</span>
+          <span class="about-cred-value">15 years in People Operations, workforce analytics, and HR technology</span>
+        </div>
+        <div class="about-cred">
+          <span class="about-cred-label">Grounding</span>
+          <span class="about-cred-value">Big Five / HEXACO science, I/O Psychology, Csíkszentmihályi's Flow model</span>
+        </div>
+      </div>
     </div>
-    <div class="bigq">
-      <div class="bigq-num">02</div>
-      <div class="bigq-q">Is this a personality assessment?</div>
-      <div class="bigq-a">No. It can <em>use</em> one as an input, but Leadership OS doesn't measure or score you. It produces a written, traceable set of hypotheses about how you appear to operate — not a type, a number, or a percentile.</div>
-    </div>
-    <div class="bigq">
-      <div class="bigq-num">03</div>
-      <div class="bigq-q">How is this different from executive coaching?</div>
-      <div class="bigq-a">A coach brings a relationship, real-time judgment, and accountability that no tool replicates — and the research is clear that the relationship is what makes coaching work. Leadership OS isn't a substitute. It's the prep work: a structured starting point that can make a coaching conversation sharper, or stand in when no coach is available.</div>
-    </div>
-    <div class="bigq">
-      <div class="bigq-num">04</div>
-      <div class="bigq-q">How is this different from colleague feedback?</div>
-      <div class="bigq-a">360 feedback tells you how others perceive you, filtered through their relationships and incentives. Leadership OS works from different evidence — your own assessments, reflection, and behavioral patterns. It's not better than feedback. It's a different angle on the same hard question, and most useful alongside it.</div>
-    </div>
-    <div class="bigq">
-      <div class="bigq-num">05</div>
-      <div class="bigq-q">How is this different from just talking to ChatGPT?</div>
-      <div class="bigq-a">Structure and discipline. Ask an AI "what kind of leader am I?" and it'll produce flattering, confident text from almost nothing. Leadership OS is a method that runs <em>inside</em> ChatGPT, Claude, or Gemini and forces evidence, traceability, and confidence labels.<br><a href="#vs-chatgpt" class="faq-deeper">See the full comparison →</a></div>
-    </div>
-    <div class="bigq">
-      <div class="bigq-num">06</div>
-      <div class="bigq-q">What if the profile gets something wrong?</div>
-      <div class="bigq-a">It will, somewhere — that's expected, not a failure. The outputs are hypotheses, and a wrong one is still useful: disagreeing with it sharpens what you actually believe about yourself. If a finding feels off, it probably is. Note it, discard it, and the exercise still did its job.</div>
-    </div>
-    <div class="bigq">
-      <div class="bigq-num">07</div>
-      <div class="bigq-q">Why three evidence sources instead of one?</div>
-      <div class="bigq-a">Because no single source is trustworthy alone. Self-report flatters, assessments are narrow, AI inference is noisy. Three weak-but-independent signals read against each other — with the disagreements treated as the interesting part — beat trusting any one.<br><a href="leadership-os-research.html#evidence" class="faq-deeper">See the evidence model →</a></div>
-    </div>
-    <div class="bigq">
-      <div class="bigq-num">08</div>
-      <div class="bigq-q">Can AI actually understand leadership behavior?</div>
-      <div class="bigq-a">Not in any deep sense — and pattern-detection is not understanding. AI can surface regularities in how you write and decide that you might not notice yourself. That's genuinely useful. But "the model spotted a pattern" is the start of a conversation, not proof the pattern means what it seems to.</div>
+    <div class="about-cards reveal" style="transition-delay:.2s">
+      <div class="about-card">
+        <div class="about-card-label">The unexpected finding</div>
+        <div class="about-card-quote">"I was attempting to train an AI. The AI ended up training me — in a very practical sense. Making my thinking legible to a system that needed explicit context forced a level of self-reflection that accumulated organizational knowledge never demands."</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">The methodological difference</div>
+        <div class="about-card-quote">"Every existing leadership assessment asks you to describe yourself. The corpus audit asks the system that has watched you work to describe what it saw. That's a different kind of input — and a different kind of profile."</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-label">On what this is and isn't</div>
+        <div class="about-card-quote">"This is not a validated assessment. There's no normative sample, no inter-rater reliability. I want to be honest about what it isn't. But as a methodology for generating self-knowledge, it produced something I haven't gotten from any formal process."</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 2 — WHAT IT IS / ISN'T -->
-<section class="faq-section" id="isnot" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">02 · Boundaries</div>
-  <h2>What Leadership OS is — and isn't</h2>
-  <p>The fastest way to understand something is often to be clear about what it refuses to be.</p>
+<!-- CTA -->
+<!-- ═══════════ HOW IT'S EVOLVING ═══════════ -->
+<section id="evolving" style="scroll-margin-top:52px;">
+  <div class="ev-wrap">
+    <div class="s-label reveal">How it's evolving</div>
+    <h2 class="section-headline reveal" style="transition-delay:.05s">A living methodology,<br><em>not a finished product.</em></h2>
+    <p class="section-sub reveal" style="transition-delay:.1s">Leadership OS is in active development. Here's where it stands, what's changed, and the questions still open. Think of it as release notes crossed with research notes.</p>
 
-  <div class="isnot-grid reveal">
-    <div class="isnot-col isnot-no">
-      <div class="isnot-label">It is not</div>
-      <ul>
-        <li>Therapy</li>
-        <li>Clinical psychology</li>
-        <li>An employee-selection tool</li>
-        <li>Performance management</li>
-        <li>A hiring assessment</li>
-        <li>A predictive algorithm</li>
-        <li>A diagnostic instrument</li>
-        <li>A replacement for human judgment</li>
-      </ul>
-    </div>
-    <div class="isnot-col isnot-yes">
-      <div class="isnot-label">It is</div>
-      <ul>
-        <li>Structured reflection</li>
-        <li>Pattern detection</li>
-        <li>Hypothesis generation</li>
-        <li>Developmental insight</li>
-        <li>A path to longitudinal self-awareness</li>
-        <li>Leadership learning, in your own hands</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="faq-note">
-    <div class="faq-note-label">The one boundary that matters most</div>
-    <p>Leadership OS is something you do <em>for yourself</em>. It is not something an organization can require you to do, and nothing it produces should ever be used by anyone else to evaluate, rank, or make decisions about you. More on that in the privacy section.</p>
-  </div>
-</section>
-
-<!-- SECTION 3 — SCIENCE -->
-<!-- SECTION 3 — WHY NOT JUST CHATGPT -->
-<section class="faq-section" id="vs-chatgpt" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">03 · The comparison everyone makes</div>
-  <h2>Why not just use ChatGPT?</h2>
-  <p>You can — that's the point. Leadership OS isn't a competitor to ChatGPT, Claude, or Gemini. It's a structured method that runs <em>inside</em> one of them. The difference isn't the model. It's what you put around it.</p>
-
-  <div class="vs-grid reveal">
-    <div class="vs-col vs-plain">
-      <div class="vs-label">Just asking an AI directly</div>
-      <ul>
-        <li>Ad hoc conversation</li>
-        <li>No defined evidence sources</li>
-        <li>No confidence labels</li>
-        <li>No traceability — claims float free</li>
-        <li>No structured reflection</li>
-        <li>No construct map</li>
-        <li>No guardrails against invented patterns</li>
-        <li>Nothing to return to later</li>
-      </ul>
-    </div>
-    <div class="vs-col vs-los">
-      <div class="vs-label">Leadership OS (running in that same AI)</div>
-      <ul>
-        <li>Defined evidence sources</li>
-        <li>A set sequence, not a free chat</li>
-        <li>Confidence labels on every claim</li>
-        <li>Claims tied back to specific evidence</li>
-        <li>Structured reflection prompts</li>
-        <li>A construct map it works against</li>
-        <li>Prompts that license "insufficient evidence"</li>
-        <li>Practical outputs you keep and revisit</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="faq-note">
-    <div class="faq-note-label">To be clear</div>
-    <p>None of this means a raw AI chat is bad — it's genuinely useful. The point is narrower: left to its own devices, a model will give you fluent, confident answers whether or not the evidence supports them. Leadership OS is the scaffolding that makes it show its work.</p>
-  </div>
-</section>
-
-<!-- SECTION 3b — CURRENT STATE OF THE SCIENCE -->
-<section class="faq-section" id="science" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">04 · Current state of the science</div>
-  <h2>What we know, what we suspect, what we don't</h2>
-  <p>The plain-language version. The technical reference, with sources, lives on the methodology page.</p>
-
-  <div class="sci-tiers reveal">
-    <div class="sci-tier sci-know">
-      <div class="sci-tier-label">What we know</div>
-      <ul>
-        <li>Validated assessments give useful self-report data</li>
-        <li>Reflection genuinely supports learning</li>
-        <li>Self-awareness matters — and is hard to measure</li>
-        <li>Development sticks when it's translated into practice</li>
-      </ul>
-    </div>
-    <div class="sci-tier sci-maybe">
-      <div class="sci-tier-label">What might be possible</div>
-      <ul>
-        <li>AI may detect patterns across large volumes of text</li>
-        <li>AI may make development more continuous</li>
-        <li>Your AI history may hold real developmental signal</li>
-      </ul>
-    </div>
-    <div class="sci-tier sci-dont">
-      <div class="sci-tier-label">What we don't know yet</div>
-      <ul>
-        <li>Whether conversation analysis adds valid signal</li>
-        <li>Whether it improves leadership outcomes</li>
-        <li>Whether outputs stay stable over time</li>
-        <li>Whether different models stay consistent</li>
-        <li>Whether it works beyond early adopters</li>
-      </ul>
-    </div>
-  </div>
-
-  <p>That middle and right column are why this is called an exploration, not a product. The honest position is that the foundations are solid, the novel idea is promising, and the proof isn't in yet.</p>
-  <a href="leadership-os-research.html#references" class="faq-deeper">Read the research assumptions and sources →</a>
-</section>
-
-<!-- SECTION 4 — AI -->
-<section class="faq-section" id="ai" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">05 · The AI questions</div>
-  <h2>On using AI without trusting it blindly</h2>
-  <p>The answer here is never "trust the AI." It's "use the AI as a thinking partner, and argue with it."</p>
-
-  <div class="qa-stack reveal">
-    <div class="qa">
-      <div class="qa-q">Why involve AI at all?</div>
-      <div class="qa-a">Because it can do something humans can't do cheaply: read across a long history of how you think and surface patterns at a scale no coach has time for. That's a real capability — bounded by real limits.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Why not just use a coach?</div>
-      <div class="qa-a">If you have a great coach, use them — and bring this to your sessions. AI is the option that's available at 11pm, costs nothing, and never gets tired of the same question. It complements coaching; it doesn't replace the relationship that makes coaching work.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Can the AI hallucinate or make things up?</div>
-      <div class="qa-a">Yes. Language models generate plausible text, and plausible isn't the same as true. They can invent a confident-sounding pattern from thin evidence. This is a known failure mode, not an edge case — which is why the methodology is built to push against it.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">How does Leadership OS try to reduce that risk?</div>
-      <div class="qa-a"><p>Three ways: it requires the AI to tie claims back to specific evidence; it asks for confidence levels rather than flat assertions; and it explicitly licenses "insufficient evidence" as a valid answer so the model isn't pushed to fill silence with invention.</p><p>None of this eliminates the risk. It just makes invented confidence easier to spot.</p></div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Why are confidence levels and hypotheses labeled?</div>
-      <div class="qa-a">So you can calibrate. A finding marked high-confidence and tied to your assessment deserves more weight than one inferred from a few conversations. Labeling forces the system to show its hand instead of presenting everything in the same authoritative voice.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Will two different AI models give different outputs?</div>
-      <div class="qa-a">Almost certainly, at least in wording and emphasis — and sometimes in substance. That's not a bug to hide; it's a reminder that no single run is definitive. If two models agree on a pattern, that's mild corroboration. If they diverge, that's a flag to think harder.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">What should I do if I disagree with a finding?</div>
-      <div class="qa-a"><p>Good — disagreement is part of the process. When something feels wrong, work it rather than dismiss it:</p>
-      <ul style="margin:0.6rem 0 0;padding:0;list-style:none;">
-        <li style="position:relative;padding-left:1.4rem;margin-bottom:0.5rem;line-height:1.55;">→&nbsp; Ask the model what evidence it used for that claim.</li>
-        <li style="position:relative;padding-left:1.4rem;margin-bottom:0.5rem;line-height:1.55;">→&nbsp; If the input was thin or off, correct it and add what's missing.</li>
-        <li style="position:relative;padding-left:1.4rem;margin-bottom:0.5rem;line-height:1.55;">→&nbsp; Separate "this is wrong" from "this is uncomfortable but true." They feel similar.</li>
-        <li style="position:relative;padding-left:1.4rem;margin-bottom:0.5rem;line-height:1.55;">→&nbsp; Rerun that section with the better input.</li>
-        <li style="position:relative;padding-left:1.4rem;line-height:1.55;">→&nbsp; Keep only what the evidence actually supports. Discard the rest.</li>
-      </ul>
-      <p style="margin-top:0.85rem;">The disagreement is often more revealing than the original finding — and it keeps you, not the model, in charge of the conclusion.</p></div>
+    <div class="evo-grid">
+      <div class="evo-card reveal" style="transition-delay:.05s">
+        <div class="evo-card-label">Current version</div>
+        <div class="evo-card-body">
+          <p><strong>Version 1.0</strong> · June 2026</p>
+          <p>Three inputs, nine constructs, four output tools, full confidence-labeling and construct traceability. End-to-end tested in clean AI sessions.</p>
+        </div>
+      </div>
+      <div class="evo-card reveal" style="transition-delay:.1s">
+        <div class="evo-card-label">What's recent</div>
+        <div class="evo-card-body">
+          <ul class="evo-list">
+            <li>Theoretical grounding made operational inside the analysis prompts — not just cited.</li>
+            <li>Every development priority now traces to its originating construct, input, and confidence level.</li>
+            <li>Plain-language framing of what you walk away with.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="evo-card reveal" style="transition-delay:.15s">
+        <div class="evo-card-label">Open questions</div>
+        <div class="evo-card-body">
+          <ul class="evo-list">
+            <li>Does the behavioral corpus add signal beyond what assessments alone reveal?</li>
+            <li>Which of the four tools do people actually return to?</li>
+            <li>How consistent is the analysis across different AI models and runs?</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 5 — PRIVACY -->
-<section class="faq-section" id="privacy" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">06 · The privacy questions</div>
-  <h2>Where your information goes</h2>
-  <p>Short version: it stays with you. The longer version matters enough to spell out.</p>
+<!-- ═══════════ STAY CONNECTED ═══════════ -->
+<section id="connect" style="scroll-margin-top:52px;">
+  <div class="cn-wrap">
+    <div class="s-label reveal">Stay connected</div>
+    <h2 class="section-headline reveal" style="transition-delay:.05s">Three ways to<br><em>follow along.</em></h2>
+    <p class="section-sub reveal" style="transition-delay:.1s">No newsletter, no funnel, no signup wall. Leadership OS doesn't collect or store your assessment results, reflections, or outputs — and that won't change. These are simply open doors if you want to keep in touch.</p>
 
-  <div class="qa-stack reveal">
-    <div class="qa">
-      <div class="qa-q">What information does it use?</div>
-      <div class="qa-a">Three things you provide: results from an assessment you've taken, a read of your own AI conversation history, and your answers to a set of reflection prompts. Nothing more, and nothing you don't choose to bring.</div>
+    <div class="cn-grid">
+      <!-- Updates -->
+      <div class="cn-card reveal" style="transition-delay:.05s">
+        <div class="cn-num">01</div>
+        <div class="cn-card-name">Future experiments &amp; updates</div>
+        <div class="cn-card-desc">Interested in future Leadership OS experiments, methodology updates, and new tools as they're released? Send a note with your role and what you're curious about — entirely optional.</div>
+        <a href="mailto:hello@leadershipos.org?subject=Leadership%20OS%20%E2%80%94%20stay%20updated&body=Hi%2C%20I%27d%20like%20to%20hear%20about%20future%20Leadership%20OS%20experiments%20and%20updates.%0A%0A(Optional)%20My%20role%2Ftitle%3A%20%0A(Optional)%20What%20I%27m%20most%20curious%20about%3A%20" class="cn-btn">Send a note →</a>
+      </div>
+
+      <!-- Feedback -->
+      <div class="cn-card reveal" style="transition-delay:.1s">
+        <div class="cn-num">02</div>
+        <div class="cn-card-name">Help improve Leadership OS</div>
+        <div class="cn-card-desc">Completed the process, or reviewed the methodology? Your honest reaction is the single most valuable input right now — what was useful, what was unclear, what surprised you. Not a testimonial request. A learning one.</div>
+        <a href="mailto:hello@leadershipos.org?subject=Leadership%20OS%20%E2%80%94%20feedback&body=Sharing%20feedback%20to%20help%20improve%20Leadership%20OS.%0A%0ARole%3A%20%0AIndustry%3A%20%0AYears%20leading%3A%20%0ADid%20you%20complete%20the%20process%3F%20%0AMost%20useful%20output%3A%20%0ALeast%20useful%20output%3A%20%0AMost%20surprising%20insight%3A%20%0AWhat%20felt%20unclear%3A%20%0AWould%20you%20use%20it%20again%3F%20%0AAnything%20else%3A%20" class="cn-btn">Share feedback →</a>
+      </div>
+
+      <!-- Research -->
+      <div class="cn-card reveal" style="transition-delay:.15s">
+        <div class="cn-num">03</div>
+        <div class="cn-card-name">Future research</div>
+        <div class="cn-card-desc">Leadership OS raises questions worth studying properly. No data is being collected yet and no validation is claimed — but if you'd want to hear about future research efforts or participation opportunities, the door is open.</div>
+        <a href="mailto:hello@leadershipos.org?subject=Leadership%20OS%20%E2%80%94%20research%20interest&body=I%27d%20be%20interested%20in%20future%20Leadership%20OS%20research%20efforts.%0A%0A(Optional)%20My%20background%2Frole%3A%20%0A(Optional)%20My%20research%20interest%3A%20" class="cn-btn">Express interest →</a>
+      </div>
     </div>
-    <div class="qa">
-      <div class="qa-q">Where does it come from, and who sees it?</div>
-      <div class="qa-a">It comes from you, and it runs inside whatever AI tool you already use. This site doesn't collect, store, or transmit any of it. The inputs and outputs live in your AI environment and your own files — not on a server we control.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Should I upload confidential information?</div>
-      <div class="qa-a"><p>Use judgment. Your conversation history may contain sensitive material, and it's running through a third-party AI tool with its own data policies. Read those, and don't feed in anything — about your company, your team, or anyone else — that you wouldn't be comfortable having in that tool.</p></div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Can my organization require me to do this?</div>
-      <div class="qa-a"><strong>No.</strong> Leadership OS is a personal, self-directed exercise. It is not built or validated for organizational use, and nothing it produces should be requested by an employer or used to evaluate you. If anyone asks you to hand over your profile, that's a misuse of the tool.</div>
-    </div>
+    <p class="cn-foot">Every link above opens your own email client. You decide what to send. Nothing is tracked or stored by this site.</p>
   </div>
 </section>
 
-<!-- SECTION 6 — PRACTICAL -->
-<section class="faq-section" id="practical" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">07 · The practical questions</div>
-  <h2>If you decide to try it</h2>
-
-  <div class="qa-stack reveal">
-    <div class="qa">
-      <div class="qa-q">How long does it take?</div>
-      <div class="qa-a">About 90 to 120 minutes, once. Most of that is reflection you'd benefit from doing anyway, whether or not you ever feed it to anything.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Who is this best suited for?</div>
-      <div class="qa-a">Leaders who already work with AI and want to grow, not just move faster — plus coaches, advisors, and people-development practitioners curious about where this kind of method might go.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Who is it probably not for?</div>
-      <div class="qa-a">Anyone looking for a score, a verdict, or a credential. Anyone who wants certainty rather than good questions. And anyone hoping to use it on someone else — that's not what it's for.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Do I need assessments to start?</div>
-      <div class="qa-a">A validated assessment makes the output stronger, but you can take one as part of the process. The Starter Kit walks you through all three inputs, including which assessments work well.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">Can I use different AI models?</div>
-      <div class="qa-a">Yes — it's designed to run in whatever tool you already use. Running it in more than one is a feature, not a problem: where models agree, you get corroboration; where they differ, you get something to examine.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">How often should I revisit it?</div>
-      <div class="qa-a">There's no schedule. The interesting version is longitudinal — running it again months later, when your history has grown, and watching what changed. That's where episodic development starts to become continuous.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">What should I do after I get the outputs?</div>
-      <div class="qa-a">Read them as questions, not answers. Keep what resonates, argue with what doesn't, and bring the sharpest one or two to someone whose judgment you trust. The document isn't the point — the thinking it provokes is.</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 7 — THE QUESTION THAT MATTERS MOST -->
-<section class="faq-closer" id="matters" style="scroll-margin-top:52px;">
-  <div class="faq-closer-inner reveal">
-    <div class="faq-closer-eyebrow">The question that matters most</div>
-    <h2>What if the profile is accurate?</h2>
-    <p>Most of this page is about doubt — how much to trust, where the evidence is thin, what the tool can't do. That's the right place to spend your skepticism. But there's a quieter question on the other side, and it's the one worth ending on.</p>
-    <p>Suppose even a portion of the patterns are right. Not all of them — just the few you read and think, <em>yes, that's actually true, and I've never said it out loud.</em> What becomes possible then?</p>
-    <p>A conversation with your team that starts from how you actually operate, instead of how you wish you came across. A decision made with one blind spot now visible. A coach who gets a running start because you arrived already knowing the question. A version of development that doesn't happen once a year in a workshop, but accumulates — quietly, continuously, in your own hands.</p>
-    <p>None of that requires the tool to be right about everything. It only requires it to be right about <em>something</em>, and for you to do the work of noticing which something. That's a low bar for a tool and a high bar for a person — which is, when you think about it, the correct way around.</p>
-    <p class="faq-pull">The outputs aren't the point. The attention they ask you to pay to yourself is.</p>
-  </div>
-</section>
-
-<!-- REFERENCES -->
-<section class="faq-section" id="references" style="scroll-margin-top:52px;">
-  <div class="faq-sec-num">Notes &amp; sources</div>
-  <h2>Where the claims come from</h2>
-  <p>The cautious statements on this page — especially about AI inference and coaching — are grounded in current research, not our own optimism. Two findings do most of the work: controlled trials where an AI coach matched human coaches on narrow goal attainment, and a 2025 benchmark showing AI infers personality from real conversation only weakly, with a pull toward flattering profiles. The full reference list and the technical reasoning live on the methodology page.</p>
-  <a href="leadership-os-research.html#references" class="faq-deeper">See the full references and assumptions →</a>
-</section>
-
-<!-- NEXT-STEP CTA -->
-<section class="next-step" style="scroll-margin-top:52px;">
+<section id="cta" class="next-step" style="scroll-margin-top:52px;">
   <div class="ns-wrap reveal">
-    <div class="ns-eyebrow">Next — see the reasoning in full</div>
-    <h2 class="ns-headline">Still skeptical?<br><em>Good. Read the methodology.</em></h2>
-    <p class="ns-sub">If these answers raised more questions than they settled, the technical reference lays out exactly how the framework works, why each construct exists, and what it does and doesn't claim.</p>
+    <div class="ns-eyebrow">Next — try it yourself</div>
+    <h2 class="ns-headline">The rest only makes sense<br><em>once you run it.</em></h2>
+    <p class="ns-sub">You've seen what it is and what it produces. The part that matters happens when you move through it yourself — about 90 minutes, inside the AI tool you already use.</p>
     <div class="ns-row">
-      <a href="leadership-os-research.html" class="ns-btn-primary">Read the methodology →</a>
-      <a href="leadership-os-starter-kit.html" class="ns-btn-ghost">Or run it yourself</a>
+      <a href="leadership-os-starter-kit.html" class="ns-btn-primary">Open the Starter Kit →</a>
+      <a href="leadership-os-why.html" class="ns-btn-ghost">Or read why it exists</a>
     </div>
   </div>
 </section>
+
 
 <footer>
-  <div class="foot-inner">
-    <div class="foot-privacy">Your data stays inside the AI tool you choose to use. Leadership OS does not collect or store your assessment results, reflections, or conversation history. The methodology runs entirely within your chosen AI environment.</div>
-    <div class="foot-meta-row">
-      <span class="foot-version">Version 1.0 · Updated June 2026</span>
-      <span class="foot-sep">·</span>
-      <span>Questions &amp; Skepticism</span>
-      <span class="foot-sep">·</span>
-      <span>© 2026 Mike Cilla</span>
-    </div>
-    <div class="foot-disclaimer">A reflection and development methodology — not a validated assessment or prediction instrument.</div>
+  <a href="https://mikecilla.com" class="footer-mark">Mike Cilla<span>.</span></a>
+  <div class="footer-links">
+    <a href="#connect">Stay connected</a>
+    <a href="#evolving">How it's evolving</a>
+    <a href="leadership-os-faq.html">Questions</a>
+    <a href="leadership-os-model.html">The model</a>
+    <a href="leadership-os-starter-kit.html">Starter Kit</a>
   </div>
+  <span class="footer-note" style="display:block;margin-bottom:0.6rem;">Your data stays inside the AI tool you choose. Leadership OS does not collect or store your results, reflections, or conversation history.</span><span class="footer-note">Leadership OS · Version 1.0 · Reflection &amp; development methodology · Not a validated assessment · © 2026 Mike Cilla</span>
 </footer>
+
 <script>
-(function(){
-  var els=document.querySelectorAll('.reveal');
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!('IntersectionObserver'in window)||reduce){els.forEach(function(el){el.classList.add('up');});return;}
-  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('up');},60);obs.unobserve(e.target);}});},{threshold:0.08});
-  els.forEach(function(el){obs.observe(el);});
-  setTimeout(function(){els.forEach(function(el){el.classList.add('up');});},3000);
+// Reveal
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting && e.target.classList.contains('reveal')){
+      setTimeout(function(){ e.target.classList.add('up'); }, 60);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
+
+// Safety net: force-reveal everything after 3s if observers stall
+setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('up'); }); }, 3000);
+
+// Hero
+setTimeout(function(){
+  document.querySelectorAll('#hero .reveal').forEach(function(el,i){
+    setTimeout(function(){ el.classList.add('up'); }, 100 + i*100);
+  });
+},100);
+
+// Toggle prompt boxes
+function togglePrompt(btn){
+  var box = btn.nextElementSibling;
+  var isOpen = box.classList.contains('open');
+  box.classList.toggle('open', !isOpen);
+  btn.textContent = isOpen ? '↓ View prompt' : '↑ Hide prompt';
+  // update all toggle buttons to reflect current state
+    allToggles.forEach(function(t){
+      if(t !== btn){
+        var b = t.nextElementSibling;
+        if(b && b.classList.contains('open')){
+          b.classList.remove('open');
+          t.textContent = t.textContent.replace('↑ Hide','↓ View');
+        }
+      }
+    });
+}
+
+// Copy text
+function copyText(btn, text){
+  navigator.clipboard.writeText(text).then(function(){
+    var orig = btn.textContent;
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+  });
+});
+
+// ── Typing animation for hero mockup ──
+(function() {
+  var target = document.getElementById('pm-typed-text');
+  if (!target) return;
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  // The full text segments — manually split around the <em> tag
+  var segments = [
+    { text: 'Delegation appears less constrained by trust and more constrained by personal quality standards. The growth edge is not “delegate more” — it is defining what good enough looks like ', em: false },
+    { text: 'before', em: true },
+    { text: ' the work begins, not after.', em: false }
+  ];
+
+  var fullText = segments.map(function(s){ return s.text; }).join('');
+  
+  // Start with empty, show cursor
+  target.innerHTML = '';
+  var cursor = document.createElement('span');
+  cursor.className = 'pm-cursor';
+  target.appendChild(cursor);
+
+  var segIdx = 0;
+  var charIdx = 0;
+  var built = ''; // plain text built so far
+  var delay = 1800; // start after 1.8s (lets hero fully animate in first)
+
+  function typeNext() {
+    if (segIdx >= segments.length) {
+      // Finished — remove cursor, done
+      target.innerHTML = renderBuilt(segments, segIdx, charIdx);
+      return;
+    }
+
+    var seg = segments[segIdx];
+    if (charIdx < seg.text.length) {
+      charIdx++;
+    } else {
+      segIdx++;
+      charIdx = 0;
+      if (segIdx >= segments.length) {
+        target.innerHTML = renderBuilt(segments, segIdx, charIdx);
+        return;
+      }
+    }
+
+    target.innerHTML = renderBuilt(segments, segIdx, charIdx) + '<span class="pm-cursor"></span>';
+    var speed = 18 + Math.random() * 14;
+    setTimeout(typeNext, speed);
+  }
+
+  function renderBuilt(segs, curSegIdx, curCharIdx) {
+    var html = '';
+    for (var i = 0; i < segs.length; i++) {
+      if (i < curSegIdx) {
+        html += segs[i].em ? '<em>' + segs[i].text + '</em>' : segs[i].text;
+      } else if (i === curSegIdx) {
+        var partial = segs[i].text.slice(0, curCharIdx);
+        html += segs[i].em ? '<em>' + partial + '</em>' : partial;
+        break;
+      } else {
+        break;
+      }
+    }
+    return html;
+  }
+
+  setTimeout(typeNext, delay);
 })();
+
 </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Guided Starter Kit — Leadership OS</title>
-<meta name="description" content="The guided version of Leadership OS. Download three files, drop two into a fresh AI chat, type one phrase, and it walks you through the entire process — corpus audit, nine-construct analysis, and four working documents.">
+<meta name="description" content="The guided version of Leadership OS — currently in development. A preview of where Leadership OS is going next: a guided experience that runs the full process for you. Request early access.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -579,6 +579,66 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .gk-steps li{counter-increment:gks;position:relative;padding:0 0 1.3rem 3rem;font-size:1.02rem;line-height:1.6}
 .gk-steps li::before{content:counter(gks,decimal-leading-zero);position:absolute;left:0;top:.1rem;font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:.85rem}
 </style>
+<style>
+.gk-status-grid{display:grid;gap:.75rem;margin:1.6rem 0;max-width:560px}
+.gk-status-row{display:flex;align-items:center;gap:.85rem;font-size:1.02rem;line-height:1.4}
+.gk-dot{flex:none;width:1.05rem;height:1.05rem;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem}
+.gk-dot.done{background:var(--gold);color:#faf8f4}
+.gk-dot.prog{border:1.5px solid var(--gold);color:var(--gold)}
+.gk-card.soon{opacity:.62;position:relative}
+.gk-card.soon .gk-soon-badge{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.2rem .5rem;align-self:flex-start;border-radius:2px}
+.gk-btn.disabled{opacity:.4;cursor:not-allowed;pointer-events:none;border-color:var(--ink-dim);color:var(--ink-dim)}
+.gk-waitlist{display:inline-block;margin-top:.5rem;padding:.8rem 1.5rem;background:var(--gold);color:#faf8f4;font-family:var(--ff-mono);font-size:.82rem;letter-spacing:.05em;text-decoration:none;transition:filter .2s}
+.gk-waitlist:hover{filter:brightness(.92)}
+</style>
+<style>
+/* ── GUIDED HERO (two-column, conversation mockup) ── */
+.ghero{min-height:calc(100vh - 52px);display:grid;grid-template-columns:1fr 1.12fr;align-items:center;gap:0;background:var(--void);position:relative;overflow:hidden;}
+.ghero-left{padding:4vw 3vw 4vw 5vw;display:flex;flex-direction:column;justify-content:center;}
+.ghero-eyebrow{font-family:var(--ff-mono);font-size:.74rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:inline-flex;align-items:center;gap:.6rem}
+.ghero-eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(184,103,30,.5);animation:gpulse 2.4s infinite}
+@keyframes gpulse{0%{box-shadow:0 0 0 0 rgba(184,103,30,.45)}70%{box-shadow:0 0 0 7px rgba(184,103,30,0)}100%{box-shadow:0 0 0 0 rgba(184,103,30,0)}}
+.ghero-left h1{font-family:var(--ff-display);font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:500;line-height:1.04;color:var(--ink);letter-spacing:-.015em;margin-bottom:1.6rem}
+.ghero-left h1 em{font-style:italic;color:var(--gold)}
+.ghero-sub{font-size:1.18rem;line-height:1.7;color:var(--ink-dim);max-width:540px;margin-bottom:2rem}
+.ghero-cta-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.ghero-wait{display:inline-block;padding:.85rem 1.6rem;background:var(--gold);color:#faf8f4;font-family:var(--ff-mono);font-size:.82rem;letter-spacing:.05em;text-decoration:none;transition:filter .2s}
+.ghero-wait:hover{filter:brightness(.92)}
+.ghero-ghost{font-family:var(--ff-mono);font-size:.82rem;letter-spacing:.04em;color:var(--ink-dim);text-decoration:none;border-bottom:1px solid rgba(26,22,18,.2);padding-bottom:2px;transition:color .2s}
+.ghero-ghost:hover{color:var(--gold)}
+.ghero-proof{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink-dim);opacity:.7;display:flex;gap:.5rem;flex-wrap:wrap}
+/* right column — chat window */
+.ghero-right{background:var(--deep);min-height:calc(100vh - 52px);padding:3vw 3.5vw;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule);position:relative;overflow:hidden}
+.gchat{background:#0d0c0b;border-radius:6px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.15),0 0 0 1px rgba(255,255,255,.04);width:100%;max-width:560px;margin:0 auto}
+.gchat-top{background:#1b1a18;padding:.65rem 1rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.gchat-dots{display:flex;gap:5px}
+.gchat-dots span{width:11px;height:11px;border-radius:50%}
+.gchat-dots span:first-child{background:#ff5f57}
+.gchat-dots span:nth-child(2){background:#febc2e}
+.gchat-dots span:last-child{background:#28c840}
+.gchat-title{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.06em;color:rgba(240,236,228,.25);flex:1;text-align:center}
+.gchat-badge{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.05em;color:rgba(201,132,58,.55);border:1px solid rgba(201,132,58,.18);padding:.2rem .55rem}
+.gchat-body{padding:1.5rem;display:flex;flex-direction:column;gap:1.1rem;min-height:340px}
+/* a chat turn */
+.gturn{display:flex;flex-direction:column;gap:.4rem}
+.gturn-role{font-family:var(--ff-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase}
+.gturn.user .gturn-role{color:rgba(240,236,228,.4)}
+.gturn.os .gturn-role{color:var(--gold-light)}
+.gturn-bubble{font-size:.96rem;line-height:1.7;border-radius:6px;padding:.85rem 1.05rem}
+.gturn.user .gturn-bubble{background:#1a1916;color:#f0ece4;font-family:var(--ff-mono);font-size:.92rem;border:1px solid rgba(255,255,255,.06);align-self:flex-start}
+.gturn.os .gturn-bubble{background:#12100e;color:rgba(240,236,228,.82);font-weight:300;border:1px solid rgba(201,132,58,.14);border-left:3px solid var(--gold-light)}
+.gturn-bubble .cursor{display:inline-block;width:8px;height:1.05em;background:var(--gold-light);margin-left:2px;vertical-align:text-bottom;animation:gblink 1.1s steps(1) infinite}
+@keyframes gblink{0%,100%{opacity:1}50%{opacity:0}}
+.gturn-sub{font-size:.82rem;color:rgba(240,236,228,.45);line-height:1.55;padding:0 .2rem}
+/* reveal sequencing for chat turns */
+.gturn{opacity:0;transform:translateY(10px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.gturn.up{opacity:1;transform:translateY(0)}
+@media(max-width:960px){
+  .ghero{grid-template-columns:1fr;min-height:auto}
+  .ghero-left{padding:3rem 2rem 1.5rem}
+  .ghero-right{min-height:auto;padding:2rem 1.5rem 3rem;border-left:none;border-top:1px solid var(--rule)}
+}
+</style>
 </head>
 <body>
 <header id="header">
@@ -597,12 +657,42 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 </header>
 
 <!-- HERO -->
-<!-- DRAFT PAGE — review before publishing. Download files must be committed to /downloads/ in the repo. -->
-<div class="why-hero">
-  <div class="why-eyebrow reveal">Leadership OS · Guided Starter Kit</div>
-  <h1 class="reveal" style="transition-delay:.05s">Three files.<br>One phrase.<br><em>A guided run.</em></h1>
-  <p class="why-hero-sub reveal" style="transition-delay:.1s">The Guided Starter Kit is the self-guided-but-supported version of Leadership OS: drop two files into a fresh AI chat, type one phrase, and it walks you through the entire process — evidence gathering, a visible behavioral audit, nine-construct analysis, and four working documents — like a thoughtful coach who shows their work.</p>
-</div>
+<!-- Guided Experience — coming-soon / preview state. Downloads intentionally disabled pending pilot. To enable later: restore download hrefs in section 02 and commit files to /downloads/. -->
+<section class="ghero">
+  <div class="ghero-left">
+    <div class="ghero-eyebrow reveal">Guided Experience — In Development</div>
+    <h1 class="reveal" style="transition-delay:.05s">You type<br>one line.<br><em>It takes it from there.</em></h1>
+    <p class="ghero-sub reveal" style="transition-delay:.12s">This is where Leadership OS is going next — a guided version that carries the whole process for you. You drop in two files, type a single phrase, and it runs the entire experience like a thoughtful coach who shows their work: gathering your evidence, auditing it with you, and building four documents you can actually use.</p>
+    <div class="ghero-cta-row reveal" style="transition-delay:.2s">
+      <a href="mailto:hello@leadershipos.org?subject=Leadership%20OS%20%E2%80%94%20Early%20Access&body=I%27d%20like%20to%20be%20notified%20when%20the%20Guided%20Experience%20is%20available." class="ghero-wait">Request early access</a>
+      <a href="leadership-os-starter-kit.html" class="ghero-ghost">Or use the free Starter Kit now →</a>
+    </div>
+    <div class="ghero-proof reveal" style="transition-delay:.28s">
+      <span>In active testing</span><span>·</span><span>Works with Claude, ChatGPT &amp; Gemini</span><span>·</span><span>Coming soon</span>
+    </div>
+  </div>
+
+  <div class="ghero-right">
+    <div class="gchat">
+      <div class="gchat-top">
+        <div class="gchat-dots"><span></span><span></span><span></span></div>
+        <div class="gchat-title">Leadership OS · Guided Experience</div>
+        <div class="gchat-badge">new chat</div>
+      </div>
+      <div class="gchat-body">
+        <div class="gturn user reveal" style="transition-delay:.35s">
+          <span class="gturn-role">You</span>
+          <div class="gturn-bubble">Let's start Leadership OS.</div>
+          <div class="gturn-sub">↑ The whole kickoff. Two files dropped in, one phrase typed.</div>
+        </div>
+        <div class="gturn os reveal" style="transition-delay:.7s">
+          <span class="gturn-role">Leadership OS</span>
+          <div class="gturn-bubble">Welcome. This is a structured reflection process — not a personality test, not therapy, and not a validated assessment. What it produces are honest, evidence-labeled hypotheses for you to examine, never scores or verdicts.<br><br>Before we begin: is this your first run, or are you returning? And which inputs do you already have — an assessment, written reflections, or material I can audit for behavioral evidence?<span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- 01 — WHAT IT IS -->
 <section class="why-move">
@@ -629,53 +719,48 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
   </div>
 </section>
 
-<!-- 02 — DOWNLOAD -->
+<!-- 02 — STATUS / COMING SOON -->
 <section class="why-move alt">
   <div class="why-inner">
     <div class="why-num reveal">02</div>
-    <h2 class="reveal" style="transition-delay:.05s">Download the kit.</h2>
-    <p class="reveal" style="transition-delay:.1s">Three files. Two go into the chat; one is for you.</p>
-    <div class="gk-grid reveal" style="transition-delay:.15s">
-      <div class="gk-card">
-        <span class="gk-tag">Goes into the chat</span>
+    <h2 class="reveal" style="transition-delay:.05s">Where this actually is right now.</h2>
+    <p class="reveal" style="transition-delay:.1s">Leadership OS is in discovery, not distribution. The free Starter Kit is fully public today. The Guided Experience below is being refined through early testing before it's released — so the files aren't downloadable yet. Here's the honest current status:</p>
+    <div class="gk-status-grid reveal" style="transition-delay:.15s">
+      <div class="gk-status-row"><span class="gk-dot done">✓</span> Free Starter Kit — public and self-guided</div>
+      <div class="gk-status-row"><span class="gk-dot done">✓</span> Methodology — fully documented and open to critique</div>
+      <div class="gk-status-row"><span class="gk-dot prog">○</span> Guided Experience — in active development &amp; testing</div>
+      <div class="gk-status-row"><span class="gk-dot prog">○</span> Early pilot cohort — forming now</div>
+      <div class="gk-status-row"><span class="gk-dot prog">○</span> Research &amp; validation — ongoing</div>
+    </div>
+    <div class="gk-grid reveal" style="transition-delay:.2s">
+      <div class="gk-card soon">
+        <span class="gk-soon-badge">Coming soon</span>
         <h3>LEADERSHIP_OS_ENGINE.md</h3>
-        <p>The engine — the rules, the guided flow, and the self-policing behavior. The model reads this first.</p>
-        <a class="gk-btn" href="downloads/LEADERSHIP_OS_ENGINE.md" download>Download</a>
+        <p>The engine — the rules, the guided flow, and the self-policing behavior.</p>
+        <span class="gk-btn disabled">Not yet available</span>
       </div>
-      <div class="gk-card">
-        <span class="gk-tag">Goes into the chat</span>
+      <div class="gk-card soon">
+        <span class="gk-soon-badge">Coming soon</span>
         <h3>LEADERSHIP_OS_REFERENCE.md</h3>
-        <p>The method — the nine constructs, the grounding theory, and the run protocols the engine consults as it works.</p>
-        <a class="gk-btn" href="downloads/LEADERSHIP_OS_REFERENCE.md" download>Download</a>
+        <p>The method — the nine constructs, the grounding theory, and the run protocols.</p>
+        <span class="gk-btn disabled">Not yet available</span>
       </div>
-      <div class="gk-card">
-        <span class="gk-tag">For you</span>
+      <div class="gk-card soon">
+        <span class="gk-soon-badge">Coming soon</span>
         <h3>README.md</h3>
-        <p>Plain-language instructions, what to expect, the signs something's off, and your privacy in two sentences.</p>
-        <a class="gk-btn" href="downloads/README.md" download>Download</a>
+        <p>Plain-language instructions, what to expect, and the signs something's off.</p>
+        <span class="gk-btn disabled">Not yet available</span>
       </div>
     </div>
-    <p class="reveal"><a class="gk-btn solid" href="downloads/Leadership-OS-Guided-Starter-Kit.zip" download>Download all three (.zip)</a></p>
+    <p class="reveal" style="transition-delay:.25s">Want to be first in line — or help test it? <a class="gk-waitlist" href="mailto:hello@leadershipos.org?subject=Leadership%20OS%20%E2%80%94%20Early%20Access&body=I%27d%20like%20to%20be%20notified%20when%20the%20Guided%20Experience%20is%20available.">Request early access</a></p>
+    <p class="reveal" style="transition-delay:.3s;font-size:.95rem;opacity:.8;">In the meantime, the <a href="leadership-os-starter-kit.html">free Starter Kit</a> is available now and walks you through the same methodology yourself.</p>
   </div>
-</section>
-
-<!-- 03 — HOW TO RUN IT -->
-<section class="why-move">
-  <div class="why-num reveal">03</div>
-  <h2 class="reveal" style="transition-delay:.05s">Running it takes one phrase.</h2>
-  <ol class="gk-steps reveal" style="transition-delay:.1s">
-    <li>Open a <strong>new chat</strong> in Claude, ChatGPT, or Gemini.</li>
-    <li>Drop in (paste or upload) <strong>both files</strong>: the Engine and the Reference.</li>
-    <li>Type the phrase below — and it takes it from there.</li>
-  </ol>
-  <div class="gk-phrase reveal" style="transition-delay:.15s">Let's start Leadership OS.</div>
-  <p class="reveal" style="transition-delay:.2s">It will check what you already have — assessment results, reflection answers, behavioral material — and guide you through whatever's missing. The richest runs use your real history: export your AI conversations (every major tool offers a data export) or paste a solid sample of your work, and the engine audits it with you. If your AI has memory turned on, it may surface patterns from your broader history — but everything still passes through the visible confirmation table before it counts. It will never rely on evidence you can't see.</p>
 </section>
 
 <!-- 04 — HONEST EXPECTATIONS -->
 <section class="why-move alt">
   <div class="why-inner">
-    <div class="why-num reveal">04</div>
+    <div class="why-num reveal">03</div>
     <h2 class="reveal" style="transition-delay:.05s">What this is — and isn't.</h2>
     <p class="reveal" style="transition-delay:.1s">Leadership OS is an exploratory, self-guided reflection methodology. It is not a personality test, not therapy, and not a validated psychometric instrument — and the guided engine will tell you that itself. Its outputs are hypotheses for you to examine, each carrying one of four confidence labels, never a score, grade, or verdict. It is built to show its evidence, argue against its own conclusions, and end every document with where it's probably wrong.</p>
     <p class="reveal" style="transition-delay:.15s">Your data stays inside the AI chat you run it in. Nothing is collected, stored, or seen by anyone else. Redact freely — the process only needs to see <em>how you think</em>, never confidential specifics or anything about people who haven't consented.</p>
@@ -693,6 +778,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
       <span class="foot-sep">·</span>
       <span>© 2026 Mike Cilla</span>
     </div>
+    <div class="foot-ai" style="margin-top:.9rem;font-size:.78rem;line-height:1.5;opacity:.62;max-width:62ch;">Leadership OS was conceived, researched, written, designed, and iteratively developed through collaboration between Mike Cilla and frontier AI systems. AI was not only the subject of this project — it was an active participant in its creation.</div>
   </div>
 </footer>
 <script>
@@ -713,10 +799,10 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
     });
   },{threshold:0.08});
   els.forEach(function(el){ obs.observe(el); });
-  // Hero elements reveal immediately on load
+  // Hero elements reveal immediately on load (staggered for the kickoff-conversation effect)
   setTimeout(function(){
-    document.querySelectorAll('.why-hero .reveal').forEach(function(el,i){
-      setTimeout(function(){ el.classList.add('up'); }, 100 + i*90);
+    document.querySelectorAll('.ghero .reveal').forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('up'); }, 100 + i*140);
     });
   },80);
   // Absolute safety net: reveal everything after 3s no matter what

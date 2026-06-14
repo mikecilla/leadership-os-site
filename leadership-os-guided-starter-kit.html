@@ -609,7 +609,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .ghero-proof{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.04em;color:var(--ink-dim);opacity:.7;display:flex;gap:.5rem;flex-wrap:wrap}
 /* right column — full-height scrolling chat window */
 .ghero-right{background:var(--deep);min-height:100vh;padding:3vw 3.5vw 3vw 3vw;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--rule);position:relative;overflow:hidden}
-.gchat{background:#0d0c0b;border-radius:6px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.15),0 0 0 1px rgba(255,255,255,.04);width:100%;display:flex;flex-direction:column;max-height:calc(100vh - 140px)}
+.gchat{background:#0d0c0b;border-radius:6px;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.15),0 0 0 1px rgba(255,255,255,.04);width:100%;display:flex;flex-direction:column}
 .gchat-top{background:#1b1a18;padding:.7rem 1.1rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid rgba(255,255,255,.05);flex:none}
 .gchat-dots{display:flex;gap:5px}
 .gchat-dots span{width:11px;height:11px;border-radius:50%}
@@ -618,7 +618,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .gchat-dots span:last-child{background:#28c840}
 .gchat-title{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.06em;color:rgba(240,236,228,.25);flex:1;text-align:center}
 .gchat-badge{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.05em;color:rgba(201,132,58,.55);border:1px solid rgba(201,132,58,.18);padding:.2rem .55rem}
-.gchat-body{padding:1.6rem 1.7rem 1.8rem;display:flex;flex-direction:column;gap:1.4rem;overflow-y:auto}
+.gchat-body{padding:1.7rem 1.8rem 1.9rem;display:flex;flex-direction:column;gap:1.4rem}
 .gchat-body::-webkit-scrollbar{width:8px}
 .gchat-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:4px}
 .gphase{font-family:var(--ff-mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-light);padding:.3rem 0 .1rem;border-top:1px solid rgba(201,132,58,.14);margin-top:.3rem}
@@ -686,47 +686,20 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
       </div>
       <div class="gchat-body">
 
-        <div class="gphase reveal">The kickoff</div>
+        <div class="gphase reveal">Picking up where you left off</div>
         <div class="gturn user reveal">
           <span class="gturn-role">You</span>
-          <div class="gturn-bubble">Let's start Leadership OS.</div>
-          <div class="gturn-sub">↑ That's the whole start. Two files dropped in, one phrase typed.</div>
+          <div class="gturn-bubble">Continue Leadership OS. I've got a live one — I've been offered a bigger role and I can't tell if I actually want it.</div>
+          <div class="gturn-sub">↑ A new chat, your profile dropped back in. Now it's a sounding board.</div>
         </div>
         <div class="gturn os reveal">
           <span class="gturn-role">Leadership OS</span>
-          <div class="gturn-bubble">Welcome. This is a structured reflection process — not a personality test, not therapy, not a validated assessment. What it produces are honest, evidence-labeled hypotheses for you to examine, never scores or verdicts.<br><br>Is this your first run, or are you returning? And which inputs do you already have — an assessment, written reflections, or material I can audit for behavioral evidence?</div>
-        </div>
-
-        <div class="gphase reveal">It audits your evidence — visibly</div>
-        <div class="gturn os reveal">
-          <span class="gturn-role">Leadership OS</span>
-          <div class="gturn-bubble">Here's what I observed in your history. Nothing counts until you confirm it — read each row and tell me to keep, change, or strike it.<br><br><strong>Observation:</strong> Reframes tactical problems into structural ones.<br><span class="cite">Evidence:</span> across the threads you shared, you repeatedly move from "how do we fix this?" to "what system produced this?"<br><span class="cite">Alternative read:</span> could be your role rewarding systems-framing, not a personal default.<br><span class="cite">Confidence:</span> Moderate</div>
-        </div>
-        <div class="gturn user reveal">
-          <span class="gturn-role">You</span>
-          <div class="gturn-bubble">Confirm — but lower it. It's a default, not just the job.</div>
-        </div>
-
-        <div class="gphase reveal">It argues with itself</div>
-        <div class="gturn os reveal">
-          <span class="gturn-role">Leadership OS</span>
-          <div class="gturn-bubble">Challenging my own read before I commit it: I had Reflection Orientation at <strong>High</strong>. But you found it genuinely hard to name a decision you'd revisit — strong reflection isn't the same as strong retrospection.<br><br>Result: I'm narrowing the finding to <em>future-oriented</em> reflection, and flagging the asymmetry rather than smoothing it over.</div>
-        </div>
-
-        <div class="gphase reveal">Months later — you come back</div>
-        <div class="gturn user reveal">
-          <span class="gturn-role">You</span>
-          <div class="gturn-bubble">Continue Leadership OS. I've got a live one — a reorg I'm weighing.</div>
-          <div class="gturn-sub">↑ A new chat, your profile dropped in. Now it's a sounding board.</div>
+          <div class="gturn-bubble">Let's hold it up to your profile rather than hand you generic advice. Two things your own findings raise:<br><br><strong>The energy question.</strong> Your profile flags that you're most alive doing the hands-on craft, and quietest in pure oversight roles. This job is mostly the second thing. Worth asking honestly: are you drawn to the title, or the work?<br><br><strong>Your known tell.</strong> You tend to say yes to growth before checking whether it fits — it's right there in your roadmap. So I'd slow this one down more than feels natural.</div>
         </div>
         <div class="gturn os reveal">
           <span class="gturn-role">Leadership OS</span>
-          <div class="gturn-bubble">Let's hold it up to your profile rather than give generic advice. Two lenses your own findings raise:<br><br><strong>The multiplier edge.</strong> Your roadmap flags a shift from <em>building capability</em> to <em>building capability-builders</em>. So: are you scoping this new role for someone to architect it themselves, or to execute a system you've already designed?<br><br><strong>The "shifting the burden" trap.</strong> Senge's archetype is in your profile for a reason. Does absorbing this team fix the root problem — or does it just mask it, because your team is capable enough to quietly carry it?</div>
-        </div>
-        <div class="gturn os reveal">
-          <span class="gturn-role">Leadership OS</span>
-          <div class="gturn-bubble">One honest flag: I'm now speculating a bit beyond what your profile can actually tell me — how a specific colleague will <em>react</em> is about this situation's facts, not your patterns. Worth weighing, but hold it loosely.<span class="cursor"></span></div>
-          <div class="gturn-sub">It thinks <em>with</em> you — and tells you where the profile stops and guessing begins.</div>
+          <div class="gturn-bubble">One honest flag: whether <em>this specific role</em> is right is about its details, not your patterns — I can't see those. What I can do is make sure you're choosing it for the right reasons. Want to walk through the actual day-to-day of it?<span class="cursor"></span></div>
+          <div class="gturn-sub">It thinks <em>with</em> you — and says where the profile stops and guessing begins.</div>
         </div>
 
       </div>

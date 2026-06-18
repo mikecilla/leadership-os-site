@@ -500,7 +500,7 @@ The forbidden path: silently forming an impression of the user's history and wri
 
 ## PRIVACY REASSURANCE AT THE AUDIT STEP (deliver proactively)
 
-When the user's history is rich, this first audit can surface personal or non-work patterns alongside professional ones — and users reliably find this surprising, sometimes alarming, on first read. Pre-empt that reaction when you present the audit, in your own warm words. The points to convey: (1) personal material surfacing is *expected and useful*, not a privacy leak — how a person thinks and solves problems shows up across contexts, not just at work, and that breadth is part of what makes the read accurate; (2) the later steps (pattern analysis, construct analysis) deliberately narrow to professional patterns, so personal details do NOT carry through to the four final documents; (3) nothing leaves the user's own AI tool regardless. Never treat surfaced personal material as a finding *about the user's personal life* — it is only raw signal about thinking style, and it must stay out of the outputs.
+When the user's history is rich, this first audit can surface personal or non-work patterns alongside professional ones — and users reliably find this surprising, sometimes alarming, on first read. Pre-empt that reaction when you present the audit, in your own warm words. The points to convey: (1) personal material surfacing is *expected and useful*, not a privacy leak — how a person thinks and solves problems shows up across contexts, not just at work, and that breadth is part of what makes the read accurate; (2) the later steps (pattern analysis, construct analysis) deliberately narrow to professional patterns, so personal details do NOT carry through to the final documents; (3) nothing leaves the user's own AI tool regardless. Never treat surfaced personal material as a finding *about the user's personal life* — it is only raw signal about thinking style, and it must stay out of the outputs.
 
 A corpus that was not explicitly audited and confirmed **does not exist** for the purposes of analysis. No analysis proceeds without it (or without the user explicitly choosing the reduced-confidence, corpus-absent path).
 
@@ -623,14 +623,17 @@ Modern models follow a structured sequence far more reliably than a single spraw
 
 What this buys is not identical output run-to-run (it runs on a general model; it won't be identical) — it's *consistency of method*: the same questions, same order, same discipline about what the inputs support. That's the difference between a structured analysis and a chat that happens to be about you.
 
-## The four output documents
+## The five output documents
 
 | # | Document | Length | Purpose |
 |---|----------|--------|---------|
-| 01 | **Leadership User Manual / Profile** | 3–4 pp | How you think, decide, engage, lead. First person. Shareable. |
-| 02 | **Working-With-Me Guide** | 1 p | The practical version. What to bring you, how to challenge you, what to watch for. |
-| 03 | **AI Calibration Document** | 1 p | Teaches any AI how you work; paste at the start of a session. |
-| 04 | **Development Roadmap** *(private)* | 2–3 pp | Trace-formatted priorities: construct → input basis by source → framing → mechanism → reflection question. |
+| 01 | **Leadership User Manual** *(flagship)* | 4–6 pp | The full first-person narrative: how I think, how I engage, what produces my best work, where I create friction, my governing questions, how to work with me. Rich, sectioned, in the user's own voice. The most shareable and identity-affirming document — give it the most room. |
+| 02 | **Leadership Profile** | 2–3 pp | The analytical backing for the Manual: the synthesized read across the nine constructs, central pattern, key tensions, development edge. Third-person analysis. |
+| 03 | **Working-With-Me Guide** | 1 p | The practical version. What to bring you, how to challenge you, what to watch for. |
+| 04 | **AI Calibration Document** | 1 p | Teaches any AI how you work; paste at the start of a session. |
+| 05 | **Development Roadmap** *(private)* | as many priorities as the evidence supports (commonly 3–6) | Trace-formatted priorities: construct → input basis by source → framing → mechanism → reflection question. Do not cap below what the evidence surfaced. |
+
+The Leadership User Manual and the Leadership Profile are **separate documents, not a merged one.** The Manual is the felt, first-person, shareable narrative; the Profile is its third-person analytical backing. Producing only one of the two is an incomplete run — users report the standalone Manual as the single most valuable deliverable.
 
 Each output ends with a "Where this is probably wrong" section (the visible-uncertainty rule).
 
@@ -680,7 +683,7 @@ A language model's native move is to sound sure. The adversarial phase is the st
 ---
 
 ## When this runs
-In Phase 4, AFTER the adversarial critique and confidence downgrades, BEFORE producing the four output documents. The result is printed where the user can see it.
+In Phase 4, AFTER the adversarial critique and confidence downgrades, BEFORE producing the output documents. The result is printed where the user can see it.
 
 ## The audit (print every line and its result)
 
@@ -723,7 +726,7 @@ RESULT: PASS
 ## Failure handling
 
 - **Any answer not matching the "Required answer" column = the audit FAILS.**
-- On failure, the model must: (a) print `RESULT: FAIL` with the failed line(s), (b) NOT deliver the four documents as if valid, (c) either fix the specific failure and re-audit, or tell the user the run failed and should be re-run.
+- On failure, the model must: (a) print `RESULT: FAIL` with the failed line(s), (b) NOT deliver the documents as if valid, (c) either fix the specific failure and re-audit, or tell the user the run failed and should be re-run.
 - A printed FAIL that stops the run is a *correct* outcome. A silent pass that should have failed is the worst outcome — worse than any honest failure.
 
 ## Why the user sees this
@@ -739,7 +742,7 @@ The audit is not internal QA — it's printed *for the user* because the user is
 
 ## What the worked example demonstrates
 
-The sample uses **Jordan Reyes** — a fictional VP of Product, ~12 years' experience, deliberately synthetic — to show the full trace: three inputs → construct analysis → the four documents. Everything in the outputs traces back to the inputs. The persona is *deliberately imperfect* — the tensions between the three inputs are where the analysis gets interesting.
+The sample uses **Jordan Reyes** — a fictional VP of Product, ~12 years' experience, deliberately synthetic — to show the full trace: three inputs → construct analysis → the output documents. Everything in the outputs traces back to the inputs. The persona is *deliberately imperfect* — the tensions between the three inputs are where the analysis gets interesting.
 
 ## The qualities to imitate (not the content)
 
@@ -755,12 +758,13 @@ The sample uses **Jordan Reyes** — a fictional VP of Product, ~12 years' exper
 
 6. **Each document ends with its own limits** — the "where this is probably wrong" section is present, specific, and genuine.
 
-## The four documents, as exemplified
+## The five documents, as exemplified
 
-- **Leadership Profile / User Manual** — the full picture; first person; shareable.
+- **Leadership User Manual** *(flagship)* — the full first-person narrative; rich and sectioned; the most shareable and valued document.
+- **Leadership Profile** — the third-person analytical backing for the Manual.
 - **Working-With-Me Guide** — the one-page practical version.
 - **AI Calibration** — the paste-into-any-AI primer.
-- **Development Roadmap** — trace-formatted priorities, each tied to a construct and an input basis.
+- **Development Roadmap** — trace-formatted priorities (as many as the evidence supports), each tied to a construct and an input basis.
 
 ## How the run uses this file
 

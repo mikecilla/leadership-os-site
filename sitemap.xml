@@ -32,4 +32,9 @@
     <loc>https://leadershipos.org/leadership-os-guided-starter-kit.html</loc>
     <lastmod>2026-06-12</lastmod>
   </url>
+  <url>
+    <loc>https://leadershipos.org/field-notes-4.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

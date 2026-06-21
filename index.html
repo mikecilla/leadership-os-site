@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/svg+xml" sizes="16x16" href="favicon-16.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leadership OS — A Framework by Mike Cilla</title>
 <meta name="description" content="A structured methodology for building your Leadership Operating System — grounded in personality science, behavioral signals, and AI-assisted reflection.">
@@ -198,7 +202,7 @@ section{padding:3.25rem 4vw;}
 
 /* FOOTER */
 footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;justify-content:space-between;}
-.footer-mark{font-family:var(--ff-display);font-size:1.04rem;color:rgba(240,236,228,0.3);text-decoration:none;}
+.footer-mark{display:inline-block;margin-bottom:1.1rem;text-decoration:none;}
 .footer-mark span{color:rgba(201,132,58,0.5);}
 .footer-note{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.08em;color:rgba(240,236,228,0.12);}
 
@@ -547,7 +551,19 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 <body>
 
 <header id="header">
-  <a href="https://mikecilla.com" class="h-mark">Mike Cilla<span>.</span></a>
+  <a href="index.html" class="h-mark" aria-label="Leadership OS home">
+    <svg viewBox="0 0 56 56" width="38" height="38" role="img" aria-label="Leadership OS" style="display:block;">
+      <g transform="translate(28,28)">
+        <line x1="-15" y1="-12" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <line x1="15" y1="-12" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <line x1="0" y1="17" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <circle cx="0" cy="0" r="7" fill="none" stroke="#b8671e" stroke-width="1.3" stroke-dasharray="2.4 2.8"/>
+        <circle cx="-15" cy="-12" r="3.1" fill="#6b5bd1"/>
+        <circle cx="15" cy="-12" r="3.1" fill="#2e9e7e"/>
+        <circle cx="0" cy="17" r="3.1" fill="#b8671e"/>
+      </g>
+    </svg>
+  </a>
   <nav class="h-nav">
     <a href="index.html" class="h-nav-link" aria-current="page">What it is</a>
     <a href="leadership-os-why.html" class="h-nav-link hide-mobile">Why it exists</a>
@@ -556,6 +572,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
     <a href="leadership-os-research.html" class="h-nav-link hide-mobile">Methodology</a>
     <a href="leadership-os-sample-outputs.html" class="h-nav-link hide-mobile">Sample outputs</a>
     <a href="leadership-os-faq.html" class="h-nav-link">FAQs</a>
+    <a href="field-notes-4.html" class="h-nav-link hide-mobile">Field Notes</a>
     <a href="leadership-os-starter-kit.html" class="h-nav-link">Starter Kit</a>
     <a href="leadership-os-guided-starter-kit.html" class="h-nav-link">Guided Kit</a>
   </nav>
@@ -1076,7 +1093,20 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 
 
 <footer>
-  <a href="https://mikecilla.com" class="footer-mark">Mike Cilla<span>.</span></a>
+  <a href="index.html" class="footer-mark" aria-label="Leadership OS home">
+    <svg viewBox="-16 -4 316 64" width="240" height="45" role="img" aria-label="Leadership OS" style="display:block;">
+      <g transform="translate(6,28)">
+        <line x1="-14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
+        <line x1="14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
+        <line x1="0" y1="16" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
+        <circle cx="0" cy="0" r="6.5" fill="none" stroke="#c9843a" stroke-width="1.2" stroke-dasharray="2.3 2.7"/>
+        <circle cx="-14" cy="-11" r="2.9" fill="#8b7ee0"/>
+        <circle cx="14" cy="-11" r="2.9" fill="#4cbf9e"/>
+        <circle cx="0" cy="16" r="2.9" fill="#c9843a"/>
+      </g>
+      <text x="42" y="38" font-family="'Cormorant Garamond',Georgia,serif" font-size="34" font-weight="300" fill="#faf8f4">Leadership <tspan font-weight="700" font-style="italic" fill="#c9843a">OS</tspan></text>
+    </svg>
+  </a>
   <div class="footer-links">
     <a href="#connect">Stay connected</a>
     <a href="#evolving">How it's evolving</a>

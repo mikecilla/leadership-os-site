@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/svg+xml" sizes="16x16" href="favicon-16.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Notes 4: The Part I Didn't Expect — Mike Cilla</title>
+<meta name="description" content="I handed the same person's inputs to two different AI models and watched them behave completely differently. A field note on what survives when the models get better — and what building a leadership tool by arguing with AI actually taught me.">
+<meta property="og:title" content="Field Notes 4: The Part I Didn't Expect">
+<meta property="og:description" content="I handed the same inputs to two AI models and watched them behave completely differently. What survives when the models get better?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mikecilla.com/field-notes-4.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8B7D4VZ08"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Q8B7D4VZ08');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --void:#faf8f4; --deep:#f2ede6; --surface:#ffffff; --lift:#ede8e1;
+  --ink:#1a1612; --ink-dim:rgba(26,22,18,0.62); --ink-ghost:rgba(26,22,18,0.12);
+  --gold:#b8671e; --gold-light:#c9843a; --gold-dim:rgba(184,103,30,0.1);
+  --rule:rgba(26,22,18,0.1);
+  --ff-display:'Cormorant Garamond',Georgia,serif;
+  --ff-body:'Outfit',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
+
+/* HEADER (matches site) */
+#header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.75rem 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);background:rgba(250,248,244,0.94);backdrop-filter:blur(16px);}
+.h-mark{font-family:var(--ff-display);font-size:1rem;font-weight:400;letter-spacing:0.06em;color:var(--ink);text-decoration:none;}
+.h-mark span{color:var(--gold);}
+.h-nav{display:flex;align-items:center;gap:2rem;}
+.h-nav a{font-family:var(--ff-mono);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-dim);text-decoration:none;transition:color 0.2s;}
+.h-nav a:hover,.h-nav a[aria-current="page"]{color:var(--gold);}
+@media(max-width:760px){.h-nav .hide-mobile{display:none;}}
+
+/* ARTICLE SHELL */
+.fn-wrap{max-width:46rem;margin:0 auto;padding:8.5rem 1.5rem 2rem;}
+.fn-eyebrow{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;display:flex;align-items:center;gap:0.7rem;}
+.fn-eyebrow::after{content:'';flex:1;height:1px;background:var(--rule);}
+.fn-title{font-family:var(--ff-display);font-size:clamp(2.5rem,6vw,3.9rem);font-weight:300;line-height:1.02;letter-spacing:-0.015em;color:var(--ink);margin-bottom:1.2rem;}
+.fn-standfirst{font-family:var(--ff-display);font-style:italic;font-weight:300;font-size:clamp(1.2rem,2.4vw,1.5rem);line-height:1.5;color:var(--ink-dim);margin-bottom:1.5rem;max-width:34rem;}
+.fn-meta{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.08em;color:var(--ink-dim);text-transform:uppercase;padding-bottom:2.5rem;border-bottom:1px solid var(--rule);margin-bottom:3rem;display:flex;gap:0.6rem;flex-wrap:wrap;}
+.fn-meta .dot{color:var(--gold);}
+
+/* ARTICLE BODY */
+.fn-body{font-size:1.18rem;line-height:1.85;color:var(--ink);font-weight:300;}
+.fn-body p{margin-bottom:1.55rem;}
+.fn-body p:first-of-type{font-size:1.32rem;line-height:1.7;}
+.fn-body p:first-of-type::first-letter{font-family:var(--ff-display);font-size:3.6rem;font-weight:600;float:left;line-height:0.82;padding:0.35rem 0.7rem 0 0;color:var(--gold);}
+.fn-body em{font-style:italic;}
+.fn-body strong{font-weight:500;color:var(--ink);}
+.fn-divider{border:none;height:auto;text-align:center;margin:3rem 0;color:var(--gold);}
+.fn-divider::before{content:'· · ·';font-family:var(--ff-mono);font-size:0.9rem;letter-spacing:0.5em;opacity:0.7;}
+
+/* PULLQUOTE for the line that carries the piece */
+.fn-pull{font-family:var(--ff-display);font-style:italic;font-size:clamp(1.5rem,3vw,1.95rem);line-height:1.4;color:var(--ink);border-left:2px solid var(--gold);padding:0.4rem 0 0.4rem 1.6rem;margin:2.8rem 0;font-weight:300;}
+
+/* ENDNOTE / SIGNATURE */
+.fn-end{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--rule);font-family:var(--ff-mono);font-size:0.78rem;line-height:1.7;letter-spacing:0.03em;color:var(--ink-dim);}
+.fn-end .by{color:var(--ink);}
+.fn-series{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:0.8rem;}
+.fn-series a{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--gold-dim);padding:0.55rem 1rem;transition:background 0.2s,color 0.2s;}
+.fn-series a:hover{background:var(--gold);color:var(--void);}
+
+/* FOOTER (matches site) */
+footer{margin-top:5rem;padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);}
+.foot-inner{max-width:62rem;margin:0 auto;}
+.foot-privacy{font-size:0.9rem;line-height:1.6;color:var(--ink-dim);margin-bottom:1rem;max-width:60ch;}
+.foot-meta-row{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--ink-dim);display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;}
+.foot-sep{color:var(--gold);}
+.foot-ai{margin-top:0.9rem;font-size:0.78rem;line-height:1.5;opacity:0.62;max-width:62ch;}
+@media(max-width:600px){
+  .fn-wrap{padding-top:7rem;}
+  .fn-body p:first-of-type::first-letter{font-size:3rem;}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <a href="index.html" class="h-mark" aria-label="Leadership OS home">
+    <svg viewBox="0 0 56 56" width="38" height="38" role="img" aria-label="Leadership OS" style="display:block;">
+      <g transform="translate(28,28)">
+        <line x1="-15" y1="-12" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <line x1="15" y1="-12" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <line x1="0" y1="17" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <circle cx="0" cy="0" r="7" fill="none" stroke="#b8671e" stroke-width="1.3" stroke-dasharray="2.4 2.8"/>
+        <circle cx="-15" cy="-12" r="3.1" fill="#6b5bd1"/>
+        <circle cx="15" cy="-12" r="3.1" fill="#2e9e7e"/>
+        <circle cx="0" cy="17" r="3.1" fill="#b8671e"/>
+      </g>
+    </svg>
+  </a>
+  <nav class="h-nav">
+    <a href="index.html" class="h-nav-link">What it is</a>
+    <a href="leadership-os-why.html" class="h-nav-link hide-mobile">Why it exists</a>
+    <a href="leadership-os-how.html" class="h-nav-link">How it works</a>
+    <a href="leadership-os-research.html" class="h-nav-link hide-mobile">Methodology</a>
+    <a href="leadership-os-sample-outputs.html" class="h-nav-link hide-mobile">Sample outputs</a>
+    <a href="leadership-os-faq.html" class="h-nav-link">FAQs</a>
+    <a href="leadership-os-starter-kit.html" class="h-nav-link">Starter Kit</a>
+    <a href="leadership-os-guided-starter-kit.html" class="h-nav-link">Guided Kit</a>
+  </nav>
+</header>
+
+<main class="fn-wrap">
+  <div class="fn-eyebrow">Field Notes · 04</div>
+  <h1 class="fn-title">The Part I Didn't Expect</h1>
+  <p class="fn-standfirst">I handed the same person's inputs to two different AI models and watched them behave completely differently. What survives when the models get better?</p>
+  <div class="fn-meta"><span>Mike Cilla</span><span class="dot">·</span><span>June 2026</span><span class="dot">·</span><span>~6 min read</span></div>
+
+  <article class="fn-body">
+    <p>Something happened a few weeks ago that I'm still chewing on.</p>
+
+    <p>I'd built a new version of the leadership tool I've been working on, and I handed the same person's inputs to two different AI models to see how they'd each run it. Same instructions, same evidence, same everything. I expected the outputs to be a little different. What I didn't expect was how differently the two models would <em>behave</em> — not in what they concluded, but in how they got there. One slowed down, argued with itself, hedged where it should have hedged. The other got fluent and confident and started telling me things about this person that the evidence didn't actually support, in language good enough that I almost didn't catch it.</p>
+
+    <p>And I sat there realizing the thing I'd actually built wasn't a leadership tool. It was a set of guardrails to keep a model from getting ahead of itself. The leadership part was almost incidental. The real work, the part I'd sweated over, was all about restraint.</p>
+
+    <p>That bothered me for a few days. Then it turned into the more interesting question, which is the one I actually want to write about.</p>
+
+    <hr class="fn-divider">
+
+    <p>Here's the worry, stated plainly. There's a well-worn idea in AI — Richard Sutton called it the bitter lesson, and Ethan Mollick has a recent piece riffing on it — that the clever stuff humans hand-build into these systems tends to get washed away as the models themselves get better. The example everyone uses is chess: people spent years encoding chess wisdom into engines, and then a model that was taught nothing and just played itself beat all of it.</p>
+
+    <p>I read that and felt a little exposed, because a structured developmental tool is <em>nothing but</em> hand-encoded human wisdom. So I've been doing this slightly nervous exercise where I look at each piece of what I built and ask: if a smarter model showed up next year, does this survive, or was I just papering over today's weaknesses?</p>
+
+    <p>A lot of it does not survive, and I'm trying to be honest about that. All the scaffolding I built to stop the model from sounding too sure, from wrapping things up too neatly, from handing someone a verdict when it should hand them a question — that's me compensating for how the current models behave. The day they stop behaving that way, my compensations become dead weight. I don't think I get to keep most of it.</p>
+
+    <p>What's strange, though — and this is the part that surprised me — is what <em>did</em> survive the exercise. It wasn't any of the clever stuff. It was a handful of almost boring ideas. That you learn more about a person from three kinds of evidence than from one. That it's better to say "I'm not sure about this part" than to smooth it over. That when someone's self-description and their actual behavior disagree, the disagreement is the interesting part, not a problem to resolve. That what a person <em>does</em> tells you things they'll never tell you about themselves.</p>
+
+    <p>None of those are mine. None of them are even about AI. They're just old, sturdy ideas about how you come to understand a person honestly. And they're the only parts I'm confident will still matter when the models are better. The cleverness was disposable. The honesty was the thing.</p>
+
+    <hr class="fn-divider">
+
+    <p>But I keep circling back to that morning with the two models, because I think there's something underneath it I haven't fully worked out.</p>
+
+    <p>The way I actually built this thing was not by sitting down and designing it. It was by arguing with AI models for months. I'd draft something, hand it to one, let it tear into it, hand the result to another, watch them disagree, and use the disagreement to figure out what I actually thought. The models weren't answering my questions. They were sparring partners. The value wasn't in any single response — it was in watching different systems push on the same idea from different directions and noticing where the idea held and where it cracked.</p>
+
+    <p class="fn-pull">I was using AI the way the tool tells you to understand a person — triangulate, watch for where things collide, distrust the tidy version.</p>
+
+    <p>Which is funny, because that's <em>exactly</em> the principle the tool itself is built on. Multiple sources of evidence. Contradiction as signal. Don't trust the clean single answer. I didn't design it that way on purpose. I just noticed, somewhere along the line, that it was how I'd been working the whole time.</p>
+
+    <p>I'm not sure what to do with that observation yet. It might be the most interesting thing I've found, and it might be a coincidence I'm over-reading. That's honestly where a lot of this lives right now — I can see a pattern but I can't tell yet whether it's real or whether I just want it to be.</p>
+
+    <hr class="fn-divider">
+
+    <p>So where does that leave the actual tool. Somewhere uncomfortable, which I'm coming to think is the right place for it.</p>
+
+    <p>The clean version of the lesson would be "structure beats chaos," or the opposite, "let the model run free." Neither is true, and the honest answer took me a while to get to, so let me try to say it carefully, because it's the one part of this I think I actually believe rather than suspect.</p>
+
+    <p>When I started, I assumed the real work was governing the model's <em>reasoning</em> — scripting how it should think its way through a person's evidence, step by careful step. That felt like the substance of the whole thing. And it's the part that broke most often. When I look back at the runs that went wrong, almost none of them failed because the model lacked structure. They failed because the model followed a confident-sounding line of reasoning right past the evidence. More scripting didn't fix that. Sometimes it made it worse, because a model marching through a rigid set of steps sounds <em>more</em> authoritative, not less, even when it's wrong.</p>
+
+    <p>What started to work was moving the discipline somewhere else entirely. Not onto the reasoning — onto the <em>evidence</em> and the <em>confidence</em>. Be strict about what counts as evidence and make the model show it. Be strict about how sure it's allowed to be, and make it say so out loud. But once those two things are locked down, let the actual thinking be loose. Let it follow the interesting thread. Hold the inputs and the honesty tight; let the reasoning breathe.</p>
+
+    <p>That distinction sounds small written down. In practice it was the whole game. A model that's free to reason however it wants, but can't claim more than the evidence supports and has to label how confident it is, turns out to be both more useful and more honest than one whose every step you've choreographed. The choreographed one performs rigor. The constrained-on-evidence one actually has it. And — this is the part that connects back to the bitter lesson — governing the reasoning is the brittle, hand-encoded thing that better models will make pointless. Governing the evidence and the confidence might not be. That feels less like a workaround and more like something true about working with these systems at all.</p>
+
+    <p>I want to be careful not to oversell it, because the reason this works for leadership development is also the reason it's hard. I can't cleanly tell you what a good outcome even is. Growth is slow and subjective; two thoughtful people will disagree about what someone should work on. When you can't define the win, you can't just hand the wheel to a system optimizing toward it — there's nothing solid for it to aim at, and a confident answer poured into that emptiness is dangerous, not helpful. But you can't script your way out of it either, because that's the chess-wisdom trap. Constraining the evidence and the confidence, and letting the reasoning move, is the only place I've found that holds up in the middle. It's narrower than "I built a system." It's the part I'd actually defend.</p>
+
+    <hr class="fn-divider">
+
+    <p>I don't have a clean ending for this, which feels appropriate. I started building a leadership tool and I'm not sure that's the thing I made. What I think I actually learned is a smaller and more personal lesson about working with these models at all: that they're most useful when you stop treating them as answer machines and start treating them as something to argue with, and that the whole game is staying honest about the difference between what you know and what just sounds good.</p>
+
+    <p>Ask me in a year whether any of that held up.</p>
+  </article>
+
+  <div class="fn-end">
+    <div class="by">Mike Cilla — VP of People Operations, builder of Leadership OS.</div>
+    <div style="margin-top:0.6rem;">Field Notes is an in-progress journal of building Leadership OS — exploratory, iterative, and unfinished by design.</div>
+    <div class="fn-series">
+      <a href="index.html">What Leadership OS is →</a>
+      <a href="leadership-os-starter-kit.html">Try the free Starter Kit →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-privacy">Your data stays inside the AI tool you choose to use. Leadership OS does not collect or store your assessment results, reflections, or conversation history.</div>
+    <div class="foot-meta-row">
+      <span class="foot-version">Version 1.0 · June 2026</span>
+      <span class="foot-sep">·</span>
+      <span>A reflection &amp; development methodology — not a validated assessment</span>
+      <span class="foot-sep">·</span>
+      <span>© 2026 Mike Cilla</span>
+    </div>
+    <div class="foot-ai">Leadership OS was conceived, researched, written, designed, and iteratively developed through collaboration between Mike Cilla and frontier AI systems. AI was not only the subject of this project — it was an active participant in its creation.</div>
+  </div>
+</footer>
+
+</body>
+</html>

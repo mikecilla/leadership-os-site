@@ -441,7 +441,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 }
 
 /* WHAT IT TAKES BAND */
-.oc-takes{max-width:880px;margin:0 auto 3.5rem;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.75rem 2rem;}
+.oc-takes{max-width:880px;margin:4rem auto 3.5rem;background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:1.75rem 2rem;}
 .ot-label{font-family:var(--ff-mono);font-size:0.72rem;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;text-align:center;}
 .ot-items{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 2rem;}
 .ot-item{display:flex;gap:0.85rem;align-items:flex-start;}
@@ -546,6 +546,22 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 @media(max-width:600px){.expect-note p{font-size:1.2rem;}.expect-note{padding:1.25rem 1.4rem;}}
 
 .ot-takes-note{font-family:var(--ff-body);font-size:.92rem;color:var(--ink-dim);margin:-.2rem 0 1.4rem;line-height:1.5;}
+
+50.01%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.pm-cursor-blink{animation:none}}
+
+/* --- interactive sample-output (outcomes mockup) --- */
+.cs-tabs{display:flex;gap:0;padding:0 0.9rem;border-bottom:1px solid rgba(255,255,255,0.07);background:rgba(0,0,0,0.15);}
+.cs-tab{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(240,236,228,0.4);background:none;border:none;border-bottom:2px solid transparent;padding:0.65rem 0.85rem;cursor:pointer;transition:color 0.2s,border-color 0.2s;}
+.cs-tab:hover{color:rgba(240,236,228,0.72);}
+.cs-tab.is-active{color:#c9843a;border-bottom-color:#c9843a;}
+.oc-clickable{cursor:pointer;}
+.oc-clickable::after{content:"See sample \2192";position:absolute;bottom:1.1rem;right:1.5rem;font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.06em;color:var(--gold);opacity:0;transition:opacity 0.2s;}
+.oc-clickable:hover::after,.oc-clickable:focus::after{opacity:0.85;}
+.oc-card.is-selected{border-color:var(--gold)!important;box-shadow:0 8px 28px rgba(184,103,30,0.14)!important;}
+.cs-cursor-blink{display:inline-block;width:6px;height:0.95em;background:#c9843a;margin-left:1px;vertical-align:text-bottom;animation:csBlink 0.9s steps(2) infinite;}
+@keyframes csBlink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.cs-cursor-blink{animation:none}}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">
@@ -630,7 +646,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
         <div class="pm-title">Leadership OS · Analysis Engine</div>
         <div class="pm-badge">claude-opus-4</div>
       </div>
-      <div class="pm-body" id="pm-body">
+            <div class="pm-body">
         <div class="pm-label-row">
           <span class="pm-section-label">Leadership Profile — Sample Output</span>
           <span class="pm-meta">3 sources · 9 constructs</span>
@@ -689,14 +705,20 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
         <div class="cs-bar-title">Leadership OS · Analysis Engine</div>
         <div class="cs-model">claude-opus-4</div>
       </div>
+      <div class="cs-tabs" role="tablist">
+        <button class="cs-tab is-active" data-tool="profile" role="tab">Profile</button>
+        <button class="cs-tab" data-tool="guide" role="tab">Guide</button>
+        <button class="cs-tab" data-tool="calibration" role="tab">Calibration</button>
+        <button class="cs-tab" data-tool="roadmap" role="tab">Roadmap</button>
+      </div>
       <div class="cs-body">
         <div class="cs-msg cs-user">
           <div class="cs-avatar cs-au">You</div>
-          <div class="cs-bubble cs-ub">Here are my three inputs — my PrinciplesYou results, the behavioral audit from my AI history, and my six reflection responses. Please generate my Leadership Profile.</div>
+          <div class="cs-bubble cs-ub" id="cs-prompt">Here are my three inputs — my PrinciplesYou results, the behavioral audit from my AI history, and my six reflection responses. Please generate my Leadership Profile.</div>
         </div>
         <div class="cs-msg cs-ai">
           <div class="cs-avatar cs-aa">OS</div>
-          <div class="cs-bubble cs-ab">
+          <div class="cs-bubble cs-ab" id="cs-response">
             <div class="cs-doc-tag">Your Leadership Profile · drawn from all three of your sources</div>
             <p class="cs-lead">Here's what I'm seeing across your three sources. I'll tell you how sure I am of each one as we go — some of this is solid, some is more of a hunch worth sitting with.</p>
 
@@ -731,25 +753,25 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 
   <!-- FOUR OUTPUTS -->
   <div class="oc-grid">
-    <div class="oc-card reveal" style="transition-delay:.05s">
+    <div class="oc-card reveal oc-clickable" style="transition-delay:.05s" data-tool="profile" role="button" tabindex="0" aria-label="See sample output">
       <div class="oc-num">01</div>
       <div class="oc-card-name">Leadership Profile</div>
       <div class="oc-card-desc">Put precise language to leadership patterns you've probably felt for years but never fully articulated — where your instincts serve you, and where they quietly work against you.</div>
       <div class="oc-card-use">The self-understanding everything else is built on.</div>
     </div>
-    <div class="oc-card reveal" style="transition-delay:.1s">
+    <div class="oc-card reveal oc-clickable" style="transition-delay:.1s" data-tool="guide" role="button" tabindex="0" aria-label="See sample output">
       <div class="oc-num">02</div>
       <div class="oc-card-name">Working-With-Me Guide</div>
       <div class="oc-card-desc">Give a new teammate, report, or boss a six-month head start on working effectively with you — how you communicate, how you decide, and how to give you feedback that actually lands.</div>
       <div class="oc-card-use">Skip the months people usually spend figuring each other out.</div>
     </div>
-    <div class="oc-card reveal" style="transition-delay:.15s">
+    <div class="oc-card reveal oc-clickable" style="transition-delay:.15s" data-tool="calibration" role="button" tabindex="0" aria-label="See sample output">
       <div class="oc-num">03</div>
       <div class="oc-card-name">AI Calibration Document</div>
       <div class="oc-card-desc">Make every AI tool you use respond like it already knows how you think — tuned to your style and standards from the first message, instead of generic from the first message every time.</div>
       <div class="oc-card-use">Paste it into any new chat. Reuse it for years.</div>
     </div>
-    <div class="oc-card reveal" style="transition-delay:.2s">
+    <div class="oc-card reveal oc-clickable" style="transition-delay:.2s" data-tool="roadmap" role="button" tabindex="0" aria-label="See sample output">
       <div class="oc-num">04</div>
       <div class="oc-card-name">Development Roadmap</div>
       <div class="oc-card-desc">Stop guessing where to focus. Get specific growth priorities traced to your own inputs — not generic leadership advice — with concrete practices and a 90-day focus.</div>
@@ -1263,5 +1285,90 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 })();
 
 </script>
+
+
+
+
+<script>
+(function(){
+  var prompts = {
+    profile: 'Here are my three inputs \u2014 my PrinciplesYou results, the behavioral audit from my AI history, and my six reflection responses. Please generate my Leadership Profile.',
+    guide: 'Using the same three inputs, draft my Working-With-Me Guide \u2014 something I could hand a new teammate or manager.',
+    calibration: 'From the same inputs, write my AI Calibration Document \u2014 something I can paste into any new chat so it responds like it knows how I think.',
+    roadmap: 'Based on the same inputs, give me my Development Roadmap \u2014 specific growth priorities traced to my own evidence.'
+  };
+  var samples = {
+    profile: '<div class="cs-doc-tag">Your Leadership Profile \u00b7 drawn from all three of your sources</div>'+
+      '<p class="cs-lead">Here\'s what I\'m seeing across your three sources. I\'ll tell you how sure I am of each one as we go \u2014 some of this is solid, some is more of a hunch worth sitting with.</p>'+
+      con('How you make the call','cf-high','\u25cf fairly sure of this','You sit with complexity longer than most people can stand to \u2014 and when the situation is genuinely murky, that patience is one of your real strengths. But there\'s a flip side I kept noticing: once you\'ve said a direction out loud to people, changing your mind starts to feel like a cost you don\'t want to pay. The signs were often clear well before you let yourself move. <span style="opacity:.55">(Leadership OS calls this your decision style.)</span>')+
+      con('How you come across','cf-mod','\u25cf a likely pattern','When you write, it\'s clear and tight \u2014 no wasted words. The thing to watch: when you\'re under time pressure, that same tightness can read as cold. What feels efficient to you can land as curt to the person reading it, especially when they can\'t hear your tone.')+
+      ins('\u2192 The one worth your attention','Your instinct is to solve the problem in front of you \u2014 which is exactly why your team brings you problems instead of solving them. The growth edge isn\'t a skill you\'re missing. It\'s that stepping back feels like doing less, when for you it\'s the harder, higher-value work.')+FOOT,
+    guide: '<div class="cs-doc-tag">Your Working-With-Me Guide \u00b7 share with a teammate, report, or manager</div>'+
+      '<p class="cs-lead">A short field guide to working with you well \u2014 written from your own evidence, so it reads as specifically you, not generic advice.</p>'+
+      con('How I communicate','cf-high','\u25cf start with the why','I process out loud and ask a lot of questions early \u2014 that\'s me thinking, not doubting you. Give me the reasoning behind a request and I\'ll run with it. Hand me a task with no context and I\'ll slow us both down trying to reconstruct it.')+
+      con('How I decide','cf-mod','\u25cf slow, then fast','I want to sit with something before I commit, but once I\'ve decided I move quickly. If you need a fast read, tell me it\'s a first instinct, not a final answer \u2014 that unlocks a quicker response without it feeling locked in.')+
+      ins('\u2192 How to give me feedback that lands','Direct and specific beats gentle and vague every time. Tell me the actual problem \u2014 I\'d rather hear it straight than decode hints. What doesn\'t work: feedback so cushioned I can\'t find the point.')+FOOT,
+    calibration: '<div class="cs-doc-tag">Your AI Calibration Document \u00b7 paste into any chat, reuse for years</div>'+
+      '<p class="cs-lead">Drop this at the start of a new AI conversation and it responds tuned to how you think \u2014 instead of generic from the first message.</p>'+
+      con('Tone &amp; style','cf-high','\u25cf how to talk to me','Plainspoken and direct. Skip the preamble and the flattery \u2014 open with the actual answer. I\'d rather have a confident "here\'s the tradeoff" than a hedged paragraph that avoids committing.')+
+      con('How I think','cf-mod','\u25cf show the reasoning','I trust conclusions more when I can see how you got there. Surface the assumptions, flag what you\'re unsure about, and tell me when something is a guess versus something you can back up.')+
+      ins('\u2192 What earns my trust','Push back when I\'m wrong. I use AI as a thinking partner, not a yes-machine \u2014 if you just agree with me, you\'re not useful. Name the strongest counter-argument even when I haven\'t asked for it.')+FOOT,
+    roadmap: '<div class="cs-doc-tag">Your Development Roadmap \u00b7 traced to your inputs, revisit quarterly</div>'+
+      '<p class="cs-lead">Specific growth priorities pulled from your own evidence \u2014 not a generic list. If one doesn\'t ring true, that\'s signal worth examining.</p>'+
+      con('Priority one','cf-high','\u25cf define "good enough" up front','Your delegation friction traces to standards, not trust. Before handing off work, write down what done looks like. It feels slower for one beat and saves the rework loop that actually costs you time.')+
+      con('Priority two','cf-mod','\u25cf name your read as a draft','You hold decisions close until they feel certain, which can stall a team waiting on you. Practice saying "here\'s my current thinking, not final" \u2014 it lets people move while you keep refining.')+
+      ins('\u2192 The question to revisit each quarter','"What have I learned about how I actually lead \u2014 not how I think I do?"')+FOOT
+  };
+  function con(name,conf,badge,text){
+    return '<div class="cs-construct"><div class="cs-con-head"><span class="cs-con-name">'+name+'</span><span class="cs-con-conf '+conf+'">'+badge+'</span></div><p class="cs-con-text">'+text+'</p></div>';
+  }
+  function ins(label,text){
+    return '<div class="cs-insight"><div class="cs-insight-label">'+label+'</div><p class="cs-insight-text">'+text+'</p></div>';
+  }
+  var FOOT='<div class="cs-foot">Input-informed hypotheses for reflection — not a validated assessment. Synthetic illustrative example.</div>';
+
+  var resp = document.getElementById('cs-response');
+  var prompt = document.getElementById('cs-prompt');
+  var tabs = [].slice.call(document.querySelectorAll('.cs-tab'));
+  var cards = [].slice.call(document.querySelectorAll('.oc-clickable'));
+  if(!resp) return;
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timer=null;
+
+  function render(key, animate){
+    if(timer){ clearInterval(timer); timer=null; }
+    if(prompt) prompt.textContent = prompts[key];
+    resp.innerHTML = samples[key];
+    if(prefersReduced || !animate) return;
+    // typing reveal across text nodes
+    var nodes=[];
+    (function walk(n){ for(var i=0;i<n.childNodes.length;i++){ var c=n.childNodes[i]; if(c.nodeType===3&&c.nodeValue.trim().length) nodes.push(c); else if(c.nodeType===1) walk(c);} })(resp);
+    var fulls=nodes.map(function(n){return n.nodeValue;});
+    nodes.forEach(function(n){n.nodeValue='';});
+    var cur=document.createElement('span'); cur.className='cs-cursor-blink'; resp.appendChild(cur);
+    var ni=0,ci=0,SPEED=11;
+    timer=setInterval(function(){
+      if(ni>=nodes.length){ clearInterval(timer); timer=null; if(cur.parentNode)cur.parentNode.removeChild(cur); return; }
+      ci+=SPEED; nodes[ni].nodeValue=fulls[ni].slice(0,ci);
+      if(ci>=fulls[ni].length){ ni++; ci=0; }
+    },16);
+  }
+  function activate(key, animate){
+    tabs.forEach(function(t){ t.classList.toggle('is-active', t.getAttribute('data-tool')===key); });
+    cards.forEach(function(c){ c.classList.toggle('is-selected', c.getAttribute('data-tool')===key); });
+    render(key, animate);
+  }
+  tabs.forEach(function(t){ t.addEventListener('click', function(){ activate(t.getAttribute('data-tool'), true); }); });
+  cards.forEach(function(c){
+    c.addEventListener('click', function(){
+      activate(c.getAttribute('data-tool'), true);
+      var sh=document.querySelector('.oc-shot'); if(sh&&sh.scrollIntoView) sh.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+    c.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); c.click(); } });
+  });
+  activate('profile', false);
+})();
+</script>
+
 </body>
 </html>

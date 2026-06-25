@@ -342,6 +342,15 @@ body{background:var(--void);color:var(--ink);font-family:var(--ff-b);font-size:1
   .cpr-row{grid-template-columns:1fr;gap:0.15rem;}
   .cpr-k{padding-top:0;}
 }
+
+/* keyboard focus — visible, gold, on-brand; only on keyboard nav not mouse */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+*:focus:not(:focus-visible){outline:none;}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* text selection — brand gold, a quiet considered detail */
+::selection{background:rgba(184,103,30,0.16);color:var(--ink);}
+::-moz-selection{background:rgba(184,103,30,0.16);color:var(--ink);}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"],.hbtn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">

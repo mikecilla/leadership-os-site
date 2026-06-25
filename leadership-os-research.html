@@ -295,6 +295,15 @@ footer{padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);
 .ns-btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
 @media(max-width:680px){.next-step{padding:4rem 1.5rem 5rem;}}
 @media(max-width:600px){.h-nav{display:none;}}
+
+/* keyboard focus — visible, gold, on-brand; only on keyboard nav not mouse */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+*:focus:not(:focus-visible){outline:none;}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* text selection — brand gold, a quiet considered detail */
+::selection{background:rgba(184,103,30,0.16);color:var(--ink);}
+::-moz-selection{background:rgba(184,103,30,0.16);color:var(--ink);}
 </style>
 
 <style>
@@ -453,6 +462,8 @@ footer{padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);
 .los-wm{opacity:0;animation:losWmIn .8s cubic-bezier(.2,.7,.3,1) 1.4s forwards}
 @media(prefers-reduced-motion:reduce){
   .los-pt,.los-line,.los-ring,.los-wm{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *{animation-duration:0.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -1152,6 +1163,21 @@ footer{padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);
 
 <footer>
   <div class="foot-inner">
+    <a href="index.html" class="footer-mark" aria-label="Leadership OS home" style="display:inline-block;margin-bottom:1.5rem;">
+      <svg viewBox="-16 -4 316 64" width="200" height="38" role="img" aria-label="Leadership OS" style="display:block;">
+        <g transform="translate(6,28)">
+          <line x1="-14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
+          <line x1="14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
+          <line x1="0" y1="16" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
+          <circle cx="0" cy="0" r="6.5" fill="none" stroke="#c9843a" stroke-width="1.2" stroke-dasharray="2.3 2.7"/>
+          <circle cx="-14" cy="-11" r="2.9" fill="#8b7ee0"/>
+          <circle cx="14" cy="-11" r="2.9" fill="#4cbf9e"/>
+          <circle cx="0" cy="16" r="2.9" fill="#c9843a"/>
+        </g>
+        <text x="42" y="38" font-family="'Cormorant Garamond',Georgia,serif" font-size="34" font-weight="300" fill="#faf8f4">Leadership <tspan font-weight="700" font-style="italic" fill="#c9843a">OS</tspan></text>
+      </svg>
+    </a>
+    
     <div class="foot-privacy">Your data stays inside the AI tool you choose to use. Leadership OS does not collect or store your assessment results, reflections, or conversation history. The methodology runs entirely within your chosen AI environment.</div>
     <div class="foot-meta-row">
       <span class="foot-version">Version 1.0 · Updated June 2026</span>

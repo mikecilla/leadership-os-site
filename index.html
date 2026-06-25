@@ -562,6 +562,15 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .cs-cursor-blink{display:inline-block;width:6px;height:0.95em;background:#c9843a;margin-left:1px;vertical-align:text-bottom;animation:csBlink 0.9s steps(2) infinite;}
 @keyframes csBlink{0%,50%{opacity:1}50.01%,100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.cs-cursor-blink{animation:none}}
+
+/* keyboard focus — visible, gold, on-brand; only on keyboard nav not mouse */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+*:focus:not(:focus-visible){outline:none;}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* text selection — brand gold, a quiet considered detail */
+::selection{background:rgba(184,103,30,0.16);color:var(--ink);}
+::-moz-selection{background:rgba(184,103,30,0.16);color:var(--ink);}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">
@@ -578,6 +587,8 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .los-wm{opacity:0;animation:losWmIn .8s cubic-bezier(.2,.7,.3,1) 1.4s forwards}
 @media(prefers-reduced-motion:reduce){
   .los-pt,.los-line,.los-ring,.los-wm{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  *{animation-duration:0.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
 }
 </style>
 </head>

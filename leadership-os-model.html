@@ -36,7 +36,7 @@
   --ff-mono:'JetBrains Mono',monospace;
 }
 html{scroll-behavior:smooth;}
-body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
+body{overflow-x:hidden;background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
 
 /* HEADER */
 #header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.75rem 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);background:rgba(250,248,244,0.94);backdrop-filter:blur(16px);}
@@ -52,7 +52,7 @@ body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-siz
 .hero-inner{max-width:860px;}
 .hero-eyebrow{font-family:var(--ff-mono);font-size:1.06rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
 .hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);}
-.hero-title{font-family:var(--ff-display);font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:0.98;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.2em;}
+.hero-title{font-family:var(--ff-display);font-size:clamp(3rem,7vw,6.5rem);font-weight:300;line-height:0.98;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.2em;}
 .hero-title em{font-style:italic;font-weight:600;color:var(--gold);}
 .hero-title .block{display:block;}
 .hero-sub{font-family:var(--ff-display);font-size:clamp(1.15rem,1.8vw,1.5rem);font-weight:300;font-style:italic;color:var(--ink-dim);border-left:2px solid var(--gold);padding-left:1.25rem;margin:1.75rem 0 2rem;line-height:1.55;max-width:640px;}
@@ -304,6 +304,16 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 /* text selection — brand gold, a quiet considered detail */
 ::selection{background:rgba(184,103,30,0.16);color:var(--ink);}
 ::-moz-selection{background:rgba(184,103,30,0.16);color:var(--ink);}
+
+/* mobile nav: tighten spacing + allow horizontal scroll as safety net */
+@media(max-width:600px){
+  .h-nav{gap:1.1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .h-nav::-webkit-scrollbar{display:none;}
+  .h-nav-link{white-space:nowrap;}
+}
+@media(max-width:400px){
+  .h-nav{gap:0.85rem;}
+}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">
@@ -1054,7 +1064,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 <footer>
   <div class="foot-inner">
     <a href="index.html" class="footer-mark" aria-label="Leadership OS home" style="display:inline-block;margin-bottom:1.5rem;">
-      <svg viewBox="-16 -4 316 64" width="200" height="38" role="img" aria-label="Leadership OS" style="display:block;">
+      <svg viewBox="-16 -4 316 64" width="200" height="38" role="img" aria-label="Leadership OS" style="display:block;max-width:100%;height:auto;">
         <g transform="translate(6,28)">
           <line x1="-14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
           <line x1="14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>

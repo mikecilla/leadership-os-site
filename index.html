@@ -33,7 +33,7 @@
   --ff-mono:'JetBrains Mono',monospace;
 }
 html{scroll-behavior:smooth;}
-body{background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
+body{overflow-x:hidden;background:var(--void);color:var(--ink);font-family:var(--ff-body);font-size:20px;line-height:1.9;font-weight:300;}
 
 /* HEADER */
 #header{position:fixed;top:0;left:0;right:0;z-index:200;padding:0.75rem 4vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);background:rgba(250,248,244,0.94);backdrop-filter:blur(16px);}
@@ -547,12 +547,12 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 
 .ot-takes-note{font-family:var(--ff-body);font-size:.92rem;color:var(--ink-dim);margin:-.2rem 0 1.4rem;line-height:1.5;}
 
-50.01%,100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){.pm-cursor-blink{animation:none}}
 
 /* --- interactive sample-output (outcomes mockup) --- */
-.cs-tabs{display:flex;gap:0;padding:0 0.9rem;border-bottom:1px solid rgba(255,255,255,0.07);background:rgba(0,0,0,0.15);}
-.cs-tab{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(240,236,228,0.4);background:none;border:none;border-bottom:2px solid transparent;padding:0.65rem 0.85rem;cursor:pointer;transition:color 0.2s,border-color 0.2s;}
+.cs-tabs{display:flex;gap:0;padding:0 0.9rem;border-bottom:1px solid rgba(255,255,255,0.07);background:rgba(0,0,0,0.15);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.cs-tabs::-webkit-scrollbar{display:none;}
+.cs-tab{font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(240,236,228,0.4);background:none;border:none;border-bottom:2px solid transparent;padding:0.65rem 0.85rem;cursor:pointer;transition:color 0.2s,border-color 0.2s;white-space:nowrap;flex:0 0 auto;}
 .cs-tab:hover{color:rgba(240,236,228,0.72);}
 .cs-tab.is-active{color:#c9843a;border-bottom-color:#c9843a;}
 .oc-clickable{cursor:pointer;}
@@ -571,6 +571,16 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 /* text selection — brand gold, a quiet considered detail */
 ::selection{background:rgba(184,103,30,0.16);color:var(--ink);}
 ::-moz-selection{background:rgba(184,103,30,0.16);color:var(--ink);}
+
+/* mobile nav: tighten spacing + allow horizontal scroll as safety net */
+@media(max-width:600px){
+  .h-nav{gap:1.1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .h-nav::-webkit-scrollbar{display:none;}
+  .h-nav-link{white-space:nowrap;}
+}
+@media(max-width:400px){
+  .h-nav{gap:0.85rem;}
+}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">
@@ -1143,7 +1153,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 
 <footer>
   <a href="index.html" class="footer-mark" aria-label="Leadership OS home">
-    <svg viewBox="-16 -4 316 64" width="240" height="45" role="img" aria-label="Leadership OS" style="display:block;">
+    <svg viewBox="-16 -4 316 64" width="240" height="45" role="img" aria-label="Leadership OS" style="display:block;max-width:100%;height:auto;">
       <g transform="translate(6,28)">
         <line class="los-line" x1="-14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>
         <line class="los-line" x1="14" y1="-11" x2="0" y2="0" stroke="#4a443c" stroke-width="1.3"/>

@@ -32,7 +32,7 @@
 }
 
 /* ── RESET ── */
-html,body{height:100%;overflow:hidden;}
+html,body{overflow-x:hidden;height:100%;overflow:hidden;}
 body{background:var(--void);color:var(--ink);font-family:var(--ff-b);font-size:17px;line-height:1.82;font-weight:300;}
 
 /* ── FIXED TOP HEADER ── */
@@ -351,6 +351,16 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 /* text selection — brand gold, a quiet considered detail */
 ::selection{background:rgba(184,103,30,0.16);color:var(--ink);}
 ::-moz-selection{background:rgba(184,103,30,0.16);color:var(--ink);}
+
+/* mobile nav: tighten spacing + allow horizontal scroll as safety net */
+@media(max-width:600px){
+  .h-nav{gap:1.1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .h-nav::-webkit-scrollbar{display:none;}
+  .h-nav-link{white-space:nowrap;}
+}
+@media(max-width:400px){
+  .h-nav{gap:0.85rem;}
+}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"],.hbtn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">

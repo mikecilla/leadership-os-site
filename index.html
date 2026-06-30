@@ -586,6 +586,9 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
   footer{flex-direction:column;align-items:flex-start;gap:1.5rem;}
   footer .footer-mark svg{max-width:240px;}
 }
+
+/* triangulation mark — quiet section-break signature */
+.tri-divider{margin:0 auto 0.5rem;opacity:0.85;}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">
@@ -1143,7 +1146,20 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
   </div>
 </section>
 
-<section id="cta" class="next-step" style="scroll-margin-top:52px;">
+<div class="tri-divider reveal" aria-hidden="true">
+    <svg viewBox="0 0 56 56" width="34" height="34" style="display:block;margin:0 auto;">
+      <g transform="translate(28,28)">
+        <line x1="-15" y1="-12" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <line x1="15" y1="-12" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <line x1="0" y1="17" x2="0" y2="0" stroke="#cfc7ba" stroke-width="1.4"/>
+        <circle cx="0" cy="0" r="7" fill="none" stroke="#b8671e" stroke-width="1.3" stroke-dasharray="2.4 2.8"/>
+        <circle cx="-15" cy="-12" r="3.1" fill="#6b5bd1"/>
+        <circle cx="15" cy="-12" r="3.1" fill="#2e9e7e"/>
+        <circle cx="0" cy="17" r="3.1" fill="#b8671e"/>
+      </g>
+    </svg>
+  </div>
+  <section id="cta" class="next-step" style="scroll-margin-top:52px;">
   <div class="ns-wrap reveal">
     <div class="ns-eyebrow">Next — try it yourself</div>
     <h2 class="ns-headline">The rest only makes sense<br><em>once you run it.</em></h2>

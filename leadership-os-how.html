@@ -647,8 +647,8 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <p>The analysis is broken into discrete, ordered stages — gather, then weigh each input separately, then synthesize, then label confidence. Modern models follow a structured sequence far more reliably than they handle a single sprawling request, because each step constrains the next.</p>
       </div>
       <div class="dis-card reveal" style="transition-delay:.1s">
-        <div class="dis-h">Separate before combine</div>
         <div class="dis-num">02</div>
+        <div class="dis-h">Each input on its own</div>
         <p>Each input is assessed on its own before anything is merged. This is deliberate: it stops a strong signal in one place from quietly overwriting a weaker or conflicting one elsewhere — and it's what makes disagreement between inputs visible instead of lost.</p>
       </div>
       <div class="dis-card reveal" style="transition-delay:.15s">
@@ -657,8 +657,8 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <p>Every conclusion must name what it rests on and how confident it is. A requirement to cite its own basis is one of the most effective ways to keep a model honest — it can't assert what it can't ground, and the confidence label has to match the input.</p>
       </div>
       <div class="dis-card reveal" style="transition-delay:.2s">
-        <div class="dis-h">Permission to say "not enough"</div>
         <div class="dis-num">04</div>
+        <div class="dis-h">Permission to say "not enough"</div>
         <p>The instruction explicitly allows — and requires — the model to return "insufficient signal" when the inputs don't support a conclusion. Removing the pressure to produce an answer is what stops the confident-sounding fabrication these tools default to.</p>
       </div>
     </div>

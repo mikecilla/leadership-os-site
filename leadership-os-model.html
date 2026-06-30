@@ -51,7 +51,7 @@ body{overflow-x:hidden;background:var(--void);color:var(--ink);font-family:var(-
 #hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(26,22,18,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(26,22,18,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
 .hero-inner{max-width:860px;}
 .hero-eyebrow{font-family:var(--ff-mono);font-size:1.06rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
-.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:linear-gradient(90deg,#6b5bd1,#2e9e7e,#b8671e);}
 .hero-title{font-family:var(--ff-display);font-size:clamp(3rem,7vw,6.5rem);font-weight:300;line-height:0.98;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.2em;}
 .hero-title em{font-style:italic;font-weight:600;color:var(--gold);}
 .hero-title .block{display:block;}
@@ -126,7 +126,7 @@ body{overflow-x:hidden;background:var(--void);color:var(--ink);font-family:var(-
 /* SECTION COMMONS */
 section{padding:3.25rem 4vw;}
 .s-label{font-family:var(--ff-mono);font-size:0.78rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
-.s-label::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);opacity:0.5;}
+.s-label::before{content:'';display:block;width:2rem;height:1px;background:linear-gradient(90deg,#6b5bd1,#2e9e7e,#b8671e);opacity:0.55;}
 .section-headline{font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:0.75rem;}
 .section-headline em{font-style:italic;font-weight:600;color:var(--gold);}
 .section-sub{font-size:1.1rem;font-weight:300;color:var(--ink-dim);line-height:2.0;max-width:660px;margin-bottom:2.25rem;}
@@ -235,8 +235,8 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .rs-refs a:hover{color:var(--ink);border-bottom-color:rgba(26,22,18,0.3);}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1);}
-.reveal.up{opacity:1;transform:translateY(0);}
+.reveal{opacity:0;transform:translateY(12px) scale(0.992);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.reveal.up{opacity:1;transform:translateY(0) scale(1);}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -272,7 +272,7 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
   .reveal{opacity:1 !important;transform:none !important;}
 }
 
-footer{padding:3rem 4vw;border-top:1px solid var(--rule);background:var(--deep);}
+
 .foot-inner{max-width:760px;margin:0 auto;text-align:center;}
 .foot-privacy{font-size:0.92rem;color:var(--ink-dim);line-height:1.7;margin-bottom:1.25rem;}
 .foot-meta-row{font-family:var(--ff-mono);font-size:0.78rem;letter-spacing:0.06em;color:var(--ink-dim);display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;align-items:center;margin-bottom:0.85rem;}
@@ -596,9 +596,9 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <thead>
           <tr style="background:var(--deep);">
             <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.55rem 1rem;border-bottom:2px solid var(--rule);text-align:left;font-weight:400;width:13%;">Construct</th>
-            <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.55rem 1rem;border-bottom:2px solid var(--rule);text-align:left;font-weight:400;width:22%;">Assessment anchors</th>
-            <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.55rem 1rem;border-bottom:2px solid var(--rule);text-align:left;font-weight:400;width:22%;">Corpus indicators</th>
-            <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.55rem 1rem;border-bottom:2px solid var(--rule);text-align:left;font-weight:400;width:22%;">Reflection indicators</th>
+            <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:#6b5bd1;padding:0.55rem 1rem;border-bottom:2px solid #6b5bd1;text-align:left;font-weight:400;width:22%;">Assessment anchors</th>
+            <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:#b8671e;padding:0.55rem 1rem;border-bottom:2px solid #b8671e;text-align:left;font-weight:400;width:22%;">Corpus indicators</th>
+            <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:#2e9e7e;padding:0.55rem 1rem;border-bottom:2px solid #2e9e7e;text-align:left;font-weight:400;width:22%;">Reflection indicators</th>
             <th style="font-family:var(--ff-mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:0.55rem 1rem;border-bottom:2px solid var(--rule);text-align:left;font-weight:400;width:21%;">Primary limitation</th>
           </tr>
         </thead>

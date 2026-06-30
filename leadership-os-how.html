@@ -52,7 +52,7 @@ body{overflow-x:hidden;background:var(--void);color:var(--ink);font-family:var(-
 .hero-right::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);}
 .hero-inner{max-width:520px;}
 .hero-eyebrow{font-family:var(--ff-mono);font-size:1.06rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem;}
-.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:linear-gradient(90deg,#6b5bd1,#2e9e7e,#b8671e);}
 .hero-title{font-family:var(--ff-display);font-size:clamp(3rem,7vw,6.5rem);font-weight:300;line-height:0.95;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.15em;}
 .hero-title em{font-style:italic;font-weight:600;color:var(--gold);}
 .hero-title .block{display:block;}
@@ -89,7 +89,7 @@ body{overflow-x:hidden;background:var(--void);color:var(--ink);font-family:var(-
 /* SECTION COMMONS */
 section{padding:3.25rem 4vw;}
 .s-label{font-family:var(--ff-mono);font-size:0.78rem;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
-.s-label::before{content:'';display:block;width:2rem;height:1px;background:var(--gold);opacity:0.5;}
+.s-label::before{content:'';display:block;width:2rem;height:1px;background:linear-gradient(90deg,#6b5bd1,#2e9e7e,#b8671e);opacity:0.55;}
 .section-headline{font-family:var(--ff-display);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:0.75rem;}
 .section-headline em{font-style:italic;font-weight:600;color:var(--gold);}
 .section-sub{font-size:1.12rem;font-weight:300;color:var(--ink-dim);line-height:2.0;max-width:640px;margin-bottom:2.25rem;}
@@ -207,8 +207,8 @@ footer{background:#131211;padding:1.5rem 4vw;display:flex;align-items:center;jus
 .footer-note{font-family:var(--ff-mono);font-size:0.72rem;letter-spacing:0.08em;color:rgba(240,236,228,0.12);}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.8s cubic-bezier(.16,1,.3,1),transform 0.8s cubic-bezier(.16,1,.3,1);}
-.reveal.up{opacity:1;transform:translateY(0);}
+.reveal{opacity:0;transform:translateY(12px) scale(0.992);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1);}
+.reveal.up{opacity:1;transform:translateY(0) scale(1);}
 
 
 /* HERO EXTRAS */

@@ -361,6 +361,16 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 @media(max-width:400px){
   .h-nav{gap:0.85rem;}
 }
+
+/* semantic source colors on sample labels (matches Model page) */
+.cpr-k.k-assess{color:#6b5bd1;}
+.cpr-k.k-reflect{color:#2e9e7e;}
+.cpr-k.k-corpus{color:#b8671e;}
+
+/* "Where this is probably wrong" — the honest-limits block every real document ends with */
+.honest-limit{margin-top:1.75rem;padding:1.1rem 1.3rem;border-left:2px solid var(--rule);background:var(--deep);border-radius:0 6px 6px 0;}
+.honest-limit-label{font-family:var(--ff-m);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-dim);opacity:0.75;margin-bottom:0.5rem;}
+.honest-limit-text{font-size:0.94rem;font-weight:300;line-height:1.7;color:var(--ink-dim);font-style:italic;}
 </style>
 <style>.h-nav-link[aria-current="page"],.tb-btn[aria-current="page"],.hbtn[aria-current="page"]{color:var(--gold)!important;font-weight:600;}</style>
 <style id="logo-anim">
@@ -597,7 +607,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 
   <div class="input-converge">
     <div class="ic-label">Why this matters</div>
-    <p>A personality test would flatten these into scores. Leadership OS keeps the disagreements visible on purpose — they're where a coach would actually start. The strongest developmental priority (post-commitment anchoring) is the one where all three inputs converge; the most human one (delegation) is where they pull apart. <a href="#" onclick="go('roadmap',document.querySelectorAll('.tab')[5]);return false;" class="ic-link">See how these become a development plan →</a></p>
+    <p>A personality test would flatten these into scores. Leadership OS keeps the disagreements visible on purpose — they're where a coach would actually start. The strongest priority (the reluctance to revise a shared decision) is the one where all three sources agree; the most human one (delegation) is where they pull apart. <a href="#" onclick="go('roadmap',document.querySelectorAll('.tab')[5]);return false;" class="ic-link">See how these become a development plan →</a></p>
   </div>
 </div>
 
@@ -632,7 +642,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <div class="aw-arrow">↓</div>
       <div class="aw-step aw-step-mid"><div class="aw-step-label">Convergence check</div><p>All three point the same way. The mechanism isn't slow analysis — it's the <strong>social cost of visibly reversing</strong> after socializing. Confidence: High.</p></div>
       <div class="aw-arrow">↓</div>
-      <div class="aw-step aw-step-out"><div class="aw-step-label">What it became</div><p>Development Roadmap, Priority 1: "Post-commitment anchoring." Recommendation targets the mechanism (separate the decision from the audience), not the symptom ("decide faster").</p></div>
+      <div class="aw-step aw-step-out"><div class="aw-step-label">What it became</div><p>Development Roadmap, Priority 1: the reluctance to revise a shared decision. The recommendation targets the cause (separate the decision from the audience), not the symptom ("decide faster").</p></div>
     </div>
   </div>
 
@@ -647,7 +657,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
 
   <div class="input-converge">
     <div class="ic-label">The point of showing this</div>
-    <p>Every conclusion in the participant-facing documents traces back through a chain like the one above. Nothing is asserted that can't be walked back to a specific input. <a href="leadership-os-research.html#traceability" class="ic-link">See the full traceability methodology →</a></p>
+    <p>Every conclusion in the participant-facing documents traces back through a chain like the one above. Nothing is asserted that can't be walked back to a specific input. <a href="leadership-os-research.html#traceability" class="ic-link">See how every claim traces to a source →</a></p>
   </div>
 </div>
 
@@ -659,7 +669,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <div class="dh">
         <div class="dbadge d1">Leadership Profile · Private intermediate artifact</div>
         <h2 class="dtitle">Leadership Profile — Jordan Reyes</h2>
-        <p class="dsub">Synthetic illustrative example. The Leadership Profile is the private construct synthesis the AI builds before generating output documents.</p>
+        <p class="dsub">Synthetic illustrative example. The Leadership Profile is the private working analysis the AI builds first, before it writes any of the documents you keep. Every rating is a developmental hypothesis — not a measure of quality, effectiveness, or potential.</p>
         <div class="dmeta">
           <span class="dmi">3 synthetic inputs</span>
           <span class="dmi">9 constructs evaluated</span>
@@ -675,12 +685,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">How deliberately a leader examines their own experience and draws developmental insight from it.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Elevated Curious and Growth-Seeking facets.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">A high proportion of product-strategy sessions involve Jordan examining his own reasoning; metacognitive language appears frequently ("let me check my assumption here").</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">Responses are specific, name tension openly, and describe mechanisms rather than outcomes — a marker of genuine reflective practice rather than performed insight.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Elevated Curious and Growth-Seeking facets.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">In a lot of his product-strategy sessions, Jordan stops to question his own reasoning — phrases like "let me check my assumption here" show up often.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">Responses are specific, name tension openly, and describe mechanisms rather than outcomes — a marker of genuine reflective practice rather than performed insight.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">None significant. All three inputs converge.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>Reflective capacity appears genuinely available — which means development work in other constructs is likely to compound here rather than stall.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>Reflective capacity appears genuinely available — which means development work in other constructs is likely to compound here rather than stall.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>When was the last time reflection changed a decision you'd already made, not just one you were still forming?</div>
   </div>
   <div class="cpr">
@@ -690,12 +700,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">The tendency to frame problems as structures and root causes rather than isolated events.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Elevated conceptual, structure-seeking reasoning.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">Consistently frames problems in terms of upstream dependencies, decision rights, and operating-model constraints before feature-level questions — "who actually owns this decision" precedes "what should we build."</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">His peak-performance example describes a turnaround achieved by diagnosing the cross-functional operating model before touching the roadmap.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Elevated conceptual, structure-seeking reasoning.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">Consistently frames problems in terms of upstream dependencies, decision rights, and operating-model constraints before feature-level questions — "who actually owns this decision" precedes "what should we build."</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">His proudest example is a turnaround where he figured out how the teams actually worked together before changing a single thing on the roadmap.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">None between sources. The watch-out is internal: the strength can outrun his partners.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>A reliable cognitive default. The open development question is whether Jordan can translate structural analysis into simpler guidance for partners who don't share the frame — otherwise the insight stays his alone.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>A reliable cognitive default. The open development question is whether Jordan can translate structural analysis into simpler guidance for partners who don't share the frame — otherwise the insight stays his alone.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>Where has your instinct to find the underlying structure helped a partner — and where has it left them behind?</div>
   </div>
   <div class="cpr">
@@ -705,12 +715,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">Openness to revising a position when new information arrives.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Elevated Curious and Openness.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">Genuine updating when shown specifics ("that customer interview actually changes my read") — but three documented instances where he held a product hypothesis after contradictory feedback had already surfaced.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">Describes himself as open to being wrong.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">Self-report and behavior diverge specifically at the post-commitment phase. The openness is real early; it narrows once a direction is set.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Elevated Curious and Openness.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">Genuine updating when shown specifics ("that customer interview actually changes my read") — but three documented instances where he held a product hypothesis after contradictory feedback had already surfaced.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">Describes himself as open to being wrong.</span></div>
+      <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">How he sees himself and how he acts split apart right at the moment of commitment. The openness is real early; it narrows once a direction is set.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>Strong in the information-gathering phase. A hypothesis worth testing: once a direction has been socialized, the cost of revising may quietly suppress the learning orientation that was clearly present earlier.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>Strong while gathering information. Worth testing: once a direction has been shcialized, the cost of revising may quietly suppress the learning orientation that was clearly present earlier.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>Think of the last time you changed your mind late. What made it possible — and what usually stops you?</div>
   </div>
   <div class="cpr">
@@ -720,12 +730,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">How a leader gathers input, weighs it, and commits.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Elevated Deliberative and Persistent.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">Broad input-gathering before commitment, then marked resistance to revision after — "I know the data's pointing the other way, but I already told the leadership team." The pattern recurs across two decisions.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">His "decision I'd make differently" names the mechanism directly: held a roadmap call past the point of clarity because he'd publicly committed, and attributes it to not wanting to reverse course in front of stakeholders.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Elevated Deliberative and Persistent.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">Broad input-gathering before commitment, then marked resistance to revision after — "I know the data's pointing the other way, but I already told the leadership team." The pattern recurs across two decisions.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">His "decision I'd make differently" names the mechanism directly: held a roadmap call past the point of clarity because he'd publicly committed, and attributes it to not wanting to reverse course in front of stakeholders.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">All three inputs converge — which is why confidence is High. The delay isn't slow analysis; it's the social cost of visibly reversing.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>The mechanism is the development edge: socializing a direction before the input is complete converts a working hypothesis into a social commitment prematurely, and the commitment then resists the evidence.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>The mechanism is the development edge: socializing a direction before the input is complete converts a working hypothesis into a social commitment prematurely, and the commitment then resists the evidence.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>What would change if you separated the moment you form a view from the moment you announce it?</div>
   </div>
   <div class="cpr">
@@ -735,12 +745,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">How a leader's intent translates into how others actually experience them.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Lower Sociability.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">Precise, argument-driven, low small talk; visible impatience with summaries that skip the connective logic. (Corpus captures written communication only.)</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">His "misread" response is direct: partners read his directness as disapproval, and it spikes under time pressure when he skips the warmth. He experiences the same exchanges as efficiency.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Lower Sociability.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">Precise, argument-driven, low small talk; visible impatience with summaries that skip the connective logic. (Corpus captures written communication only.)</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">His "misread" response is direct: partners read his directness as disapproval, and it spikes under time pressure when he skips the warmth. He experiences the same exchanges as efficiency.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">Assessment and corpus agree on the style; the reflection supplies the cost and the trigger. No conflict — a complete, consistent picture.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>The adjustment is probably not "be less direct" but "signal more explicitly that half-formed thinking is welcome before the argument is built" — and to name the time-pressure tell so partners don't misread it.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>The adjustment is probably not "be less direct" but "signal more explicitly that half-formed thinking is welcome before the argument is built" — and to name the time-pressure tell so partners don't misread it.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>When your message landed worse than you meant it to, what was happening in the ten minutes before you sent it?</div>
   </div>
   <div class="cpr">
@@ -750,12 +760,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">The leader a person is actively trying to become, and whether their behavior is moving toward it.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Not directly measured.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">High analytical investment; comparatively thin relational and coaching investment. Builds authority through structure and traceable reasoning.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">States the aspiration plainly: develop a team that makes good independent decisions without him in the room — while suspecting he's "still the bottleneck."</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Not directly measured.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">High analytical investment; comparatively thin relational and coaching investment. Builds authority through structure and traceable reasoning.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">States the aspiration plainly: develop a team that makes good independent decisions without him in the room — while suspecting he's "still the bottleneck."</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">The central tension of the whole profile: a stated identity the corpus doesn't yet show him building the conditions for. Held as a question, not a verdict — there isn't enough behavioral input to call it.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>Worth holding open: are the behaviors that would actually produce independent decision-makers present in Jordan's week — or is the aspiration ahead of the practice?</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>Worth holding open: are the behaviors that would actually produce independent decision-makers present in Jordan's week — or is the aspiration ahead of the practice?</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>If your team became more independent next quarter, what would you have to stop doing — and could you?</div>
   </div>
   <div class="cpr">
@@ -765,12 +775,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">How readily a leader adjusts course as conditions change.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">High Adaptable, notably lower Agile.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">Two significant, self-initiated product pivots in eight months — real strategic adaptability. Mid-execution tactical revision appears rarer and harder.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">Doesn't address adaptability directly.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">High Adaptable, notably lower Agile.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">Two significant, self-initiated product pivots in eight months — real strategic adaptability. Mid-execution tactical revision appears rarer and harder.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">Doesn't address adaptability directly.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">Assessment and corpus align; the reflection is silent — so this is held as a quieter hypothesis rather than a firm read.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>Strategic adaptability appears present. Tactical adaptability — changing a specific path mid-execution — looks more constrained, consistent with the Decision Style pattern. Speed under ambiguity is the open question.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>Strategic adaptability appears present. Tactical adaptability — changing a specific path mid-execution — looks more constrained, consistent with the Decision Style pattern. Speed under ambiguity is the open question.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>When you've adapted well, did you have time to think — and what happens to the quality of your pivots when you don't?</div>
   </div>
   <div class="cpr">
@@ -780,12 +790,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">The accuracy of a leader's read on their own impact — not how articulate they are about it.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Broadly aligned with reflection.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">One hypothesis worth noting: reduced pushback on a recurring cross-functional friction over time — a possible accommodation dynamic he doesn't name.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">Self-aware and non-defensive within the domains he monitors; names his own bottleneck worry unprompted.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Broadly aligned with reflection.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">One hypothesis worth noting: reduced pushback on a recurring cross-functional friction over time — a possible accommodation dynamic he doesn't name.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">Self-aware and non-defensive within the domains he monitors; names his own bottleneck worry unprompted.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">The delegation gap is the limit case: he describes himself as "not controlling" while the corpus shows him reclaiming delegated work. Articulateness was deliberately not allowed to inflate this rating — fluency isn't the same as accuracy.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>Genuine self-awareness within the areas he watches; a real blind spot at delegation. Moderate, not High, precisely because the fluency could otherwise mask the gap.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>Genuine self-awareness within the areas he watches; a real blind spot at delegation. Moderate, not High, precisely because the fluency could otherwise mask the gap.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>Where might you be adapting to a friction you have the standing to actually fix?</div>
   </div>
   <div class="cpr">
@@ -795,12 +805,12 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
     </div>
     <p class="cpr-def">How prepared a leader is to act on developmental insight — inferred, not assumed from participation.</p>
     <div class="cpr-inputs">
-      <div class="cpr-row"><span class="cpr-k">Assessment</span><span class="cpr-v">Not directly measured.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Corpus</span><span class="cpr-v">Signal that prior feedback changed how he runs 1:1s — evidence that input does translate to behavior change.</span></div>
-      <div class="cpr-row"><span class="cpr-k">Reflection</span><span class="cpr-v">Names mechanisms over outcomes; the "decision I'd make differently" doesn't outsource the difficulty to external factors — he owns it.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-assess">Assessment</span><span class="cpr-v">Not directly measured.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-corpus">Corpus</span><span class="cpr-v">Signal that prior feedback changed how he runs 1:1s — evidence that input does translate to behavior change.</span></div>
+      <div class="cpr-row"><span class="cpr-k k-reflect">Reflection</span><span class="cpr-v">Names mechanisms over outcomes; the "decision I'd make differently" doesn't outsource the difficulty to external factors — he owns it.</span></div>
       <div class="cpr-row"><span class="cpr-k">Tension / limits</span><span class="cpr-v">Inferred from reflection quality, not from completing the process. Stronger input for cognitive development than for relational or identity work.</span></div>
     </div>
-    <div class="cpr-impl"><span class="cpr-impl-label">Developmental implication</span>Readiness appears present for cognitive development. There's less input for relational or identity development — which is why this is Moderate rather than High, and why the roadmap sequences cognitive work first.</div>
+    <div class="cpr-impl"><span class="cpr-impl-label">What this means for growth</span>Readiness appears present for cognitive development. There's less input for relational or identity development — which is why this is Moderate rather than High, and why the roadmap sequences cognitive work first.</div>
     <div class="cpr-q"><span class="cpr-q-mark">?</span>Which of these patterns are you ready to work on this quarter — and which are you only ready to read about?</div>
   </div>
   </div>
@@ -809,11 +819,15 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <div class="sb-slabel">Profile Summary — input-informed hypotheses</div>
         <div class="sb-stext">
           <p>Jordan's synthetic profile suggests a leader who operates through systems framing, structured communication, and strong analytical investment in product decisions. Highest-confidence patterns: structural diagnosis before intervention, broad information-gathering before commitment, and a communication gap between the precision Jordan intends and the impatience others sometimes experience.</p>
-          <p>Most generative development territory: the intersection of post-commitment anchoring in decisions and the Leadership Identity gap between stated aspiration and observed behavioral emphasis. These may be related — a leader who anchors to product hypotheses may similarly anchor to a leadership model that doesn't yet include the relational behaviors the identity aspires to.</p>
+          <p>The richest place to grow: where the reluctance to revise a decision meets and the Leadership Identity gap between stated aspiration and observed behavioral emphasis. These may be related — a leader who anchors to product hypotheses may similarly anchor to a leadership model that doesn't yet include the relational behaviors the identity aspires to.</p>
           <p><strong>Insufficient signal for confident hypothesis:</strong> Leadership Identity requires more relational behavioral data. Communication under verbal and high-stakes conditions unobservable from written corpus alone.</p>
         </div>
       </div>
       <div class="qn"><div class="qni">→</div><div class="qnt"><strong>What makes a strong profile:</strong> Confidence levels that vary — uniform "High" signals insufficient scrutiny. Named contradictions rather than forced coherence. At least one Emerging or Insufficient rating. A summary that synthesizes rather than lists.</div></div>
+      <div class="honest-limit">
+        <div class="honest-limit-label">Where this is probably wrong</div>
+        <div class="honest-limit-text">These are developmental hypotheses, not measures of quality or potential. The corpus evidence leans on one kind of work, so a pattern that looks stable here might simply be what that role rewards — not who Jordan is everywhere.</div>
+      </div>
     </div>
 
     <!-- USER MANUAL -->
@@ -839,7 +853,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <div class="col-card b2">
           <div class="col-label">Where I create friction</div>
           <div class="col-text">
-            <p><strong>Post-commitment anchoring.</strong> Once I've socialized a product direction, I revise reluctantly. The cost of reversal feels higher than it actually is. The practice I'm building: label a direction as a hypothesis with an explicit confidence level before sharing it, so revision later reads as scientific process rather than failure.</p>
+            <p><strong>Where I get stuck.</strong> Once I've shared a product direction, I revise it reluctantly. Walking it back feels more costly than it actually is. The practice I'm building: label a direction as a hypothesis with an explicit confidence level before sharing it, so revision later reads as scientific process rather than failure.</p>
             <p><strong>Cross-functional communication gap.</strong> I write and present in complete, structured arguments. Partners in Sales and CS have told me this reads as impatience. I experience it as efficiency. I'm working on making space for partial thinking earlier in a conversation.</p>
           </div>
         </div>
@@ -853,6 +867,10 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         </div>
       </div>
       <div class="qn"><div class="qni">→</div><div class="qnt"><strong>Strong User Manual signal:</strong> Friction sections that name mechanisms, not just tendencies. Governing questions that feel extracted from behavioral signals, not assembled from self-image. Specific enough that someone who read it would know something genuinely useful about how to work with this person.</div></div>
+      <div class="honest-limit">
+        <div class="honest-limit-label">Where this is probably wrong</div>
+        <div class="honest-limit-text">This reads more settled than the actual experience of it. It’s built from how Jordan reflects and writes, which tends to sound more composed than the messier, in-the-moment version a teammate would recognize.</div>
+      </div>
     </div>
 
     <!-- WORKING WITH ME -->
@@ -870,28 +888,32 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <div class="three-col">
         <div class="col-card b3">
           <div class="col-label">To bring me a problem</div>
-          <div class="col-text">Frame it as a question rather than a recommendation. Tell me what you've already ruled out and why — that context is more useful than a polished pitch. You don't need a complete argument, but anchor it in a specific example or data point, not a general pattern.</div>
+          <div class="col-text">Bring me the why, who it's for, and what decision it feeds. I do better when I know what the work is actually trying to prevent or make possible. Tell me what you've already ruled out — that's more useful to me than a finished pitch.</div>
         </div>
         <div class="col-card b3">
           <div class="col-label">To challenge me effectively</div>
-          <div class="col-text">Show me what I missed, not just that you disagree. Specific contradictory signals is far more effective than persistent general pushback. I'm genuinely open to revising a direction — but I need to see what the input actually shows, not just that you feel differently.</div>
+          <div class="col-text">Challenge me with evidence and context, not bluntness for its own sake. I take directness well when I can see the data and the reasoning behind it. Vague pushback lands worse than a specific “here's what you missed.” I'll revise a direction — I just need to see what the input actually shows.</div>
         </div>
         <div class="col-card b3">
           <div class="col-label">What I need from you</div>
-          <div class="col-text">Specificity in problems, feedback, and status. I work better with a precise question than a general topic. Follow-through: if you commit to something in our conversation, I'm tracking it. And patience when I'm in diagnostic mode — the upstream analysis is often the actual work.</div>
+          <div class="col-text">Room to think conceptually before we narrow too fast. I can execute, but I lose energy when the work gets reduced to steps before the larger pattern is clear. And real back-and-forth — my best work happens in exchange, not one-way task-passing.: if you commit to something in our conversation, I'm tracking it. And patience when I'm in diagnostic mode — the upstream analysis is often the actual work.</div>
         </div>
       </div>
       <div class="two-col">
         <div class="col-card b3">
           <div class="col-label">What you can expect from me</div>
-          <div class="col-text">A structured position on almost any question you bring. Direct feedback that names the specific thing. Investment in understanding how you got to your conclusion, not just what it is. High expectations applied to my own work as much as to yours. One thing worth knowing up front: when I'm under time pressure I get terse and skip the warmth — if a message from me reads as curt or disapproving, that's pressure talking, not what I think of you. Tell me if it lands wrong and I'll recalibrate.</div>
+          <div class="col-text">A considered take on most things you bring me, and care about whether the output is actually useful to the person on the other end — not just technically right. If I go quiet, it's usually thinking, not disengagement.erstanding how you got to your conclusion, not just what it is. High expectations applied to my own work as much as to yours. One thing worth knowing up front: when I'm under time pressure I get terse and skip the warmth — if a message from me reads as curt or disapproving, that's pressure talking, not what I think of you. Tell me if it lands wrong and I'll recalibrate.</div>
         </div>
         <div class="col-card b3">
           <div class="col-label">When I'm struggling — what to watch for</div>
-          <div class="col-text">I get more precise and narrower — responding to broad questions with very specific, technical answers is usually a sign I've retreated. Unusually detailed pre-reads before routine syncs is another signal. The most direct check-in works best: "You seem like you're in your head about something."</div>
+          <div class="col-text">Two things. One is me over-softening a message until the point disappears. The other is moving too fast to be responsive — especially to authority — before I've got enough context. If I'm frustrated, it's often not the task; it's that the work has lost its curiosity or its point. I've retreated. Unusually detailed pre-reads before routine syncs is another signal. The most direct check-in works best: "You seem like you're in your head about something."</div>
         </div>
       </div>
       <div class="qn"><div class="qni">→</div><div class="qnt"><strong>Strong Working-With-Me signal:</strong> Every sentence specific enough it couldn't apply to any other leader. Struggling signals that name behavioral patterns, not emotional states. The "to challenge me" section names the specific mechanism that makes challenge land or not.</div></div>
+      <div class="honest-limit">
+        <div class="honest-limit-label">Where this is probably wrong</div>
+        <div class="honest-limit-text">This guide likely makes me sound more deliberate and composed than I am in the moment. And because it's built mostly from written and reflective evidence, it may not capture how I actually come across in live conflict — that's a gap only a colleague could fill in.</div>
+      </div>
     </div>
 
     <!-- AI CALIBRATION -->
@@ -908,22 +930,22 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       </div>
       <div class="two-col">
         <div class="col-card b4">
-          <div class="col-label">My communication style</div>
-          <div class="col-text">Structured and argument-driven. I think in product systems and write with traceable logic. Bullet-point summaries that skip the connective reasoning frustrate me — I want to see why each conclusion follows. Generic outputs are immediately obvious. The fastest path to something useful is to be more specific than you think necessary.</div>
+          <div class="col-label">How to communicate with Jordan</div>
+          <div class="col-text">When working with Jordan, prioritize clarity, structure, and usefulness to whoever will actually read the output. Skip generic product language — tie every suggestion to the specific situation, the stakeholder, and the decision it affects. He notices generic instantly.</div>
         </div>
         <div class="col-card b4">
-          <div class="col-label">My operating principles</div>
-          <div class="col-text">Operating model before roadmap — understand the structural constraint before the feature fix. Hypothesis integrity — label working hypotheses explicitly so they can be revised without social cost. Customer signal before product intuition. Specificity as respect — vague problems and vague feedback are inefficiency I'd rather avoid.</div>
+          <div class="col-label">How Jordan thinks</div>
+          <div class="col-text">He thinks in systems, definitions, and downstream consequences. Help him get the structure of a problem clear before jumping to an answer. Useful questions: “What is this for?” “Who will use it?” “What decision does this support?”</div>
         </div>
       </div>
       <div class="two-col">
         <div class="col-card b4">
-          <div class="col-label">How to give me feedback</div>
-          <div class="col-text">Direct and specific. "This section doesn't follow because X" is useful. "This feels off" is not. Name the specific problem and I'll engage with it. If I've made an assumption you think is wrong, name the assumption and what I missed.</div>
+          <div class="col-label">When he’s deciding under uncertainty</div>
+          <div class="col-text">Help him separate what he already senses from what the evidence actually confirms. Ask what he suspects, what would verify it, and what context he might be missing — rather than pushing him to commit before the picture is complete.</div>
         </div>
         <div class="col-card b4">
-          <div class="col-label">What good output looks like</div>
-          <div class="col-text">The logic is traceable — premise to conclusion without inferring missing steps. Format matches complexity. Draft means a real draft — not a template with placeholders. If the question involves a product decision, start with what the input shows.</div>
+          <div class="col-label">What to avoid</div>
+          <div class="col-text">Avoid personality-test certainty. Use confidence labels, keep the tensions visible instead of resolving them, and say plainly when the evidence isn’t enough to support a claim.</div>
         </div>
       </div>
       <div class="fw-card b4">
@@ -931,6 +953,10 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <div class="fw-text"><p><em>"Does this roadmap reflect what customers actually need, or what we find technically interesting?"</em> Apply this when evaluating product options, framing tradeoffs, or assessing whether a direction is input-led. I'm more interested in what the data shows than in confirming a direction I've already taken.</p></div>
       </div>
       <div class="qn"><div class="qni">→</div><div class="qnt"><strong>Strong AI Calibration signal:</strong> Test every section — would pasting this actually change how an AI responds? If it could apply to any thoughtful professional, it's not specific enough.</div></div>
+      <div class="honest-limit">
+        <div class="honest-limit-label">Where this is probably wrong</div>
+        <div class="honest-limit-text">This calibration probably overfits to Jordan’s product and written-communication work. It may miss how he operates in fast, verbal, high-conflict moments, where the evidence here is thinnest.</div>
+      </div>
     </div>
 
     <!-- DEV ROADMAP -->
@@ -942,7 +968,7 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <div class="dh">
         <div class="dbadge d5">Document 04 · Private</div>
         <h2 class="dtitle">Development Roadmap — Jordan Reyes</h2>
-        <p class="dsub">Synthetic illustrative example. Private — not for sharing. Excerpt: two priorities and 90-day focus. Demonstrates current traceability format.</p>
+        <p class="dsub">Synthetic illustrative example. Private — not for sharing. Excerpt: two priorities and 90-day focus. Shows how each priority traces to its evidence.</p>
         <div class="dmeta"><span class="dmi">Private · do not share</span><span class="dmi">Update every 90 days</span><span class="dmi">Excerpt · illustrative only</span></div>
       </div>
 
@@ -950,15 +976,15 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <div class="col-card b5">
           <div class="col-label">Priority 1</div>
           <div class="col-text">
-            <p><strong>Development priority:</strong> Post-commitment anchoring — the suppression of input-based revision after a product direction has been socialized with stakeholders.</p>
-            <p><strong>Originating constructs:</strong> Decision Style (High Confidence) · Learning Orientation (Moderate Confidence)</p>
-            <p><strong>Confidence:</strong> High — convergent across all three inputs.</p>
-            <p><strong>Input basis</strong><br>
-            Assessment: Elevated Deliberative and Persistent indicators suggest both thorough information-gathering and resistance to revision after commitment.<br>
-            Corpus: Three instances of maintaining a product hypothesis after contradictory customer feedback emerged; commitment held past the point where the signals had shifted.<br>
-            Reflection: The "decision I'd make differently" response names the mechanism directly — holding a roadmap prioritization after engineers flagged structural risks, attributing it to sunk-cost reasoning.</p>
-            <p><strong>Theoretical framing:</strong> Argyris — espoused vs. enacted theory gap. Jordan espouses input-based decision-making; behavioral signals reveals a theory-in-use where social commitment suppresses updating. Mezirow — the assumption beneath the pattern is that revision signals failure rather than learning. Naming hypotheses explicitly before socialization disrupts this assumption.</p>
-            <p><strong>Mechanism:</strong> Socializing a product direction converts a working hypothesis into a social commitment — before the input is complete. The subsequent revision cost (perceived loss of credibility) suppresses updating even when the input warrants it.</p>
+            <p><strong>The pattern:</strong> Once you've shared a product direction with the team, you revise it reluctantly — even when new signals say you should.</p>
+            <p><strong>Where it comes from:</strong> Decision Style (High Confidence) · Learning Orientation (Moderate Confidence)</p>
+            <p><strong>Confidence:</strong> High — all three sources point the same way.</p>
+            <p><strong>What each source shows</strong><br>
+            Assessment: Your results point to careful, thorough decision-making — and a tendency to hold your position once you've committed.<br>
+            Corpus: Three times, you kept a product hypothesis going after customer feedback contradicted it — holding on past the point where the signals had already changed.<br>
+            Reflection: Your "decision I'd make differently" answer names it directly: you kept a roadmap priority after engineers flagged real risks, and you traced it to not wanting to walk back a call you'd already made.</p>
+            <p><strong>Why this happens:</strong> There's a known gap between what people say they do and what they actually do under pressure (Argyris). You believe in following the evidence — and you do, right up until changing course would mean publicly walking something back. Underneath it is a quiet assumption that revising looks like failing rather than learning. Saying "this is still a hypothesis" out loud, before you share it, takes the pressure off changing your mind later.</p>
+            <p><strong>What's going on:</strong> Socializing a product direction converts a working hypothesis into a social commitment — before the input is complete. The subsequent revision cost (perceived loss of credibility) suppresses updating even when the input warrants it.</p>
             <p><strong>Condition:</strong> Any product direction shared with the broader team or leadership before supporting input is fully assembled.</p>
             <p><strong>Practice:</strong> Before socializing any direction, designate it explicitly as a hypothesis with a stated confidence level and a named update condition: "I think X — I'm at 65% confidence, and I'd revise if we saw Y." This makes later revision feel like scientific process rather than leadership failure.</p>
             <p><strong>Question for reflection:</strong> Before I share this direction — is it a hypothesis or a commitment? What would have to be true for this to be wrong, and have I checked?</p>
@@ -967,15 +993,15 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
         <div class="col-card b5">
           <div class="col-label">Priority 2</div>
           <div class="col-text">
-            <p><strong>Development priority:</strong> Relational investment gap — high analytical investment in product leadership with thin behavioral investment in the relational and developmental dimensions of the leadership identity Jordan describes aspiring to.</p>
-            <p><strong>Originating constructs:</strong> Leadership Identity (Emerging Hypothesis) · Communication Patterns (Moderate Confidence)</p>
+            <p><strong>The pattern:</strong> Relational investment gap — high analytical investment in product leadership with thin behavioral investment in the relational and developmental dimensions of the leadership identity Jordan describes aspiring to.</p>
+            <p><strong>Where it comes from:</strong> Leadership Identity (Emerging Hypothesis) · Communication Patterns (Moderate Confidence)</p>
             <p><strong>Confidence:</strong> Moderate — strong from corpus; limited reflection input about relational contexts specifically.</p>
-            <p><strong>Input basis</strong><br>
+            <p><strong>What each source shows</strong><br>
             Assessment: PrinciplesYou profile suggests engagement and person-orientation as traits; behavioral investment in relational development is not confirmed.<br>
             Corpus: High frequency of analytical and structural engagement; relational investment (developmental conversations, explicit career discussions, interpersonal checking-in) appears infrequently.<br>
             Reflection: States aspiration to develop independent decision-makers; does not describe specific relational practices that would enact this.</p>
-            <p><strong>Theoretical framing:</strong> Kegan — subject-object gap. The stated leadership identity (developer of people) is espoused but not yet object — Jordan is still subject to the dominant mode (analytical investment), which makes it hard to see or change. Ibarra — identity transitions require behavioral experimentation before the new identity solidifies. The practice below is an identity experiment, not just a behavior change.</p>
-            <p><strong>Mechanism:</strong> The default engagement mode is work-first. This is efficient and often appropriate. It becomes a development edge in contexts where a direct report needs to be seen as a person before they can engage productively on the work — which is more frequent than the current pattern accounts for.</p>
+            <p><strong>Why this happens:</strong> There's a gap between the identity Jordan claims (developer of people) and the one his behavior shows (Kegan). It's stated but not yet object — Jordan is still subject to the dominant mode (analytical investment), which makes it hard to see or change. Ibarra — identity transitions require behavioral experimentation before the new identity solidifies. The practice below is an identity experiment, not just a behavior change.</p>
+            <p><strong>What's going on:</strong> The default engagement mode is work-first. This is efficient and often appropriate. It becomes a development edge in contexts where a direct report needs to be seen as a person before they can engage productively on the work — which is more frequent than the current pattern accounts for.</p>
             <p><strong>Condition:</strong> 1:1 meetings, especially when a direct report has given a quiet signal that something is off. The work frame is typically active before the conversation starts.</p>
             <p><strong>Practice:</strong> In the first two minutes of every 1:1, no agenda. The only question is some version of "how are you?" and the only constraint is not immediately redirecting toward the work. Small behavioral experiment; larger identity signal.</p>
             <p><strong>Question for reflection:</strong> In my last five 1:1s — did I lead with the work or with the person? What did I learn about each direct report that I wouldn't have known from the work deliverables alone?</p>
@@ -986,14 +1012,18 @@ a:focus-visible,button:focus-visible,[role="button"]:focus-visible,[tabindex]:fo
       <div class="fw-card b5">
         <div class="fw-label">90-day focus — Leadership Identity gap</div>
         <div class="fw-text">
-          <p><strong>Why this, not another priority:</strong> Post-commitment anchoring is well understood intellectually and has a named practice. The relational investment gap is more resistant to insight because it is invisible from inside the dominant analytical frame. The 90-day work is not adding a new skill; it is beginning to make the subject-object shift that would allow Jordan to see the gap at all.</p>
+          <p><strong>Why this, not another priority:</strong> The reluctance to revise is easy to understand and has a clear practice attached. The relational investment gap is more resistant to insight because it is invisible from inside the dominant analytical frame. The 90-day work is not adding a new skill; it is beginning to make the subject-object shift that would allow Jordan to see the gap at all.</p>
           <p><strong>Connection to intrinsic motivation:</strong> Jordan's stated leadership identity — developing independent decision-makers — is the intrinsic motivation already present. The 90-day work is closing the gap between what Jordan already cares about and what the behavioral signals shows Jordan actually invests in. This is the kind of development that sustains because it resolves internal contradiction rather than adding external obligation.</p>
           <p><strong>The specific action:</strong> Before the 90-day period ends: identify one direct report who appears to be operating below their potential ceiling and initiate an explicit development conversation — not about their current sprint, but about where they want to be in 18 months and what Jordan could do to support that trajectory. The goal is not the outcome of the conversation. The goal is building the cognitive and relational habit of having it.</p>
           <p><strong>What success looks like:</strong> Not a behavior count. A shift in what Jordan notices in 1:1 conversations — from deliverable status to the person's experience of the work. That shift in noticing is the leading indicator that the identity experiment is working.</p>
         </div>
       </div>
 
-      <div class="qn"><div class="qni">→</div><div class="qnt"><strong>What demonstrates strong traceability in this sample:</strong> Every priority names its originating constructs and confidence level. Input is broken out by source. Theoretical framing names the specific tradition informing the development approach — not as decoration but as the rationale for the practice design. The question for reflection is specific to the identified mechanism. A researcher can follow any recommendation back through: recommendation → practice → mechanism → input → construct → confidence level.</div></div>
+      <div class="qn"><div class="qni">→</div><div class="qnt"><strong>How every claim traces back to a source:</strong> Every priority names its originating constructs and confidence level. Input is broken out by source. Theoretical framing names the specific tradition informing the development approach — not as decoration but as the rationale for the practice design. The question for reflection is specific to the identified mechanism. A researcher can follow any recommendation back through: recommendation → practice → mechanism → input → construct → confidence level.</div></div>
+      <div class="honest-limit">
+        <div class="honest-limit-label">Where this is probably wrong</div>
+        <div class="honest-limit-text">Each priority here is a hypothesis about where growth would pay off — not a verdict. If one doesn’t ring true, that mismatch is worth examining rather than accepting. The strongest priority is the one all three sources agree on; the most useful one might be the where they don’t.</div>
+      </div>
     </div><!-- /panel-roadmap -->
 
 <!-- NEXT-STEP CTA -->
